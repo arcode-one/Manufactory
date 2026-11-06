@@ -24,6 +24,8 @@ export function initSectionScroll(root) {
   if (sections.length < 2) return;
   instances.add(root);
   const preference = matchMedia('(prefers-reduced-motion: reduce)');
+  const desktop = matchMedia('(min-width: 1280px)');
+  const enabled = () => desktop.matches && !preference.matches;
   const header = document.querySelector('[data-header]');
   let frame = 0;
   let moving = false;
@@ -34,7 +36,7 @@ export function initSectionScroll(root) {
   let activeSection = null;
 
   function blocked() {
-    return preference.matches || document.hidden ||
+    return !enabled() || document.hidden ||
       Boolean(document.querySelector('dialog[open], [data-menu-toggle][aria-expanded="true"]'));
   }
 
@@ -184,7 +186,7 @@ export function initSectionScroll(root) {
 
   document.addEventListener('click', (event) => {
     const link = event.target.closest?.('a[href^="#"]');
-    if (!link || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || preference.matches) return;
+    if (!link || event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || !enabled()) return;
     const hash = link.getAttribute('href');
     const top = hash === '#' || hash === '#top';
     const anchor = top ? null : anchorSection(hash);
@@ -205,14 +207,14 @@ export function initSectionScroll(root) {
   }, true);
   window.addEventListener('pointerdown', cancel, { passive: true });
   window.addEventListener('scroll', () => {
-    if (moving || preference.matches) return;
+    if (moving || !enabled()) return;
     activeSection = geometry().sections.reduce((nearest, section) =>
       !nearest || Math.abs(section.start - scrollY) < Math.abs(nearest.start - scrollY) ? section : nearest,
     null)?.element || activeSection;
   }, { passive: true });
   window.addEventListener('resize', () => {
     cancel();
-    if (preference.matches || document.activeElement?.matches('input, textarea, select')) return;
+    if (!enabled() || document.activeElement?.matches('input, textarea, select')) return;
     frame = requestAnimationFrame(() => {
       frame = 0;
       const section = geometry().sections.find((item) => item.element === activeSection);
@@ -221,6 +223,7 @@ export function initSectionScroll(root) {
   }, { passive: true });
   function restoreHistory() {
     cancel();
+    if (!enabled()) return;
     const anchor = anchorSection(location.hash);
     if (anchor) {
       alignAnchor(anchor);
@@ -230,15 +233,22 @@ export function initSectionScroll(root) {
   window.addEventListener('hashchange', restoreHistory);
   window.addEventListener('popstate', restoreHistory);
   document.addEventListener('visibilitychange', cancel);
-  preference.addEventListener('change', () => {
+  function syncMode() {
     cancel();
-    root.classList.toggle('page--section-scroll', !preference.matches);
-  });
-  root.classList.toggle('page--section-scroll', !preference.matches);
+    touch = null;
+    wheelTotal = 0;
+    lastWheel = -Infinity;
+    root.classList.toggle('page--section-scroll', enabled());
+    history.scrollRestoration = enabled() ? 'manual' : 'auto';
+  }
+  preference.addEventListener('change', syncMode);
+  desktop.addEventListener('change', syncMode);
+  syncMode();
   const startingSection = sections.find((section) => section.id === root.dataset.startSection) ||
     sections.find((section) => `#${section.id}` === location.hash) || sections[0];
   activeSection = startingSection;
   function restoreStart() {
+    if (!enabled()) return;
     const section = geometry().sections.find((item) => item.element === startingSection);
     if (!section) return;
     section.screen.scrollTop = Number(root.dataset.startOffset) || 0;

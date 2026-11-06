@@ -1,7 +1,7 @@
 // Запускается в head до первого отображения и загрузки ES-модулей.
 (() => {
   const page = document.documentElement;
-  const enabled = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const enabled = matchMedia('(min-width: 1280px)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches;
   const key = `manufaktura:screen:${location.pathname}`;
   const navigation = performance.getEntriesByType('navigation')[0];
   let saved;
@@ -27,7 +27,7 @@
       history.replaceState(history.state, '', `${location.pathname}${location.search}${section === ids[0] ? '' : `#${section}`}`);
     }
     window.addEventListener('pagehide', () => {
-      if (page.classList.contains('page--starting')) return;
+      if (page.classList.contains('page--starting') || !page.classList.contains('page--section-scroll')) return;
       const headerHeight = document.querySelector('[data-header]')?.offsetHeight || 0;
       const screens = [...document.querySelectorAll('[data-scroll-screen]')];
       const current = screens.reduce((nearest, screen, index) => {

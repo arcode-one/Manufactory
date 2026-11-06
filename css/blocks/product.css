@@ -250,6 +250,11 @@
     min-height: 480px;
     height: 100%;
   }
+
+  .product--quote {
+    display: flex;
+    flex-direction: column;
+  }
 }
 @layer adaptive {
   @media (width <= 1320px) {
@@ -336,18 +341,71 @@
       font-size: 14px;
     }
   }
+  .product--quote .product__image {
+    order: 0;
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 3 / 2;
+  }
+
+  .product--quote .product__photo {
+    transform: none;
+  }
+
+  .product--quote .product__copy {
+    flex: 1;
+    padding: 22px 0 0;
+  }
+
+  .product--quote .product__title,
+  .product--quote .product__description {
+    min-height: 0;
+  }
+
+  @media (width > 600px) {
+    .catalog__panel--chimneys .product__copy {
+      flex: 1;
+    }
+
+    .catalog__panel--chimneys .product__blueprint {
+      margin-top: auto;
+    }
+
+    .catalog__panel--chimneys .product__drawing {
+      aspect-ratio: 943 / 536;
+      object-position: left bottom;
+    }
+
+    .catalog__panel--chimneys .product__select {
+      margin-top: 0;
+    }
+  }
+
+  @media (width > 900px) {
+    .catalog__panel--single .product--quote {
+      display: grid;
+      grid-column: 1 / -1;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: center;
+      gap: inherit;
+    }
+
+    .catalog__panel--single .product__copy {
+      padding-top: 0;
+    }
+  }
 }
 
 @layer motion {
-  @media (width <= 760px) {
-    .page .product__image:is([data-product='flat60'], [data-product='flat80']) .product__photo {
-      object-position: 50% 20%;
-      transform: none;
-    }
+  .product__image[data-product='flat60'] .product__photo {
+    object-position: left 4%;
+  }
 
-    .page .product__image:is([data-product='flat60'], [data-product='flat80']) .parallax__layer {
-      transform: none !important;
-      will-change: auto;
-    }
+  .product__image[data-product='flat80'] .product__photo {
+    object-position: right 8%;
+  }
+
+  .product__image:is([data-product='flat60'], [data-product='flat80']) .product__photo {
+    transform: none;
   }
 }

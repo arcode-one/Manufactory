@@ -149,6 +149,7 @@
     grid-row: 2;
     justify-self: start;
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     margin: 0;
   }
@@ -206,6 +207,13 @@
     }
   }
 
+  @media (width <= 900px) {
+    .catalog__tab {
+      min-width: 0;
+      padding-inline: 16px;
+    }
+  }
+
   @media (width <= 600px) {
     .catalog__description {
       grid-column: 1 / -1;
@@ -223,8 +231,7 @@
     }
 
     .catalog__tab {
-      flex: 1;
-      min-width: 0;
+      flex: 1 1 calc(50% - 5px);
       padding-inline: 12px;
       font-size: 15px;
     }

@@ -302,7 +302,7 @@
             >
             <h2 data-reveal="heading" class="section-heading__title">ИЗДЕЛИЯ</h2>
             <div class="catalog__intro">
-              <p data-reveal="fade" class="catalog__description">Колпаки на столбы и дымоходы.</p>
+              <p data-reveal="fade" class="catalog__description">Колпаки на столбы и дымоходы, заборы и кровельные парапеты.</p>
               <div
                 class="catalog__tabs"
                 role="tablist"
@@ -332,6 +332,30 @@
                   class="catalog__tab"
                 >
                   На дымоходы
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  id="catalog-fences-tab"
+                  aria-controls="catalog-fences"
+                  aria-selected="false"
+                  tabindex="-1"
+                  data-catalog-tab="2"
+                  class="catalog__tab"
+                >
+                  Заборы
+                </button>
+                <button
+                  type="button"
+                  role="tab"
+                  id="catalog-parapets-tab"
+                  aria-controls="catalog-parapets"
+                  aria-selected="false"
+                  tabindex="-1"
+                  data-catalog-tab="3"
+                  class="catalog__tab"
+                >
+                  Парапеты
                 </button>
               </div>
             </div>
@@ -405,17 +429,16 @@
                   data-reveal="image"
                 >
                   <img
-                    src="images/flat-60.webp"
-                    width="619"
+                    src="images/flat-80.webp"
+                    width="825"
                     height="1100"
-                    alt="ФЛЭТ 60 мм: на столб забора"
+                    alt="Колпак ФЛЭТ 60 мм на кирпичном столбе"
                     loading="lazy"
-                    data-parallax=""
                     data-media=""
-                    class="media product__photo parallax__image"
+                    class="media product__photo"
                     data-fallback="icons/placeholder.svg"
                     decoding="async"
-                    srcset="images/flat-60-480.webp 480w, images/flat-60.webp 619w"
+                    srcset="images/flat-80-480.webp 480w, images/flat-80-800.webp 800w, images/flat-80.webp 825w"
                     sizes="(max-width: 600px) 100vw, (max-width: 1120px) 50vw, 26vw">
                 </button>
               </article>
@@ -480,27 +503,22 @@
                   data-reveal="image"
                 >
                   <img
-                    src="images/flat-80.webp"
-                    width="825"
+                    src="images/flat-60.webp"
+                    width="619"
                     height="1100"
-                    alt="ФЛЭТ 80 мм: на столб забора"
+                    alt="Колпак ФЛЭТ 80 мм на оштукатуренном столбе"
                     loading="lazy"
-                    data-parallax=""
                     data-media=""
-                    class="media product__photo parallax__image"
+                    class="media product__photo"
                     data-fallback="icons/placeholder.svg"
                     decoding="async"
-                    srcset="
-                      images/flat-80-480.webp 480w,
-                      images/flat-80-800.webp 800w,
-                      images/flat-80.webp     825w
-                    "
+                    srcset="images/flat-60-480.webp 480w, images/flat-60.webp 619w"
                     sizes="(max-width: 600px) 100vw, (max-width: 1120px) 50vw, 26vw">
                 </button>
               </article>
             </div>
             <div
-              class="catalog__panel"
+              class="catalog__panel catalog__panel--chimneys"
               id="catalog-chimneys"
               role="tabpanel"
               aria-labelledby="catalog-chimneys-tab"
@@ -657,6 +675,151 @@
                 </button>
               </article>
             </div>
+            <div
+              class="catalog__panel"
+              id="catalog-fences"
+              role="tabpanel"
+              aria-labelledby="catalog-fences-tab"
+              data-catalog-panel=""
+              hidden
+            >
+              <article class="product product--quote">
+                <div class="product__image" data-reveal="image">
+                  <img
+                    src="images/texas.webp"
+                    srcset="images/texas-480.webp 480w, images/texas.webp 900w"
+                    sizes="(max-width: 600px) 100vw, 50vw"
+                    width="900"
+                    height="838"
+                    alt="Забор «Техас» с широкими горизонтальными ламелями"
+                    class="media product__photo"
+                    loading="lazy"
+                    decoding="async">
+                </div>
+                <div class="product__copy" data-reveal="fade">
+                  <p class="product__purpose">Забор</p>
+                  <h3 class="product__title">ТЕХАС</h3>
+                  <p class="product__description">Двусторонние горизонтальные ламели. Даже на большой длине им не нужны дополнительные стойки жёсткости.</p>
+                  <dl class="product__specs">
+                    <div class="product__spec-row">
+                      <dt class="product__term">Высота ламели</dt>
+                      <dd class="product__value">150–300 мм</dd>
+                    </div>
+                    <div class="product__spec-row">
+                      <dt class="product__term">Длина ламели</dt>
+                      <dd class="product__value">До 3200 мм</dd>
+                    </div>
+                    <div class="product__spec-row">
+                      <dt class="product__term">Толщина ламели</dt>
+                      <dd class="product__value">30 мм</dd>
+                    </div>
+                    <div class="product__spec-row">
+                      <dt class="product__term">Зазор между ламелями</dt>
+                      <dd class="product__value">На выбор</dd>
+                    </div>
+                    <div class="product__spec-row">
+                      <dt class="product__term">Комплектация</dt>
+                      <dd class="product__value">Двухслойные направляющие, ламели, крепёж</dd>
+                    </div>
+                  </dl>
+                  <button
+                    class="button button--dark product__select"
+                    data-open-request="texas"
+                    aria-haspopup="dialog"
+                    type="button"
+                  >
+                    Рассчитать стоимость
+                  </button>
+                </div>
+              </article>
+              <article class="product product--quote">
+                <div class="product__image" data-reveal="image">
+                  <img
+                    src="images/tokyo.webp"
+                    srcset="images/tokyo-480.webp 480w, images/tokyo.webp 900w"
+                    sizes="(max-width: 600px) 100vw, 50vw"
+                    width="900"
+                    height="841"
+                    alt="Забор «Токио» с горизонтальными ламелями и кирпичным столбом"
+                    class="media product__photo"
+                    loading="lazy"
+                    decoding="async">
+                </div>
+                <div class="product__copy" data-reveal="fade">
+                  <p class="product__purpose">Забор</p>
+                  <h3 class="product__title">ТОКИО</h3>
+                  <p class="product__description">Двусторонние горизонтальные ламели с отверстиями под заклёпки. Такое крепление учитывает расширение металла.</p>
+                  <dl class="product__specs">
+                    <div class="product__spec-row">
+                      <dt class="product__term">Длина ламели</dt>
+                      <dd class="product__value">До 3200 мм</dd>
+                    </div>
+                    <div class="product__spec-row">
+                      <dt class="product__term">Толщина ламели</dt>
+                      <dd class="product__value">80 мм</dd>
+                    </div>
+                    <div class="product__spec-row">
+                      <dt class="product__term">Комплектация</dt>
+                      <dd class="product__value">Двухслойные направляющие, рядовые и завершающая ламели, крепёж</dd>
+                    </div>
+                  </dl>
+                  <button
+                    class="button button--dark product__select"
+                    data-open-request="tokyo"
+                    aria-haspopup="dialog"
+                    type="button"
+                  >
+                    Рассчитать стоимость
+                  </button>
+                </div>
+              </article>
+            </div>
+            <div
+              class="catalog__panel catalog__panel--single"
+              id="catalog-parapets"
+              role="tabpanel"
+              aria-labelledby="catalog-parapets-tab"
+              data-catalog-panel=""
+              hidden
+            >
+              <article class="product product--quote">
+                <div class="product__image" data-reveal="image">
+                  <img
+                    src="images/roof-parapet.webp"
+                    srcset="images/roof-parapet-480.webp 480w, images/roof-parapet.webp 900w"
+                    sizes="(max-width: 600px) 100vw, 50vw"
+                    width="900"
+                    height="839"
+                    alt="Металлический парапет на углу плоской кровли"
+                    class="media product__photo"
+                    loading="lazy"
+                    decoding="async">
+                </div>
+                <div class="product__copy" data-reveal="fade">
+                  <p class="product__purpose">Для плоской кровли</p>
+                  <h3 class="product__title">ПАРАПЕТ</h3>
+                  <p class="product__description">Металлический парапет со скрытыми замками. На лицевой стороне нет видимого крепежа. Можно установить скрытую неоновую подсветку.</p>
+                  <dl class="product__specs">
+                    <div class="product__spec-row">
+                      <dt class="product__term">Подконструкция</dt>
+                      <dd class="product__value">Шляпный профиль под заданный размер и угол</dd>
+                    </div>
+                    <div class="product__spec-row">
+                      <dt class="product__term">Основание</dt>
+                      <dd class="product__value">Сплошное</dd>
+                    </div>
+                  </dl>
+                  <button
+                    class="button button--dark product__select"
+                    data-open-request="roof-parapet"
+                    aria-haspopup="dialog"
+                    type="button"
+                  >
+                    Рассчитать стоимость
+                  </button>
+                </div>
+              </article>
+            </div>
           </div>
         </section>
       </div>
@@ -786,7 +949,15 @@
 >
                 <div class="calculator__finishes">
                   <label class="calculator__measurement">Цвет RAL<select name="color" class="calculator__input">
-                    <option value="RAL 7016">RAL 7016 · Антрацит</option><option value="RAL 7024">RAL 7024 · Графитовый серый</option><option value="RAL 8017">RAL 8017 · Шоколадно-коричневый</option><option value="RAL 9005">RAL 9005 · Чёрный</option><option value="RAL 9003">RAL 9003 · Белый</option><option value="RAL 6005">RAL 6005 · Зелёный мох</option><option value="RAL 3005">RAL 3005 · Винно-красный</option><option value="other">Другой цвет</option>
+                    <option value="RAL 7016">RAL 7016 · Антрацит</option>
+                    <option value="RAL 7024">RAL 7024 · Графитовый серый</option>
+                    <option value="RAL 8017">RAL 8017 · Шоколадно-коричневый</option>
+                    <option value="RAL 8019">RAL 8019 · Серо-коричневый</option>
+                    <option value="RAL 9005">RAL 9005 · Чёрный</option>
+                    <option value="RAL 9003">RAL 9003 · Белый</option>
+                    <option value="RAL 6005">RAL 6005 · Зелёный мох</option>
+                    <option value="RAL 3005">RAL 3005 · Винно-красный</option>
+                    <option value="other">Другой цвет</option>
                   </select></label>
                   <label class="calculator__measurement" data-custom-color hidden>Ваш цвет<input class="calculator__input" name="customColor" type="text" maxlength="100" placeholder="Код RAL или название" disabled></label>
                   <label class="calculator__measurement">Покрытие<select name="finish" class="calculator__input"><option value="matte">Матовое</option><option value="gloss">Глянцевое</option></select></label>

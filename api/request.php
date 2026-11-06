@@ -31,6 +31,18 @@ $comment = field($data, 'comment', 6000);
 if ($name === '' || !preg_match('/^[0-9+()\s-]+$/', $phone) || !preg_match('/^\d{10,15}$/', preg_replace('/\D/', '', $phone))) respond(422, ['message' => 'Укажите имя и корректный телефон.']);
 $lines = ['Заявка с сайта Мануфактура', 'Номер: '.$id, 'Имя: '.$name, 'Телефон: '.$phone];
 $s = $data['selection'] ?? null;
+$catalogProduct = $data['catalogProduct'] ?? null;
+if ($catalogProduct !== null) {
+    $catalogProducts = [
+        'texas' => 'Забор «Техас»',
+        'tokyo' => 'Забор «Токио»',
+        'roof-parapet' => 'Парапет плоской кровли',
+    ];
+    if ($s !== null || !is_string($catalogProduct) || !isset($catalogProducts[$catalogProduct])) {
+        respond(422, ['message' => 'Выберите изделие.']);
+    }
+    $lines[] = 'Изделие: '.$catalogProducts[$catalogProduct];
+}
 if ($s !== null) {
     $models = ['flat60'=>'ФЛЭТ 60','flat80'=>'ФЛЭТ 80','modern'=>'МОДЕРН','classic'=>'КЛАССИК МОДЕРН'];
     if (!is_array($s) || !is_string($s['product'] ?? null) || !isset($models[$s['product']])) respond(422, ['message'=>'Выберите модель изделия.']);

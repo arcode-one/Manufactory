@@ -2,6 +2,11 @@ import { createDialog } from '../utils/dialog.js';
 import { summaryText, validateSelection } from './calculator-model.js';
 
 const requestInstances = new WeakMap();
+const catalogProducts = new Map([
+  ['texas', 'Забор «Техас»'],
+  ['tokyo', 'Забор «Токио»'],
+  ['roof-parapet', 'Парапет плоской кровли'],
+]);
 
 export function initRequest(root) {
   if (requestInstances.has(root)) return requestInstances.get(root);
@@ -15,6 +20,7 @@ export function initRequest(root) {
   const localPreview = ['localhost', '127.0.0.1'].includes(location.hostname) && location.port === '4173';
   const endpoint = localPreview ? '' : form.dataset.requestEndpoint;
   let selection = null;
+  let catalogProduct = null;
   let pending = false;
   let tokenRequest;
   let requestId;
@@ -59,6 +65,7 @@ export function initRequest(root) {
           token: csrf, requestId,
           name: values.get('name'), phone: values.get('phone'), comment: values.get('comment'),
           website: values.get('website'), consent: values.has('consent'),
+          catalogProduct,
           selection: selection ? {
             product: selection.product, length: selection.length, width: selection.width,
             quantity: selection.quantity, mesh: selection.options.includes('Защитная сетка'),
@@ -91,12 +98,13 @@ export function initRequest(root) {
     }
   });
   const api = {
-    open(next = null, trigger) {
+    open(next = null, trigger, product = null) {
       if (!pending) {
         selection = next ? { ...next, options: [...next.options], items: next.items.map(item=>({...item})) } : null;
+        catalogProduct = catalogProducts.has(product) ? product : null;
         requestId = crypto.randomUUID();
-        spec.textContent = next ? summaryText(next) : '';
-        spec.hidden = !next;
+        spec.textContent = next ? summaryText(next) : catalogProducts.get(catalogProduct) ?? '';
+        spec.hidden = !spec.textContent;
         form.hidden = false;
         success.hidden = true;
         root.querySelector('.request__copy').hidden = false;
@@ -112,7 +120,7 @@ export function initRequest(root) {
       const origin = trigger.closest('[data-menu]')
         ? document.querySelector('[data-menu-toggle]')
         : trigger;
-      api.open(null, origin);
+      api.open(null, origin, trigger.dataset.openRequest);
     });
   });
   requestInstances.set(root, api);

@@ -204,3 +204,25 @@
     }
   }
 }
+
+@layer adaptive {
+  @media (width > 760px) {
+    .gallery .gallery__grid {
+      grid-template-rows: 270px 420px;
+    }
+  }
+}
+
+@layer motion {
+  @media (width > 760px) {
+    .page .gallery__item--wide .gallery__photo {
+      object-position: 50% 80%;
+      transform: none;
+    }
+
+    .page .gallery__item--wide .parallax__layer {
+      transform: none !important;
+      will-change: auto;
+    }
+  }
+}

@@ -216,7 +216,7 @@
 @layer motion {
   @media (width > 760px) {
     .page .gallery__item--wide .gallery__photo {
-      object-position: 50% 80%;
+      object-position: 50% 73%;
       transform: none;
     }
 

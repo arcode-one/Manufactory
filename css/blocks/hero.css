@@ -364,3 +364,13 @@
     }
   }
 }
+
+@layer adaptive {
+  @media (width > 1120px) {
+    .hero {
+      height: 100dvh;
+      min-height: 100dvh;
+      max-height: none;
+    }
+  }
+}

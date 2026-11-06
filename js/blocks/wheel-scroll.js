@@ -16,7 +16,10 @@ export function initWheelScroll() {
     previousTime = now;
     target = clamp(target);
     const distance = target - window.scrollY;
-    const next = Math.abs(distance) < 1 ? target : window.scrollY + distance * (1 - Math.exp(-elapsed / 65));
+    // Browsers round scroll positions. Always advance at least one CSS pixel,
+    // otherwise easing can stall above zero, especially on high-refresh screens.
+    const step = Math.min(Math.abs(distance), Math.max(1, Math.abs(distance) * (1 - Math.exp(-elapsed / 65))));
+    const next = Math.abs(distance) <= 1 ? target : window.scrollY + Math.sign(distance) * step;
     window.scrollTo({ top: next, behavior: 'instant' });
     if (Math.abs(target - window.scrollY) > 1) frame = requestAnimationFrame(draw);
     else {

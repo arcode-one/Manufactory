@@ -1,0 +1,46 @@
+@layer foundation {
+  .drawing {
+    stroke: #625d60;
+    stroke-width: 1.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .drawing__top {
+    fill: #f3f1ef;
+  }
+
+  .drawing__side {
+    fill: #9f9b9d;
+  }
+
+  .drawing__front {
+    fill: #c2bec0;
+  }
+
+  .drawing__fold {
+    stroke: #777275;
+  }
+
+  .drawing__dimensions {
+    stroke: #868184;
+    stroke-width: 0.9;
+  }
+
+  .drawing__label {
+    fill: var(--ink);
+    stroke: none;
+    font:
+      13px Manrope,
+      Arial,
+      sans-serif;
+  }
+}
+@layer layout {
+  .drawing {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 420 / 295;
+    min-height: 0;
+  }
+}

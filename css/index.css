@@ -1,0 +1,34 @@
+/* Все стили подключаются браузером напрямую. Порядок слоёв сохраняет каскад. */
+@layer reset, foundation, responsive, framing, viewport, screens, controls, layout, adaptive, motion;
+
+@import url('base/normalize.css');
+@import url('base/vars.css');
+@import url('base/fonts.css');
+@import url('base/globals.css');
+@import url('blocks/button.css');
+@import url('blocks/skip-link.css');
+@import url('blocks/header.css');
+@import url('blocks/hero.css');
+@import url('blocks/section.css');
+@import url('blocks/section-heading.css');
+@import url('blocks/section-index.css');
+@import url('blocks/about.css');
+@import url('blocks/signature.css');
+@import url('blocks/rule.css');
+@import url('blocks/catalog.css');
+@import url('blocks/product.css');
+@import url('blocks/calculator.css');
+@import url('blocks/contact-channels.css');
+@import url('blocks/drawing.css');
+@import url('blocks/geography.css');
+@import url('blocks/gallery.css');
+@import url('blocks/footer.css');
+@import url('blocks/icon-button.css');
+@import url('blocks/lightbox.css');
+@import url('blocks/request.css');
+@import url('blocks/icon.css');
+@import url('blocks/motion.css');
+@import url('blocks/media.css');
+@import url('blocks/section-scroll.css');
+@import url('blocks/legal.css');
+@import url('blocks/button-motion.css');

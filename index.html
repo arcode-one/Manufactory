@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<!-- Статический сайт: index.html, css/index.css, js/index.js. Работает без сборки. -->
+<html lang="ru" class="page" data-page-motion="" data-section-scroll="">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/utils/page-boot.js"></script>
+    <meta name="theme-color" content="#222426">
+    <title>Мануфактура | Колпаки на столбы и дымоходы</title>
+    <meta
+      name="description"
+      content="Изготавливаем колпаки на столбы забора и дымоходы по вашим размерам. Собственное производство в Екатеринбурге. FLAT, МОДЕРН, КЛАССИК МОДЕРН.">
+    <link rel="icon" href="icons/logo-dark.svg" type="image/svg+xml">
+
+    <link
+      rel="preload"
+      href="images/cover.webp"
+      as="image"
+      fetchpriority="high"
+      imagesrcset="images/cover-480.webp 480w, images/cover-800.webp 800w, images/cover-1200.webp 1200w, images/cover.webp 1934w"
+      imagesizes="100vw">
+
+    <link rel="stylesheet" href="css/index.css">
+    <script type="module" src="js/index.js"></script>
+    <link
+      rel="preload"
+      href="fonts/Manrope-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous">
+    <link
+      rel="preload"
+      href="fonts/Manrope-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous">
+  </head>
+  <body id="top">
+    <!-- Иконки Lucide: один встроенный спрайт для всех кнопок. -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon icon--sprite"
+      data-icon-sprite=""
+      aria-hidden="true"
+      focusable="false"
+      width="0"
+      height="0"
+    >
+      <!-- Lucide, ISC: LUCIDE-LICENSE -->
+      <symbol
+        id="lucide-menu"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.75"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M4 5h16"></path>
+        <path d="M4 12h16"></path>
+        <path d="M4 19h16"></path>
+      </symbol>
+      <symbol
+        id="lucide-plus"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.75"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M5 12h14"></path>
+        <path d="M12 5v14"></path>
+      </symbol>
+      <symbol
+        id="lucide-arrow-right"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.75"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M5 12h14"></path>
+        <path d="m12 5 7 7-7 7"></path>
+      </symbol>
+      <symbol
+        id="lucide-x"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.75"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M18 6 6 18"></path>
+        <path d="m6 6 12 12"></path>
+      </symbol>
+    </svg>
+    <a class="skip-link" href="#main">К содержимому</a>
+
+    <!-- Шапка -->
+    <header class="header header--transparent" data-header="" data-header-overlay="">
+      <a class="header__brand" href="#" aria-label="Мануфактура, на главную"
+        ><img
+          src="icons/logo-dark.svg"
+          width="158"
+          height="60"
+          alt="Мануфактура"
+          data-media=""
+          class="media header__logo"
+          data-fallback="icons/placeholder.svg"><img
+          src="icons/logo-light.svg"
+          width="158"
+          height="60"
+          alt=""
+          aria-hidden="true"
+          class="header__logo header__logo--light"></a>
+      <nav class="header__nav" aria-label="Основная навигация">
+        <a href="#products" class="header__nav-link">
+          <span class="header__nav-window">
+            <span class="header__nav-label">Изделия</span>
+            <span class="header__nav-label" aria-hidden="true">Изделия</span>
+          </span>
+        </a>
+        <a href="#calculator" class="header__nav-link">
+          <span class="header__nav-window">
+            <span class="header__nav-label">Калькулятор</span>
+            <span class="header__nav-label" aria-hidden="true">Калькулятор</span>
+          </span>
+        </a>
+        <a href="#contacts" class="header__nav-link">
+          <span class="header__nav-window">
+            <span class="header__nav-label">Контакты</span>
+            <span class="header__nav-label" aria-hidden="true">Контакты</span>
+          </span>
+        </a>
+      </nav>
+      <button
+        class="header__contact"
+        type="button"
+        data-open-request=""
+        aria-haspopup="dialog"
+        aria-controls="request-dialog"
+      >
+        <span class="header__nav-window">
+          <span class="header__nav-label">Связаться</span>
+          <span class="header__nav-label" aria-hidden="true">Связаться</span>
+        </span>
+      </button>
+      <button
+        class="header__toggle"
+        aria-label="Открыть меню"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        type="button"
+        data-menu-toggle=""
+      >
+        <svg class="icon header__menu-icon" aria-hidden="true" viewBox="0 0 24 24">
+          <use href="#lucide-menu"></use></svg
+        ><svg class="icon header__close-icon" aria-hidden="true" viewBox="0 0 24 24">
+          <use href="#lucide-x"></use>
+        </svg>
+      </button>
+    </header>
+    <nav id="site-menu" class="header__menu" aria-label="Все разделы сайта" hidden data-menu="">
+      <a href="#about" class="header__menu-link"><span class="header__menu-label">01 / О нас</span></a
+      ><a href="#products" class="header__menu-link"><span class="header__menu-label">02 / Изделия</span></a
+      ><a href="#calculator" class="header__menu-link"><span class="header__menu-label">03 / Калькулятор стоимости</span></a
+      ><a href="#geography" class="header__menu-link"><span class="header__menu-label">04 / География поставок</span></a
+      ><a href="#projects" class="header__menu-link"><span class="header__menu-label">05 / Галерея работ</span></a
+      ><a href="#contacts" class="header__menu-link"><span class="header__menu-label">06 / Контакты</span></a
+      ><button
+        type="button"
+        class="header__menu-contact"
+        data-open-request
+        aria-haspopup="dialog"
+        aria-controls="request-dialog"
+        ><span class="header__menu-label">Связаться</span></button>
+    </nav>
+    <main id="main">
+      <!-- Первый экран -->
+      <div data-scroll-screen="hero">
+        <section class="hero" aria-labelledby="hero-title">
+          <img
+            class="hero__photo media parallax__image"
+            src="images/cover.webp"
+            width="1934"
+            height="2000"
+            alt="Крупный план графитовых колпаков МОДЕРН с горизонтальными ярусами, фото из презентации Мануфактуры"
+            fetchpriority="high"
+            data-parallax=""
+            data-parallax-position="hero"
+            data-media=""
+            data-fallback="icons/placeholder.svg"
+            decoding="async"
+            srcset="
+              images/cover-480.webp   480w,
+              images/cover-800.webp   800w,
+              images/cover-1200.webp 1200w,
+              images/cover.webp      1934w
+            "
+            sizes="100vw">
+          <div class="hero__content">
+            <h1 id="hero-title" class="hero__title">
+              <span class="hero__name hero__line">МАНУФАКТУРА</span
+              ><span class="hero__subject hero__line">МЕТАЛЛОКОНСТРУКЦИИ</span
+              ><span class="hero__premium hero__line">ПРЕМИУМ-КЛАССА</span>
+            </h1>
+            <div class="hero__description">
+              <p class="hero__copy">
+                Колпаки на столбы забора и дымоходы.<br>Изготавливаем под размеры вашего проекта.
+              </p>
+              <a href="#products" class="button button--outline">Смотреть изделия</a>
+            </div>
+          </div>
+          <span class="hero__rule" aria-hidden="true"></span>
+        </section>
+      </div>
+
+      <!-- О компании -->
+      <div data-scroll-screen="about">
+        <section id="about" class="about">
+          <div class="about__visual">
+            <img
+              src="images/about-fence.jpg"
+              width="963"
+              height="1280"
+              alt="Графитовый колпак на кирпичном столбе и металлическое ограждение с горизонтальными ламелями"
+              loading="lazy"
+              data-parallax=""
+              data-media=""
+              class="media about__photo parallax__image"
+              data-fallback="icons/placeholder.svg"
+              decoding="async">
+          </div>
+          <span class="section-index about__index" data-reveal="frame">01</span>
+          <span class="signature" aria-hidden="true"
+            >МАНУФАКТУРА <i class="signature__square"></i
+          ></span>
+          <div class="about__content">
+            <h2 data-reveal="heading" class="about__title">О НАС</h2>
+            <h3 data-reveal="fade" class="about__subtitle">ЧТО ТАКОЕ «МАНУФАКТУРА»</h3>
+            <ul class="about__principles" data-reveal="fade">
+              <li class="about__principle">Опыт, собранный за 13 лет работы с металлом</li>
+              <li class="about__principle">Инженерные решения для нестандартных задач</li>
+              <li class="about__principle">Современная геометрия и продуманный дизайн</li>
+              <li class="about__principle">Внимание к деталям и ювелирная точность</li>
+            </ul>
+            <div class="about__columns" data-reveal="fade">
+              <div class="about__production">
+                <h3 class="about__subtitle">МЫ ПРОИЗВОДИМ</h3>
+                <ul class="about__products">
+                  <li>Заборы и ограждения</li>
+                  <li>Колпаки на столбы</li>
+                  <li>Зонты на дымоходы</li>
+                  <li>Кровельные парапеты</li>
+                  <li>Изделия из листового металла</li>
+                </ul>
+              </div>
+              <div>
+                <p class="about__paragraph">
+                  Собственное производство оснащено современным оборудованием Stalex, Tapco и
+                  МобиПроф.
+                </p>
+                <p class="about__paragraph">
+                  Используем качественный крепёж и сертифицированное сырьё. Изготавливаем изделия по
+                  размерам вашего проекта.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="rule" aria-hidden="true" data-reveal="line"></span>
+        </section>
+      </div>
+
+      <!-- Изделия -->
+      <div data-scroll-screen="products">
+        <section
+          id="products"
+          class="section catalog"
+          data-catalog=""
+          data-calculator-target="calculator"
+          data-gallery-root=""
+          data-lightbox-target="blueprint-dialog"
+        >
+          <div class="section-heading section-heading--wide">
+            <span class="section-index catalog__index" data-reveal="frame"
+              ><img
+                src="images/flat-detail.webp"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                data-media=""
+                class="media catalog__index-photo"
+                data-fallback="icons/placeholder.svg"
+                width="750"
+                height="1000"
+                decoding="async"
+                srcset="images/flat-detail-480.webp 480w, images/flat-detail.webp 750w"
+                sizes="50vw">02</span
+            >
+            <h2 data-reveal="heading" class="section-heading__title">ИЗДЕЛИЯ</h2>
+            <div class="catalog__intro">
+              <p data-reveal="fade" class="catalog__description">Колпаки на столбы и дымоходы.</p>
+              <div
+                class="catalog__tabs"
+                role="tablist"
+                aria-label="Тип изделия"
+                data-catalog-tabs=""
+                hidden
+              >
+                <button
+                  type="button"
+                  role="tab"
+                  id="catalog-posts-tab"
+                  aria-controls="catalog-posts"
+                  aria-selected="true"
+                  tabindex="0"
+                  data-catalog-tab="0"
+                  class="catalog__tab"
+                >
+                  На столбы</button
+                ><button
+                  type="button"
+                  role="tab"
+                  id="catalog-chimneys-tab"
+                  aria-controls="catalog-chimneys"
+                  aria-selected="false"
+                  tabindex="-1"
+                  data-catalog-tab="1"
+                  class="catalog__tab"
+                >
+                  На дымоходы
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="catalog__grid">
+            <div
+              class="catalog__panel"
+              id="catalog-posts"
+              role="tabpanel"
+              aria-labelledby="catalog-posts-tab"
+              data-catalog-panel=""
+            >
+              <article class="product">
+                <div class="product__copy" data-reveal="fade">
+                  <p class="product__purpose">На столб забора</p>
+                  <h3 class="product__title">ФЛЭТ<span class="product__subtitle">60 мм</span></h3>
+                  <p class="product__description">
+                    Плоская форма и скрытый крепёж. Колпак, который продолжает строгую геометрию
+                    ограждения.
+                  </p>
+                  <dl class="product__specs">
+                    <div class="product__spec-row">
+                      <dt class="product__term">Высота</dt>
+                      <dd class="product__value">60 мм</dd>
+                    </div>
+                    <div class="product__spec-row">
+                      <dt class="product__term">Размеры и количество</dt>
+                      <dd class="product__value">Под ваш проект</dd>
+                    </div>
+                    <div class="product__spec-row">
+                      <dt class="product__term">Крепёж</dt>
+                      <dd class="product__value">Скрытый</dd>
+                    </div>
+                  </dl>
+                  <a
+                    class="product__blueprint"
+                    href="icons/drawing-flat.svg"
+                    aria-label="Увеличить чертёж ФЛЭТ, карточка 60 мм"
+                    data-gallery=""
+                  >
+                    <span class="product__blueprint-heading">
+                      <span>Чертёж</span>
+                      <span class="product__blueprint-zoom">Увеличить
+                        <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#lucide-plus"></use></svg>
+                      </span>
+                    </span>
+                    <img
+                      src="icons/drawing-flat.svg"
+                      alt="ФЛЭТ · общий чертёж линейки"
+                      loading="lazy"
+                      data-media=""
+                      class="media product__drawing"
+                      data-fallback="icons/placeholder.svg"
+                      width="552"
+                      height="220"
+                      decoding="async">
+                  </a>
+                  <button
+                    class="button button--dark product__select"
+                    data-product="flat60"
+                    type="button"
+                  >
+                    Подобрать размер
+                  </button>
+                </div>
+                <button
+                  class="product__image"
+                  data-product="flat60"
+                  aria-label="Выбрать колпак ФЛЭТ 60 мм"
+                  type="button"
+                  data-reveal="image"
+                >
+                  <img
+                    src="images/flat-60.webp"
+                    width="619"
+                    height="1100"
+                    alt="ФЛЭТ 60 мм: на столб забора"
+                    loading="lazy"
+                    data-parallax=""
+                    data-media=""
+                    class="media product__photo parallax__image"
+                    data-fallback="icons/placeholder.svg"
+                    decoding="async"
+                    srcset="images/flat-60-480.webp 480w, images/flat-60.webp 619w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1120px) 50vw, 26vw">
+                </button>
+              </article>
+              <article class="product">
+                <div class="product__copy" data-reveal="fade">
+                  <p class="product__purpose">На столб забора</p>
+                  <h3 class="product__title">ФЛЭТ<span class="product__subtitle">80 мм</span></h3>
+                  <p class="product__description">
+                    Более высокий профиль для массивных столбов. Лаконичная форма без видимого
+                    крепежа.
+                  </p>
+                  <dl class="product__specs">
+                    <div class="product__spec-row">
+                      <dt class="product__term">Высота</dt>
+                      <dd class="product__value">80 мм</dd>
+                    </div>
+                    <div class="product__spec-row">
+                      <dt class="product__term">Размеры и количество</dt>
+                      <dd class="product__value">Под ваш проект</dd>
+                    </div>
+                    <div class="product__spec-row">
+                      <dt class="product__term">Крепёж</dt>
+                      <dd class="product__value">Скрытый</dd>
+                    </div>
+                  </dl>
+                  <a
+                    class="product__blueprint"
+                    href="icons/drawing-flat.svg"
+                    aria-label="Увеличить чертёж ФЛЭТ, карточка 80 мм"
+                    data-gallery=""
+                  >
+                    <span class="product__blueprint-heading">
+                      <span>Чертёж</span>
+                      <span class="product__blueprint-zoom">Увеличить
+                        <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#lucide-plus"></use></svg>
+                      </span>
+                    </span>
+                    <img
+                      src="icons/drawing-flat.svg"
+                      alt="ФЛЭТ · общий чертёж линейки"
+                      loading="lazy"
+                      data-media=""
+                      class="media product__drawing"
+                      data-fallback="icons/placeholder.svg"
+                      width="552"
+                      height="220"
+                      decoding="async">
+                  </a>
+                  <button
+                    class="button button--dark product__select"
+                    data-product="flat80"
+                    type="button"
+                  >
+                    Подобрать размер
+                  </button>
+                </div>
+                <button
+                  class="product__image"
+                  data-product="flat80"
+                  aria-label="Выбрать колпак ФЛЭТ 80 мм"
+                  type="button"
+                  data-reveal="image"
+                >
+                  <img
+                    src="images/flat-80.webp"
+                    width="825"
+                    height="1100"
+                    alt="ФЛЭТ 80 мм: на столб забора"
+                    loading="lazy"
+                    data-parallax=""
+                    data-media=""
+                    class="media product__photo parallax__image"
+                    data-fallback="icons/placeholder.svg"
+                    decoding="async"
+                    srcset="
+                      images/flat-80-480.webp 480w,
+                      images/flat-80-800.webp 800w,
+                      images/flat-80.webp     825w
+                    "
+                    sizes="(max-width: 600px) 100vw, (max-width: 1120px) 50vw, 26vw">
+                </button>
+              </article>
+            </div>
+            <div
+              class="catalog__panel"
+              id="catalog-chimneys"
+              role="tabpanel"
+              aria-labelledby="catalog-chimneys-tab"
+              data-catalog-panel=""
+            >
+              <article class="product">
+                <div class="product__copy" data-reveal="fade">
+                  <p class="product__purpose">На дымоход</p>
+                  <h3 class="product__title">МОДЕРН</h3>
+                  <p class="product__description">
+                    Плоская верхняя крышка и горизонтальный ритм ярусов. Размеры и количество ярусов
+                    под задачу.
+                  </p>
+                  <dl class="product__specs">
+                    <div class="product__spec-row">
+                      <dt class="product__term">Назначение</dt>
+                      <dd class="product__value">Зонт на трубу</dd>
+                    </div>
+                    <div class="product__spec-row">
+                      <dt class="product__term">Количество ярусов</dt>
+                      <dd class="product__value">3 и более</dd>
+                    </div>
+                    <div class="product__spec-row">
+                      <dt class="product__term">Размеры</dt>
+                      <dd class="product__value">Индивидуальные</dd>
+                    </div>
+                  </dl>
+                  <a
+                    class="product__blueprint"
+                    href="icons/drawing-modern.svg"
+                    aria-label="Увеличить чертёж МОДЕРН"
+                    data-gallery=""
+                  >
+                    <span class="product__blueprint-heading">
+                      <span>Чертёж</span>
+                      <span class="product__blueprint-zoom">Увеличить
+                        <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#lucide-plus"></use></svg>
+                      </span>
+                    </span>
+                    <img
+                      src="icons/drawing-modern.svg"
+                      alt="Чертёж модели МОДЕРН"
+                      loading="lazy"
+                      data-media=""
+                      class="media product__drawing"
+                      data-fallback="icons/placeholder.svg"
+                      width="836"
+                      height="394"
+                      decoding="async">
+                  </a>
+                  <button
+                    class="button button--dark product__select"
+                    data-product="modern"
+                    type="button"
+                  >
+                    Подобрать размер
+                  </button>
+                </div>
+                <button
+                  class="product__image"
+                  data-product="modern"
+                  aria-label="Выбрать колпак МОДЕРН"
+                  type="button"
+                  data-reveal="image"
+                >
+                  <img
+                    src="images/modern.webp"
+                    width="619"
+                    height="1100"
+                    alt="МОДЕРН: на дымоход"
+                    loading="lazy"
+                    data-parallax=""
+                    data-media=""
+                    class="media product__photo parallax__image"
+                    data-fallback="icons/placeholder.svg"
+                    decoding="async"
+                    srcset="images/modern-480.webp 480w, images/modern.webp 619w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1120px) 50vw, 26vw">
+                </button>
+              </article>
+              <article class="product">
+                <div class="product__copy" data-reveal="fade">
+                  <p class="product__purpose">На дымоход</p>
+                  <h3 class="product__title">КЛАССИК<br>МОДЕРН</h3>
+                  <p class="product__description">
+                    Скатная крышка и чёткие линии металлических ярусов. Классическая форма в
+                    современном исполнении.
+                  </p>
+                  <dl class="product__specs">
+                    <div class="product__spec-row">
+                      <dt class="product__term">Назначение</dt>
+                      <dd class="product__value">Зонт на трубу</dd>
+                    </div>
+                    <div class="product__spec-row">
+                      <dt class="product__term">Форма крышки</dt>
+                      <dd class="product__value">Скатная</dd>
+                    </div>
+                    <div class="product__spec-row">
+                      <dt class="product__term">Размеры</dt>
+                      <dd class="product__value">Индивидуальные</dd>
+                    </div>
+                  </dl>
+                  <a
+                    class="product__blueprint"
+                    href="icons/drawing-classic.svg"
+                    aria-label="Увеличить чертёж КЛАССИК МОДЕРН"
+                    data-gallery=""
+                  >
+                    <span class="product__blueprint-heading">
+                      <span>Чертёж</span>
+                      <span class="product__blueprint-zoom">Увеличить
+                        <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#lucide-plus"></use></svg>
+                      </span>
+                    </span>
+                    <img
+                      src="icons/drawing-classic.svg"
+                      alt="Чертёж модели КЛАССИК МОДЕРН"
+                      loading="lazy"
+                      data-media=""
+                      class="media product__drawing"
+                      data-fallback="icons/placeholder.svg"
+                      width="943"
+                      height="536"
+                      decoding="async">
+                  </a>
+                  <button
+                    class="button button--dark product__select"
+                    data-product="classic"
+                    type="button"
+                  >
+                    Подобрать размер
+                  </button>
+                </div>
+                <button
+                  class="product__image"
+                  data-product="classic"
+                  aria-label="Выбрать колпак КЛАССИК МОДЕРН"
+                  type="button"
+                  data-reveal="image"
+                >
+                  <img
+                    src="images/classic-modern.webp"
+                    width="508"
+                    height="1100"
+                    alt="КЛАССИК МОДЕРН: на дымоход"
+                    loading="lazy"
+                    data-parallax=""
+                    data-media=""
+                    class="media product__photo parallax__image"
+                    data-fallback="icons/placeholder.svg"
+                    decoding="async"
+                    srcset="images/classic-modern-480.webp 480w, images/classic-modern.webp 508w"
+                    sizes="(max-width: 600px) 100vw, (max-width: 1120px) 50vw, 26vw">
+                </button>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Подбор комплектации -->
+      <div data-scroll-screen="calculator">
+        <section
+          id="calculator"
+          class="section calculator"
+          data-calculator=""
+          data-request-target="request-dialog"
+        >
+          <div class="section-heading section-heading--wide">
+            <span class="section-index" data-reveal="frame">03</span>
+            <h2 data-reveal="heading" class="section-heading__title">КАЛЬКУЛЯТОР<br>СТОИМОСТИ</h2>
+            <p data-reveal="fade" class="section-heading__description">
+              Выберите изделие, размеры и количество.<br>Менеджер уточнит комплектацию и цену.
+            </p>
+          </div>
+          <div class="calculator__layout">
+            <form id="calculator-form" class="calculator__form" data-calculator-form="" novalidate>
+              <fieldset data-reveal="fade" class="calculator__fieldset">
+                <legend class="calculator__legend">
+                  <span class="calculator__step">01</span> Модель изделия
+                </legend>
+                <div class="calculator__models">
+                  <label class="calculator__model-option"
+                    ><input
+                      type="radio"
+                      name="product"
+                      value="flat60"
+                      checked
+                      class="calculator__model-radio"><span class="calculator__model-label">ФЛЭТ 60</span></label
+                  ><label class="calculator__model-option"
+                    ><input
+                      type="radio"
+                      name="product"
+                      value="flat80"
+                      class="calculator__model-radio"><span class="calculator__model-label">ФЛЭТ 80</span></label
+                  ><label class="calculator__model-option"
+                    ><input
+                      type="radio"
+                      name="product"
+                      value="modern"
+                      class="calculator__model-radio"><span class="calculator__model-label">МОДЕРН</span></label
+                  ><label class="calculator__model-option"
+                    ><input
+                      type="radio"
+                      name="product"
+                      value="classic"
+                      class="calculator__model-radio"><span class="calculator__model-label">КЛАССИК МОДЕРН</span></label
+                  >
+                </div>
+              </fieldset>
+              <fieldset data-reveal="fade" class="calculator__fieldset">
+                <legend class="calculator__legend">
+                  <span class="calculator__step">02</span> Размеры и количество
+                </legend>
+                <div data-sizes><div class="calculator__size-row" data-size-row><div class="calculator__size-heading"><span data-size-title>Размер 1</span></div><div class="calculator__measurements">
+                  <label class="calculator__measurement"
+                    >Длина, мм<input
+                      type="number"
+                      name="length"
+                      min="100"
+                      max="3000"
+                      step="1"
+                      value="400"
+                      required
+                      inputmode="numeric"
+                      class="calculator__input"></label
+                  ><span class="calculator__times" aria-hidden="true">×</span
+                  ><label class="calculator__measurement"
+                    >Ширина, мм<input
+                      type="number"
+                      name="width"
+                      min="100"
+                      max="3000"
+                      step="1"
+                      value="400"
+                      required
+                      inputmode="numeric"
+                      class="calculator__input"></label>
+                  <div class="calculator__quantity-label calculator__measurement">
+                    <label for="calculator-quantity">Количество</label
+                    ><span class="calculator__quantity"
+                      ><button
+                        type="button"
+                        data-quantity="-1"
+                        aria-label="Уменьшить количество"
+                        class="calculator__quantity-button"
+                      >
+                        −</button
+                      ><input
+                        type="number"
+                        name="quantity"
+                        aria-label="Количество, шт."
+                        min="1"
+                        max="999"
+                        step="1"
+                        value="1"
+                        required
+                        inputmode="numeric"
+                        id="calculator-quantity"
+                        class="calculator__input calculator__quantity-input"><button
+                        type="button"
+                        data-quantity="1"
+                        aria-label="Увеличить количество"
+                        class="calculator__quantity-button"
+                      >
+                        +
+                      </button></span
+                    >
+                  </div>
+                </div>
+                </div></div><div class="calculator__size-actions"><button class="calculator__add-size" type="button" data-add-size>+ Добавить другой размер</button><button class="calculator__remove-size" type="button" data-remove-size aria-label="Удалить последний размер" hidden>− Удалить размер</button></div><p class="calculator__help">
+                  Внешние размеры основания. Если не уверены, поможем с замером.
+                </p>
+              </fieldset>
+              <fieldset class="calculator__extras calculator__fieldset" data-reveal="fade">
+                <legend class="calculator__legend">
+                  <span class="calculator__step">03</span> Дополнительно
+                </legend>
+                <label class="calculator__option"
+                  ><input type="checkbox" name="mesh" class="calculator__option-input"><span
+                    >Защитная сетка</span
+                  ><span class="calculator__option-caption">Для дымохода</span></label
+>
+                <div class="calculator__finishes">
+                  <label class="calculator__measurement">Цвет RAL<select name="color" class="calculator__input">
+                    <option value="RAL 7016">RAL 7016 · Антрацит</option><option value="RAL 7024">RAL 7024 · Графитовый серый</option><option value="RAL 8017">RAL 8017 · Шоколадно-коричневый</option><option value="RAL 9005">RAL 9005 · Чёрный</option><option value="RAL 9003">RAL 9003 · Белый</option><option value="RAL 6005">RAL 6005 · Зелёный мох</option><option value="RAL 3005">RAL 3005 · Винно-красный</option><option value="other">Другой цвет</option>
+                  </select></label>
+                  <label class="calculator__measurement" data-custom-color hidden>Ваш цвет<input class="calculator__input" name="customColor" type="text" maxlength="100" placeholder="Код RAL или название" disabled></label>
+                  <label class="calculator__measurement">Покрытие<select name="finish" class="calculator__input"><option value="matte">Матовое</option><option value="gloss">Глянцевое</option></select></label>
+                </div>
+              </fieldset>
+              <p
+                class="calculator__error"
+                id="calc-error"
+                role="alert"
+                hidden
+                data-calculator-error=""
+              ></p>
+            </form>
+            <figure class="calculator__visual" data-reveal="fade">
+              <svg
+                id="product-drawing"
+                viewBox="45 0 420 295"
+                role="img"
+                aria-label="Схема выбранного изделия"
+                class="drawing"
+                data-drawing=""
+              >
+                <defs>
+                  <marker
+                    id="dimension-arrow"
+                    markerWidth="6"
+                    markerHeight="6"
+                    refX="3"
+                    refY="3"
+                    orient="auto-start-reverse"
+                  >
+                    <path d="M6 0 0 3 6 6" fill="none" stroke="currentColor"></path>
+                  </marker>
+                </defs>
+                <g class="drawing__flat" data-drawing-part="flat60">
+                  <path class="drawing__top" d="m88 124 208-57 135 64-211 62Z"></path>
+                  <path class="drawing__side" d="m88 124 132 69v29L88 153Z"></path>
+                  <path class="drawing__front" d="m220 193 211-62v28l-211 63Z"></path>
+                  <path class="drawing__fold" d="m103 155 116 59 196-58"></path>
+                </g>
+                <g class="drawing__flat" hidden data-drawing-part="flat80">
+                  <path class="drawing__top" d="m88 124 208-57 135 64-211 62Z"></path>
+                  <path class="drawing__side" d="m88 124 132 69v39L88 163Z"></path>
+                  <path class="drawing__front" d="m220 193 211-62v38l-211 63Z"></path>
+                  <path class="drawing__fold" d="m103 165 116 59 196-58"></path>
+                </g>
+                <g class="drawing__modern" hidden data-drawing-part="modern">
+                  <path class="drawing__side" d="m115 174 114 59 182-54v19l-182 54-114-59Z"></path>
+                  <path class="drawing__side" d="m115 143 114 59 182-54v19l-182 54-114-59Z"></path>
+                  <path class="drawing__side" d="m115 112 114 59 182-54v19l-182 54-114-59Z"></path>
+                  <path
+                    class="drawing__top drawing__roof--modern drawing__roof"
+                    d="m88 89 208-57 135 64-211 62Z"
+                    data-roof="modern"
+                  ></path>
+                  <g
+                    class="drawing__roof--classic drawing__roof"
+                    hidden
+                    data-roof="classic"
+                  >
+                    <path class="drawing__front" d="M88 89 249 10 220 158Z"></path>
+                    <path class="drawing__top" d="M249 10 431 96 220 158Z"></path>
+                  </g>
+                  <path class="drawing__front" d="m220 158 211-62v15l-211 62-132-69V89Z"></path>
+                </g>
+                <g class="drawing__dimensions">
+                  <path
+                    data-dimension-extensions=""
+                  ></path>
+                  <path
+                    class="drawing__dimension"
+                    data-dimension-line="width"
+                    marker-start="url(#dimension-arrow)"
+                    marker-end="url(#dimension-arrow)"
+                  ></path>
+                  <path
+                    class="drawing__dimension"
+                    data-dimension-line="length"
+                    marker-start="url(#dimension-arrow)"
+                    marker-end="url(#dimension-arrow)"
+                  ></path>
+                  <text
+                    id="drawing-width"
+                    text-anchor="middle"
+                    data-dimension="width"
+                    class="drawing__label"
+                  >
+                    400 мм
+                  </text>
+                  <text
+                    id="drawing-length"
+                    text-anchor="middle"
+                    data-dimension="length"
+                    class="drawing__label"
+                  >
+                    400 мм
+                  </text>
+                </g>
+              </svg>
+              <figcaption class="calculator__caption">Схема первого размера · вид в перспективе</figcaption>
+            </figure>
+            <aside
+              class="calculator__preview"
+              aria-label="Выбранная комплектация"
+              data-reveal="fade"
+              data-preview=""
+            >
+              <div class="calculator__summary"><div class="calculator__order-heading">Ваш заказ</div>
+                <div class="calculator__model" data-model-transition="">
+                  <h3 id="summary-model" data-summary="model" class="calculator__model-name">
+                    ФЛЭТ 60
+                  </h3>
+                  <span id="summary-purpose" data-summary="purpose" class="calculator__purpose"
+                    >Колпак на столб забора</span
+                  >
+                </div>
+                <dl class="calculator__specs">
+                  <div class="calculator__spec-row">
+                    <dt class="calculator__term">Размеры и количество</dt>
+                    <dd id="summary-size" data-summary="size" class="calculator__value">
+                      400 × 400 мм
+                    </dd>
+                  </div>
+                  <div class="calculator__spec-row">
+                    <dt class="calculator__term">Количество</dt>
+                    <dd id="summary-quantity" data-summary="quantity" class="calculator__value">
+                      1 шт.
+                    </dd>
+                  </div>
+                  <div class="calculator__spec-row">
+                    <dt class="calculator__term">Опции</dt>
+                    <dd id="summary-extras" data-summary="extras" class="calculator__value">
+                      Без дополнительных опций
+                    </dd>
+                  </div>
+                </dl>
+                
+                <p class="calculator__price-note">
+                  Рассчитаем стоимость по вашим размерам и выбранной комплектации.
+                </p>
+                <button
+                  class="button button--dark"
+                  id="request-calculation"
+                  type="submit"
+                  data-request-open=""
+                  form="calculator-form"
+                >
+                  Рассчитать стоимость
+                </button>
+                <div class="calculator__contacts">
+                  <span class="calculator__contacts-label">Связаться с менеджером</span>
+                  <div class="contact-channels" role="group" aria-label="Способы связи с менеджером">
+                    <a class="contact-channels__link" href="https://t.me/+79220340535" target="_blank" rel="noopener noreferrer" title="Telegram" aria-label="Написать менеджеру в Telegram">
+                      <span class="contact-channels__icon"><img src="icons/brand-telegram.svg" width="24" height="24" alt="" aria-hidden="true"></span>
+                    </a>
+                    <!-- Временно звонок на номер мессенджеров; перед запуском заменить на ссылку профиля MAX. -->
+                    <a class="contact-channels__link" href="tel:+79220340535" data-contact-channel="max" title="MAX: пока доступен звонок: +7 922 034 05 35" aria-label="MAX: временно позвонить менеджеру по номеру +7 922 034 05 35">
+                      <span class="contact-channels__icon"><img src="icons/message-circle.svg" width="24" height="24" alt="" aria-hidden="true"></span>
+                    </a>
+                    <a class="contact-channels__link" href="https://wa.me/79220340535" target="_blank" rel="noopener noreferrer" title="WhatsApp" aria-label="Написать менеджеру в WhatsApp">
+                      <span class="contact-channels__icon"><img src="icons/whatsapp.svg" width="24" height="24" alt="" aria-hidden="true"></span>
+                    </a>
+                    <a class="contact-channels__link" href="tel:+79292157775" title="Позвонить" aria-label="Позвонить: +7 929 215 77 75">
+                      <span class="contact-channels__icon"><img src="icons/phone-call.svg" width="24" height="24" alt="" aria-hidden="true"></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </div>
+
+      <!-- География -->
+      <div data-scroll-screen="geography">
+        <section id="geography" class="geography" data-geography>
+          <div class="section-heading section-heading--wide">
+            <span class="section-index" data-reveal="frame">04</span>
+            <h2 data-reveal="heading" class="section-heading__title">ГЕОГРАФИЯ<br>ПОСТАВОК</h2>
+            <p data-reveal="fade" class="section-heading__description">43 города от Москвы до Владивостока.<br>Доставку в ваш город уточните у менеджера.</p>
+          </div>
+          <div class="geography__body" data-reveal="fade">
+            <div class="geography__map">
+              <div class="geography__canvas">
+                <!-- Coordinates: hflabs/city (DaData), CC BY-SA 4.0. Source and projection: data/delivery-cities.json. -->
+                <svg
+              id="russia-map"
+              viewBox="0 0 1000 578.28"
+              role="img"
+              aria-label="Карта России: 43 города поставок, производство в Москве и Екатеринбурге"
+              class="geography__svg"
+            >
+              <defs>
+                <pattern id="map-dots" width="5" height="5" patternUnits="userSpaceOnUse">
+                  <circle cx="2.5" cy="2.5" r="1.25" fill="#73787b"></circle>
+                </pattern>
+              </defs>
+              <path
+                id="russia-outline"
+                fill="url(#map-dots)"
+                d="M899.83,396.79L921.58,410.50L908.34,414.98L915.56,434.07L931.13,439.77L936.61,447.46L925.98,445.24L927.12,457.36L919.07,449.19L912.19,437.89L902.79,426.61L898.43,417.06L888.03,402.07L876.15,394.05L865.86,378.38L868.17,368.89L861.87,365.62L863.56,361.99L870.62,368.07L880.79,376.99L888.71,387.90L899.83,396.79Z M66.52,152.33L60.59,139.10L58.41,129.52L64.69,128.95L72.87,137.14L73.86,145.52L73.25,149.54L69.47,150.32L66.52,152.33Z M893.24,44.53L897.59,42.07L887.66,40.32L893.58,27.12L908.64,20.00L913.20,26.74L912.26,35.96L925.24,39.68L927.39,42.70L925.47,47.83L919.57,50.66L913.41,56.69L907.32,55.99L903.34,60.63L902.86,67.22L897.27,68.36L892.90,65.42L893.59,72.73L900.55,72.77L904.83,77.91L853.90,57.57L867.98,49.93L885.22,41.52L893.24,44.53Z M830.24,48.12L829.01,52.95L824.73,52.01L821.63,44.68L830.24,48.12Z M831.59,42.35L830.24,48.12L821.63,44.68L821.31,43.95L822.68,40.53L828.51,35.94L830.12,36.92L831.59,42.35Z M712.94,151.11L708.10,154.81L700.52,158.30L699.55,158.11L699.66,151.65L702.93,147.83L710.44,148.60L712.94,151.11Z M717.80,114.57L718.20,121.28L712.97,124.34L704.42,124.77L702.40,120.96L708.76,118.14L717.80,114.57Z M698.33,123.14L702.10,132.55L690.89,140.31L687.51,146.33L676.78,143.02L673.69,134.40L676.23,129.89L684.08,125.24L698.33,123.14Z M370.54,180.96L367.68,180.33L357.15,169.82L360.08,164.42L356.39,156.50L360.74,150.61L365.90,151.26L370.56,145.60L383.97,141.93L382.21,138.38L396.62,135.02L399.48,129.69L410.06,128.99L424.25,128.65L435.16,132.55L442.50,131.24L448.95,132.79L448.73,138.34L444.88,140.89L431.01,140.63L418.47,140.25L401.91,144.17L389.58,151.24L376.67,157.60L370.47,166.97L370.54,180.96Z M572.68,155.53L574.24,161.73L576.93,158.27L586.60,157.05L595.22,161.85L598.93,166.04L599.47,172.85L596.30,177.44L587.93,186.30L585.67,190.59L590.66,191.72L596.88,194.06L599.84,190.94L603.49,198.92L604.49,195.18L610.15,191.76L622.90,190.70L625.56,196.43L642.28,193.09L639.04,183.42L647.66,182.64L653.46,180.18L662.20,184.03L667.50,191.05L667.57,197.22L676.98,204.58L685.71,206.46L683.01,191.87L692.02,193.95L696.67,187.12L706.05,186.31L706.74,181.39L713.72,179.07L704.21,170.36L705.49,162.49L740.29,146.05L748.39,149.48L763.89,148.88L774.36,133.94L781.84,128.63L788.58,129.27L795.97,135.99L802.65,133.84L804.30,127.08L808.96,120.09L816.26,114.23L819.90,105.84L834.67,104.98L833.92,97.53L824.42,96.53L820.22,91.69L830.69,80.42L834.29,71.30L845.81,61.55L853.90,57.57L904.83,77.91L904.88,77.97L907.70,87.10L903.79,93.56L912.64,91.70L924.52,92.88L929.03,91.71L934.60,93.22L937.38,96.10L930.04,105.56L932.00,125.86L930.89,131.64L934.89,144.90L937.67,157.38L941.90,162.65L928.80,165.98L928.67,186.49L922.70,186.19L923.95,194.88L917.19,201.16L923.26,208.28L929.02,222.98L933.62,226.15L940.99,221.42L956.63,234.08L952.88,239.98L960.10,249.54L966.77,250.56L963.94,265.68L974.46,277.65L969.34,289.14L978.37,300.03L980.00,317.59L970.88,313.66L953.66,302.90L928.15,285.51L916.50,269.92L914.50,259.82L909.92,255.25L914.84,244.84L909.34,224.14L905.27,206.23L903.40,190.18L890.43,174.73L887.00,181.54L893.95,191.33L895.94,213.65L879.38,207.04L872.24,222.63L878.10,250.48L888.14,252.22L880.01,265.83L873.32,274.37L866.76,266.80L857.61,272.49L855.85,283.21L838.25,294.92L822.76,311.93L819.11,347.21L811.47,390.06L822.94,385.28L830.75,390.60L838.94,389.07L839.49,380.54L847.20,376.49L865.32,382.34L872.29,391.70L874.73,406.67L883.39,420.51L892.35,440.74L891.59,464.77L893.99,474.35L891.23,494.58L887.79,514.70L886.14,524.80L878.15,538.24L872.57,541.45L863.89,538.68L856.13,553.59L856.66,558.28L854.34,556.83L851.29,550.76L855.80,548.13L850.00,533.34L842.53,524.21L847.85,516.20L859.41,512.82L858.85,498.21L854.51,483.68L855.24,477.59L853.39,464.60L842.20,475.43L837.71,483.89L825.24,490.25L816.29,480.44L802.55,476.30L786.73,478.67L778.46,467.69L772.43,461.15L767.23,456.95L757.22,446.12L748.69,444.08L735.92,444.55L725.98,448.47L717.23,454.00L712.87,462.54L718.15,464.30L720.55,471.47L717.41,477.06L714.23,493.16L716.01,498.90L706.43,510.57L694.88,508.29L684.95,511.88L679.45,508.46L674.03,508.16L663.36,520.16L652.28,524.49L644.75,529.17L633.31,528.65L625.14,529.89L618.96,523.63L609.72,518.06L600.87,517.09L590.05,519.73L581.97,522.76L569.37,517.58L567.40,507.40L557.35,504.10L549.68,502.55L540.33,496.81L531.23,510.77L534.49,518.91L525.67,528.11L513.15,524.03L504.46,522.94L499.18,516.11L490.20,515.05L483.20,510.07L469.34,514.77L450.99,523.83L441.35,524.53L437.71,524.98L434.69,515.91L423.21,515.38L420.81,508.92L415.46,504.97L413.26,496.33L409.26,492.80L396.46,493.05L387.32,482.24L380.89,487.78L373.93,448.95L367.86,435.54L372.03,432.47L348.82,437.53L341.38,435.33L344.87,428.67L337.38,420.36L328.49,420.05L332.22,406.06L321.04,397.41L312.28,399.40L292.71,394.66L287.70,395.73L259.92,384.44L254.30,386.37L254.08,397.44L245.55,396.14L244.78,400.11L234.44,401.23L240.65,416.61L235.34,420.89L225.61,413.72L221.25,415.65L216.30,403.55L205.20,395.77L194.45,394.82L189.88,384.18L181.55,364.95L171.44,356.53L148.42,355.45L140.74,361.89L139.84,349.96L124.29,355.57L124.15,359.38L113.16,362.90L112.09,374.90L117.22,379.44L115.19,390.06L109.69,394.42L111.66,399.32L102.99,402.12L94.75,397.20L78.08,400.16L75.44,415.55L68.39,421.25L65.46,440.34L57.25,439.85L53.59,441.00L50.92,437.08L51.58,426.28L49.85,423.88L47.54,417.05L49.32,410.99L44.83,402.10L39.09,398.93L39.73,395.93L35.36,381.31L27.40,368.55L23.78,360.50L21.78,360.54L22.78,343.51L20.00,331.48L21.35,319.99L27.27,324.41L41.07,324.00L42.14,316.54L54.95,324.18L57.13,322.16L50.28,316.87L55.24,313.45L61.14,314.92L67.42,321.30L71.86,319.60L76.46,313.35L84.29,311.74L87.33,309.14L82.77,296.20L79.54,292.21L81.42,284.07L75.73,279.97L73.25,268.20L75.56,266.82L78.69,260.94L75.42,254.95L78.55,252.00L82.03,252.20L85.51,243.46L79.71,236.97L78.93,234.47L75.18,234.36L74.00,231.42L80.39,225.08L83.27,221.06L85.18,221.72L88.24,227.54L92.47,228.59L94.31,224.67L93.49,218.81L95.86,217.91L96.30,213.84L101.45,204.97L105.49,204.48L110.64,200.49L109.68,192.42L106.26,189.79L108.70,187.16L107.85,178.55L113.85,172.55L119.44,168.82L120.59,164.23L125.92,164.88L136.28,156.94L145.64,157.48L147.26,155.41L157.68,158.42L160.04,149.12L182.25,152.47L192.11,153.38L199.35,151.69L202.87,139.12L211.86,136.63L218.12,126.96L230.25,124.26L240.70,110.98L252.09,109.98L256.21,98.71L264.95,94.69L267.97,97.47L276.83,101.72L283.43,103.36L280.72,114.39L285.56,127.11L284.68,151.44L282.13,158.63L275.31,164.76L265.93,164.73L257.54,160.00L252.04,134.29L248.43,131.98L244.94,144.94L239.86,148.85L228.43,157.16L229.30,165.73L229.09,171.57L234.95,168.21L237.69,161.89L244.05,161.73L245.64,177.94L251.30,179.60L256.78,170.29L275.33,171.51L278.00,175.79L277.78,182.78L286.90,178.71L290.01,169.93L297.79,166.28L301.63,157.84L307.92,171.04L304.45,178.49L298.70,175.00L293.18,180.30L292.68,186.58L300.60,190.29L307.65,184.91L319.91,187.49L340.76,190.00L343.20,192.86L334.15,196.20L338.09,201.26L343.82,199.81L351.48,205.15L360.74,204.82L360.69,214.82L370.40,210.38L370.59,200.99L375.14,198.62L384.71,209.58L388.24,216.63L396.53,238.90L402.73,233.97L401.55,225.27L402.74,222.63L398.26,218.76L402.68,213.78L405.53,203.26L407.47,199.37L420.29,192.25L428.20,182.54L432.08,181.50L440.44,189.19L438.28,196.40L430.16,204.80L430.93,209.86L428.50,219.15L420.12,235.91L421.85,245.76L416.32,253.38L399.02,267.15L403.86,271.53L407.80,267.83L414.59,266.83L418.46,261.05L425.03,256.61L425.15,248.27L430.62,240.70L426.10,237.68L427.94,230.21L436.53,218.94L435.39,206.51L445.96,200.99L448.57,191.74L450.58,192.20L449.95,199.94L443.71,211.50L447.26,215.48L448.79,205.64L457.27,203.07L465.77,205.12L471.11,214.73L470.63,202.91L474.31,189.14L481.58,188.42L490.52,191.27L499.12,191.34L497.47,183.93L503.39,176.31L507.56,176.72L515.48,171.43L524.93,170.87L526.46,167.45L535.59,166.99L538.26,170.05L546.19,163.44L552.41,163.67L553.26,158.12L556.25,152.63L563.52,147.10L569.27,150.75L565.13,154.22L572.68,155.53Z M565.22,139.34L548.09,144.73L553.46,128.51L555.77,127.09L557.94,127.80L565.71,134.27L565.22,139.34Z M432.27,68.21L428.61,66.96L426.26,65.96L424.66,67.10L421.03,66.28L420.94,62.24L424.60,60.76L420.79,56.30L425.84,58.52L428.73,61.20L426.95,63.81L429.95,62.84L433.02,63.12L434.19,67.56L432.27,68.21Z M549.66,132.85L543.22,134.27L535.28,130.30L530.94,125.28L529.73,116.55L526.37,113.81L533.99,106.74L539.64,104.61L544.34,110.56L550.35,121.98L549.66,132.85Z"
+              ></path>
+              <g class="geography__points">
+                <circle class="geography__point" data-map-city="city-1" cx="581.8799" cy="489.1475" r="3.4"><title>Ангарск</title></circle>
+                <circle class="geography__point" data-map-city="city-2" cx="420.0182" cy="463.3085" r="3.4"><title>Барнаул</title></circle>
+                <circle class="geography__point" data-map-city="city-3" cx="428.8781" cy="476.7855" r="3.4"><title>Бийск</title></circle>
+                <circle class="geography__point" data-map-city="city-4" cx="782.7981" cy="472.498" r="3.4"><title>Благовещенск</title></circle>
+                <circle class="geography__point" data-map-city="city-5" cx="98.6393" cy="240.7199" r="3.4"><title>Брянск</title></circle>
+                <circle class="geography__point" data-map-city="city-6" cx="190.6825" cy="353.4798" r="3.4"><title>Бузулук</title></circle>
+                <circle class="geography__point" data-map-city="city-7" cx="861.3606" cy="542.5174" r="3.4"><title>Владивосток</title></circle>
+                <circle class="geography__point" data-map-city="city-8" cx="257.3109" cy="363.4464" r="3.4"><title>Златоуст</title></circle>
+                <circle class="geography__point" data-map-city="city-9" cx="585.3335" cy="492.4864" r="3.4"><title>Иркутск</title></circle>
+                <circle class="geography__point" data-map-city="city-10" cx="201.4104" cy="291.5018" r="3.4"><title>Йошкар-Ола</title></circle>
+                <circle class="geography__point" data-map-city="city-11" cx="199.915" cy="306.1447" r="3.4"><title>Казань</title></circle>
+                <circle class="geography__point" data-map-city="city-12" cx="280.9639" cy="358.5274" r="3.4"><title>Каменск-Уральский</title></circle>
+                <circle class="geography__point" data-map-city="city-13" cx="277.2428" cy="339.3299" r="3.4"><title>Кировград</title></circle>
+                <circle class="geography__point" data-map-city="city-14" cx="269.3975" cy="372.3719" r="3.4"><title>Копейск</title></circle>
+                <circle class="geography__point" data-map-city="city-15" cx="496.0684" cy="439.5713" r="3.4"><title>Красноярск</title></circle>
+                <circle class="geography__point" data-map-city="city-16" cx="239.0044" cy="380.2829" r="3.4"><title>Магнитогорск</title></circle>
+                <circle class="geography__point" data-map-city="city-17" cx="259.1156" cy="366.7687" r="3.4"><title>Миасс</title></circle>
+                <circle class="geography__point geography__production-point" data-map-city="city-18" cx="141.5942" cy="241.5159" r="5.5"><title>Москва · производство</title></circle>
+                <circle class="geography__point" data-map-city="city-19" cx="872.2834" cy="541.2144" r="3.4"><title>Находка</title></circle>
+                <circle class="geography__point" data-map-city="city-20" cx="400.0983" cy="347.9063" r="3.4"><title>Нижневартовск</title></circle>
+                <circle class="geography__point" data-map-city="city-21" cx="280.4784" cy="333.5091" r="3.4"><title>Нижний Тагил</title></circle>
+                <circle class="geography__point" data-map-city="city-22" cx="448.2869" cy="463.2338" r="3.4"><title>Новокузнецк</title></circle>
+                <circle class="geography__point" data-map-city="city-23" cx="419.1012" cy="439.2461" r="3.4"><title>Новосибирск</title></circle>
+                <circle class="geography__point" data-map-city="city-24" cx="424.9832" cy="281.2525" r="3.4"><title>Новый Уренгой</title></circle>
+                <circle class="geography__point" data-map-city="city-25" cx="348.8833" cy="416.1887" r="3.4"><title>Омск</title></circle>
+                <circle class="geography__point" data-map-city="city-26" cx="259.5834" cy="316.7748" r="3.4"><title>Пермь</title></circle>
+                <circle class="geography__point" data-map-city="city-27" cx="271.0931" cy="350.7382" r="3.4"><title>Полевской</title></circle>
+                <circle class="geography__point" data-map-city="city-28" cx="232.4315" cy="322.5529" r="3.4"><title>Сарапул</title></circle>
+                <circle class="geography__point" data-map-city="city-29" cx="150.0765" cy="240.1173" r="3.4"><title>Сергиев Посад</title></circle>
+                <circle class="geography__point" data-map-city="city-30" cx="271.0368" cy="357.5075" r="3.4"><title>Снежинск</title></circle>
+                <circle class="geography__point" data-map-city="city-31" cx="382.5002" cy="336.3602" r="3.4"><title>Сургут</title></circle>
+                <circle class="geography__point" data-map-city="city-32" cx="296.6983" cy="358.5586" r="3.4"><title>Талица</title></circle>
+                <circle class="geography__point" data-map-city="city-33" cx="333.162" cy="359.9964" r="3.4"><title>Тобольск</title></circle>
+                <circle class="geography__point" data-map-city="city-34" cx="309.0746" cy="363.5044" r="3.4"><title>Тюмень</title></circle>
+                <circle class="geography__point" data-map-city="city-35" cx="325.0309" cy="325.2243" r="3.4"><title>Урай</title></circle>
+                <circle class="geography__point" data-map-city="city-36" cx="230.4779" cy="351.3907" r="3.4"><title>Уфа</title></circle>
+                <circle class="geography__point" data-map-city="city-37" cx="853.7416" cy="464.6108" r="3.4"><title>Хабаровск</title></circle>
+                <circle class="geography__point" data-map-city="city-38" cx="355.2429" cy="327.735" r="3.4"><title>Ханты-Мансийск</title></circle>
+                <circle class="geography__point" data-map-city="city-39" cx="260.3574" cy="368.6617" r="3.4"><title>Чебаркуль</title></circle>
+                <circle class="geography__point" data-map-city="city-40" cx="268.3154" cy="370.9593" r="3.4"><title>Челябинск</title></circle>
+                <circle class="geography__point" data-map-city="city-41" cx="204.4374" cy="318.2909" r="3.4"><title>Чистополь</title></circle>
+                <circle class="geography__point" data-map-city="city-42" cx="246.8811" cy="361.4835" r="3.4"><title>Юрюзань</title></circle>
+                <circle class="geography__point" data-map-city="city-43" cx="172.2805" cy="239.049" r="3.4"><title>Ярославль</title></circle>
+              </g>
+              <circle class="geography__origin-ring" cx="141.5942" cy="241.5159" r="11"></circle>
+              <g id="map-origin" class="geography__origin" transform="translate(275.9699 348.2828)"><circle r="11" class="geography__origin-ring"></circle><circle r="5.5" class="geography__origin-dot"></circle></g>
+              <circle class="geography__selection" data-map-selection cx="275.9699" cy="348.2828" r="12"></circle>
+            </svg>
+                <svg class="geography__leaders" aria-hidden="true"><line data-production-line="city-18"></line><line data-production-line="ekaterinburg"></line></svg>
+                <button class="geography__production-label" type="button" data-production="city-18" aria-label="Москва, производство">Москва</button>
+                <button class="geography__production-label" type="button" data-production="ekaterinburg" aria-label="Екатеринбург, производство">Екатеринбург</button>
+                <div class="geography__tooltip" data-map-tooltip hidden><span data-map-name></span></div>
+              </div>
+              <div class="geography__legend">
+                <span class="geography__home"><span class="geography__legend-dot" aria-hidden="true"></span><span>Собственное производство: Москва, Екатеринбург</span></span>
+              </div>
+            </div>
+            <div class="geography__directory" aria-labelledby="delivery-cities-title">
+              <div class="geography__directory-heading"><h3 id="delivery-cities-title">Города поставок</h3><span class="geography__count" data-city-count aria-live="polite">43</span></div>
+              <label class="geography__search" hidden data-city-search-label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 4 4"></path></svg><input type="search" placeholder="Найти город" aria-label="Найти город поставки" autocomplete="off" data-city-search></label>
+              <ul class="geography__cities">
+                  <li><button class="geography__city" type="button" data-city="city-1" data-x="581.8799" data-y="489.1475" aria-pressed="false">Ангарск</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-2" data-x="420.0182" data-y="463.3085" aria-pressed="false">Барнаул</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-3" data-x="428.8781" data-y="476.7855" aria-pressed="false">Бийск</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-4" data-x="782.7981" data-y="472.498" aria-pressed="false">Благовещенск</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-5" data-x="98.6393" data-y="240.7199" aria-pressed="false">Брянск</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-6" data-x="190.6825" data-y="353.4798" aria-pressed="false">Бузулук</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-7" data-x="861.3606" data-y="542.5174" aria-pressed="false">Владивосток</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-8" data-x="257.3109" data-y="363.4464" aria-pressed="false">Златоуст</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-9" data-x="585.3335" data-y="492.4864" aria-pressed="false">Иркутск</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-10" data-x="201.4104" data-y="291.5018" aria-pressed="false">Йошкар-Ола</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-11" data-x="199.915" data-y="306.1447" aria-pressed="false">Казань</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-12" data-x="280.9639" data-y="358.5274" aria-pressed="false">Каменск-Уральский</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-13" data-x="277.2428" data-y="339.3299" aria-pressed="false">Кировград</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-14" data-x="269.3975" data-y="372.3719" aria-pressed="false">Копейск</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-15" data-x="496.0684" data-y="439.5713" aria-pressed="false">Красноярск</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-16" data-x="239.0044" data-y="380.2829" aria-pressed="false">Магнитогорск</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-17" data-x="259.1156" data-y="366.7687" aria-pressed="false">Миасс</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-18" data-x="141.5942" data-y="241.5159" aria-pressed="false">Москва</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-19" data-x="872.2834" data-y="541.2144" aria-pressed="false">Находка</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-20" data-x="400.0983" data-y="347.9063" aria-pressed="false">Нижневартовск</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-21" data-x="280.4784" data-y="333.5091" aria-pressed="false">Нижний Тагил</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-22" data-x="448.2869" data-y="463.2338" aria-pressed="false">Новокузнецк</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-23" data-x="419.1012" data-y="439.2461" aria-pressed="false">Новосибирск</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-24" data-x="424.9832" data-y="281.2525" aria-pressed="false">Новый Уренгой</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-25" data-x="348.8833" data-y="416.1887" aria-pressed="false">Омск</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-26" data-x="259.5834" data-y="316.7748" aria-pressed="false">Пермь</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-27" data-x="271.0931" data-y="350.7382" aria-pressed="false">Полевской</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-28" data-x="232.4315" data-y="322.5529" aria-pressed="false">Сарапул</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-29" data-x="150.0765" data-y="240.1173" aria-pressed="false">Сергиев Посад</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-30" data-x="271.0368" data-y="357.5075" aria-pressed="false">Снежинск</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-31" data-x="382.5002" data-y="336.3602" aria-pressed="false">Сургут</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-32" data-x="296.6983" data-y="358.5586" aria-pressed="false">Талица</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-33" data-x="333.162" data-y="359.9964" aria-pressed="false">Тобольск</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-34" data-x="309.0746" data-y="363.5044" aria-pressed="false">Тюмень</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-35" data-x="325.0309" data-y="325.2243" aria-pressed="false">Урай</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-36" data-x="230.4779" data-y="351.3907" aria-pressed="false">Уфа</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-37" data-x="853.7416" data-y="464.6108" aria-pressed="false">Хабаровск</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-38" data-x="355.2429" data-y="327.735" aria-pressed="false">Ханты-Мансийск</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-39" data-x="260.3574" data-y="368.6617" aria-pressed="false">Чебаркуль</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-40" data-x="268.3154" data-y="370.9593" aria-pressed="false">Челябинск</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-41" data-x="204.4374" data-y="318.2909" aria-pressed="false">Чистополь</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-42" data-x="246.8811" data-y="361.4835" aria-pressed="false">Юрюзань</button></li>
+                  <li><button class="geography__city" type="button" data-city="city-43" data-x="172.2805" data-y="239.049" aria-pressed="false">Ярославль</button></li>
+              </ul>
+              <p class="geography__empty" data-city-empty hidden>Такого города пока нет в списке.<br>Возможность доставки уточните у менеджера.</p>
+              <p class="geography__selected" data-city-status role="status" aria-live="polite">Производство: Москва, Екатеринбург</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Галерея -->
+      <div data-scroll-screen="projects">
+        <section
+          id="projects"
+          class="section gallery"
+          data-gallery-root=""
+          data-lightbox-target="gallery-dialog"
+        >
+          <div class="section-heading section-heading--wide">
+            <span class="section-index" data-reveal="frame">05</span>
+            <h2 data-reveal="heading" class="section-heading__title">ГАЛЕРЕЯ<br>РАБОТ</h2>
+            <p data-reveal="fade" class="section-heading__description">
+              Наши изделия на объектах.<br>Форма, фактура и точность в деталях.
+            </p>
+          </div>
+          <div class="gallery__grid">
+            <button
+              class="gallery__item gallery__item--large"
+              data-gallery="0"
+              aria-label="Открыть фотографию ограждения и дымоходов"
+              type="button"
+              data-reveal="image"
+            >
+              <img
+                src="images/work-1.webp"
+                width="1050"
+                height="1400"
+                alt="Ограждение и дымоходы современного дома в едином графитовом цвете"
+                loading="lazy"
+                data-parallax=""
+                data-media=""
+                class="media gallery__photo parallax__image"
+                data-fallback="icons/placeholder.svg"
+                decoding="async"
+                srcset="
+                  images/work-1-480.webp  480w,
+                  images/work-1-800.webp  800w,
+                  images/work-1.webp     1050w
+                "
+                sizes="(max-width: 600px) 100vw, (max-width: 1120px) 50vw, 42vw"><span data-gallery-caption="" class="gallery__caption"
+                >Единый характер дома<svg
+                  aria-hidden="true"
+                  class="gallery__icon"
+                  viewBox="0 0 24 24"
+                >
+                  <use href="#lucide-plus"></use></svg
+              ></span></button
+            ><button
+              class="gallery__item"
+              data-gallery="1"
+              aria-label="Открыть фотографию колпака FLAT"
+              type="button"
+              data-reveal="image"
+            >
+              <img
+                src="images/work-2.webp"
+                width="825"
+                height="1100"
+                alt="Графитовый колпак FLAT на кирпичном столбе"
+                loading="lazy"
+                data-parallax=""
+                data-media=""
+                class="media gallery__photo parallax__image"
+                data-fallback="icons/placeholder.svg"
+                decoding="async"
+                srcset="
+                  images/work-2-480.webp 480w,
+                  images/work-2-800.webp 800w,
+                  images/work-2.webp     825w
+                "
+                sizes="(max-width: 600px) 100vw, (max-width: 1120px) 50vw, 42vw"><span data-gallery-caption="" class="gallery__caption"
+                >FLAT. Чистая линия<svg aria-hidden="true" class="gallery__icon" viewBox="0 0 24 24">
+                  <use href="#lucide-plus"></use></svg
+              ></span></button
+            ><button
+              class="gallery__item"
+              data-gallery="2"
+              aria-label="Открыть фотографию кровельного парапета"
+              type="button"
+              data-reveal="image"
+            >
+              <img
+                src="images/work-3.webp"
+                width="825"
+                height="1100"
+                alt="Строгая геометрия металлического парапета на фасаде дома"
+                loading="lazy"
+                data-parallax=""
+                data-media=""
+                class="media gallery__photo parallax__image"
+                data-fallback="icons/placeholder.svg"
+                decoding="async"
+                srcset="
+                  images/work-3-480.webp 480w,
+                  images/work-3-800.webp 800w,
+                  images/work-3.webp     825w
+                "
+                sizes="(max-width: 600px) 100vw, (max-width: 1120px) 50vw, 42vw"><span data-gallery-caption="" class="gallery__caption"
+                >Точность сопряжений<svg aria-hidden="true" class="gallery__icon" viewBox="0 0 24 24">
+                  <use href="#lucide-plus"></use></svg
+              ></span></button
+            ><button
+              class="gallery__item gallery__item--wide"
+              data-gallery="3"
+              aria-label="Открыть фотографию колпака МОДЕРН"
+              type="button"
+              data-reveal="image"
+            >
+              <img
+                src="images/work-4.webp"
+                width="875"
+                height="1100"
+                alt="Установленный многоярусный колпак МОДЕРН"
+                loading="lazy"
+                data-parallax=""
+                data-media=""
+                class="media gallery__photo parallax__image"
+                data-fallback="icons/placeholder.svg"
+                decoding="async"
+                srcset="
+                  images/work-4-480.webp 480w,
+                  images/work-4-800.webp 800w,
+                  images/work-4.webp     875w
+                "
+                sizes="(max-width: 600px) 100vw, (max-width: 1120px) 50vw, 42vw"><span data-gallery-caption="" class="gallery__caption"
+                >МОДЕРН. Ритм горизонталей<svg
+                  aria-hidden="true"
+                  class="gallery__icon"
+                  viewBox="0 0 24 24"
+                >
+                  <use href="#lucide-plus"></use></svg
+              ></span>
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Контакты -->
+    <div data-scroll-screen="contacts">
+      <footer id="contacts" class="footer" aria-labelledby="contacts-title">
+        <div class="footer__photo">
+          <img
+            src="images/footer.webp"
+            width="1200"
+            height="1600"
+            alt="Графитовый парапет и кирпичная архитектура частного дома"
+            loading="lazy"
+            data-parallax=""
+            data-parallax-position="footer"
+            data-media=""
+            class="media footer__image parallax__image"
+            data-fallback="icons/placeholder.svg"
+            decoding="async"
+            srcset="
+              images/footer-480.webp  480w,
+              images/footer-800.webp  800w,
+              images/footer.webp     1200w
+            "
+            sizes="50vw"><span class="footer__word" aria-hidden="true">МАНУФАКТУРА</span>
+        </div>
+        <div class="footer__panel">
+          <div class="footer__heading">
+            <span class="section-index" data-reveal="frame">06</span>
+            <h2 id="contacts-title" data-reveal="heading" class="footer__title">КОНТАКТЫ</h2>
+          </div>
+          <div class="footer__content" data-reveal="fade">
+            <a href="#top" class="footer__brand footer__link" aria-label="Мануфактура, наверх"
+              ><img
+                src="icons/logo-light.svg"
+                alt="Мануфактура"
+                width="180"
+                height="68"
+                loading="lazy"
+                data-media=""
+                class="media footer__logo"
+                data-fallback="icons/placeholder.svg"></a>
+            
+            <div class="footer__addresses">
+              <div class="footer__address">
+                <h3 class="footer__address-title">Производство</h3>
+                <p class="footer__address-text">Щербакова, 220<br>Цокольный этаж</p>
+                <a
+                  href="https://yandex.ru/maps/?text=Екатеринбург%20Щербакова%20220"
+                  target="_blank"
+                  rel="noopener"
+                  class="footer__map-link footer__link"
+                  >На карте</a
+                >
+              </div>
+              <div class="footer__address">
+                <h3 class="footer__address-title">Офис</h3>
+                <p class="footer__address-text">Малышева, 51<br>БЦ «Высоцкий», 25/02</p>
+                <a
+                  href="https://yandex.ru/maps/?text=Екатеринбург%20Малышева%2051"
+                  target="_blank"
+                  rel="noopener"
+                  class="footer__map-link footer__link"
+                  >На карте</a
+                >
+              </div>
+            </div>
+            <button
+              class="button button--outline footer__project"
+              type="button"
+              data-open-request=""
+              >Оставить заявку</button
+            >
+          </div>
+          <div class="footer__legal" data-reveal="fade">
+            <p class="footer__legal-text">
+              ИП Табачник М. М.<br>ИНН 667478001410 / ОГРНИП 323665800102148
+            </p>
+            <p class="footer__legal-text">© <span id="year" data-year="">2026</span> Мануфактура</p>
+            <nav class="footer__documents" aria-label="Юридическая информация">
+              <a class="footer__link" href="privacy.html">Политика обработки данных</a>
+              <a class="footer__link" href="consent.html">Согласие на обработку данных</a>
+            </nav>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Просмотр фотографий -->
+    <dialog
+      id="gallery-dialog"
+      class="lightbox lightbox--photo"
+      aria-label="Просмотр фотографий"
+      data-lightbox=""
+      data-dialog=""
+    >
+      <div class="lightbox__viewer">
+        <div class="lightbox__toolbar">
+          <p id="gallery-count" data-lightbox-count="" class="lightbox__count">01 / 04</p>
+          <button
+            class="icon-button lightbox__close"
+            aria-label="Закрыть фотографию"
+            type="button"
+            data-dialog-close=""
+          >
+            <svg aria-hidden="true" class="icon-button__icon" viewBox="0 0 24 24">
+              <use href="#lucide-x"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="lightbox__stage">
+          <button
+            class="icon-button lightbox__previous"
+            aria-label="Предыдущая фотография"
+            type="button"
+            data-lightbox-step="-1"
+          >
+            <svg aria-hidden="true" class="icon-button__icon" viewBox="0 0 24 24">
+              <use href="#lucide-arrow-right"></use>
+            </svg></button
+          ><img
+            id="lightbox-image"
+            src="images/work-1.webp"
+            alt=""
+            class="lightbox__image media"
+            data-lightbox-image=""
+            data-media=""
+            data-fallback="icons/placeholder.svg"
+            width="1050"
+            height="1400"
+            decoding="async"><button
+            class="icon-button lightbox__next"
+            aria-label="Следующая фотография"
+            type="button"
+            data-lightbox-step="1"
+          >
+            <svg aria-hidden="true" class="icon-button__icon" viewBox="0 0 24 24">
+              <use href="#lucide-arrow-right"></use>
+            </svg>
+          </button>
+        </div>
+        <p id="lightbox-caption" class="lightbox__caption" data-lightbox-caption=""></p>
+      </div>
+    </dialog>
+
+    <!-- Просмотр чертежей -->
+    <dialog
+      id="blueprint-dialog"
+      class="lightbox lightbox--drawing"
+      aria-labelledby="blueprint-caption"
+      data-lightbox=""
+      data-dialog=""
+    >
+      <div class="lightbox__toolbar">
+        <p id="blueprint-caption" class="lightbox__caption" data-lightbox-caption="">Чертёж</p>
+        <button
+          class="icon-button lightbox__close"
+          aria-label="Закрыть чертёж"
+          type="button"
+          data-dialog-close=""
+          autofocus
+        >
+          <svg aria-hidden="true" class="icon-button__icon" viewBox="0 0 24 24">
+            <use href="#lucide-x"></use>
+          </svg>
+        </button>
+      </div>
+      <section
+        class="lightbox__stage"
+        data-lightbox-scroll=""
+        tabindex="0"
+        aria-label="Чертёж с размерами, доступна прокрутка"
+      >
+        <img
+          src="icons/drawing-flat.svg"
+          alt=""
+          class="lightbox__image media"
+          data-lightbox-image=""
+          data-media=""
+          data-fallback="icons/placeholder.svg"
+          width="552"
+          height="220"
+          decoding="async">
+      </section>
+      <div class="lightbox__navigation">
+        <button
+          class="icon-button lightbox__previous"
+          aria-label="Предыдущий чертёж"
+          type="button"
+          data-lightbox-step="-1"
+        >
+          <svg aria-hidden="true" class="icon-button__icon" viewBox="0 0 24 24">
+            <use href="#lucide-arrow-right"></use>
+          </svg>
+        </button>
+        <div class="lightbox__details">
+          <p class="lightbox__count" data-lightbox-count="" aria-live="polite">01 / 04</p>
+          <p class="lightbox__hint">Прокрутите чертёж в сторону</p>
+        </div>
+        <button
+          class="icon-button lightbox__next"
+          aria-label="Следующий чертёж"
+          type="button"
+          data-lightbox-step="1"
+        >
+          <svg aria-hidden="true" class="icon-button__icon" viewBox="0 0 24 24">
+            <use href="#lucide-arrow-right"></use>
+          </svg>
+        </button>
+      </div>
+    </dialog>
+
+    <!-- Запрос расчёта -->
+    <dialog
+      id="request-dialog"
+      class="request"
+      aria-labelledby="request-title"
+      data-request=""
+      data-dialog=""
+    >
+      <button
+        class="icon-button request__close"
+        aria-label="Закрыть запрос"
+        type="button"
+        data-dialog-close=""
+      >
+        <svg aria-hidden="true" class="icon-button__icon" viewBox="0 0 24 24">
+          <use href="#lucide-x"></use>
+        </svg>
+      </button>
+      <h2 id="request-title" class="request__title">Заявка на расчёт</h2>
+      <p class="request__copy">
+        Оставьте контакты. Менеджер свяжется с вами и уточнит стоимость.
+      </p>
+      <div class="request__spec" id="request-spec" data-request-spec=""></div>
+      <form class="request__form" method="post" data-request-form="" data-request-endpoint="/api/request.php">
+        <div class="request__fields">
+          <label class="request__field">
+            <span class="request__label">Ваше имя</span>
+            <input class="request__input" name="name" autocomplete="name" required minlength="2" maxlength="80" placeholder="Как к вам обращаться">
+          </label>
+          <label class="request__field">
+            <span class="request__label">Телефон</span>
+            <input class="request__input" name="phone" type="tel" inputmode="tel" autocomplete="tel" required minlength="10" maxlength="30" placeholder="+7 (___) ___-__-__">
+          </label>
+        </div>
+        <label class="request__field">
+          <span class="request__label">Комментарий <span class="request__optional">необязательно</span></span>
+          <textarea class="request__comment" name="comment" rows="2" maxlength="1500" placeholder="Цвет, сроки или особенности проекта"></textarea>
+        </label>
+        <div class="request__trap" aria-hidden="true" inert>
+          <label>Ваш сайт<input name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+        <div class="request__agreement">
+          <label class="request__consent">
+            <input type="checkbox" name="consent" value="1" required>
+            <span>Даю <a href="consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a>.</span>
+          </label>
+          <p class="request__privacy"><a href="privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a></p>
+        </div>
+        <p class="request__status" data-request-status="" role="status" aria-live="polite" hidden></p>
+        <button class="button button--dark" type="submit" data-request-submit="">Отправить заявку</button>
+      </form>
+      <div class="request__success" data-request-success="" role="status" tabindex="-1" hidden>
+        <p class="request__success-title">Спасибо! Заявка отправлена.</p>
+        <p class="request__copy">Менеджер свяжется с вами по указанному телефону.</p>
+        <button class="button button--dark" type="button" data-dialog-close="">Готово</button>
+      </div>
+      <a href="tel:+79292157775" class="request__phone">Или позвоните: +7 929 215 77 75</a>
+    </dialog>
+  </body>
+</html>
+

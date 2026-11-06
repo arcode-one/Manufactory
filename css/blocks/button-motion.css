@@ -1,0 +1,107 @@
+/* Emil Kowalski: короткий отклик, обратимые CSS-переходы, без изменения геометрии. */
+@layer motion {
+  :is(.button, .header__toggle, .catalog__tab, .calculator__model-label, .calculator__quantity-button) {
+    --control-fill: var(--cream);
+    --control-hover-color: var(--graphite);
+    --control-hover-border: var(--cream);
+
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    transition:
+      color var(--control-hover-duration) var(--ease),
+      border-color var(--control-hover-duration) var(--ease),
+      transform var(--control-press-duration) var(--ease);
+  }
+
+  :is(.button, .header__toggle, .catalog__tab, .calculator__model-label, .calculator__quantity-button)::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    pointer-events: none;
+    background: var(--control-fill);
+    transform: translateY(101%);
+    transition: transform var(--control-hover-duration) var(--ease);
+  }
+
+  :is(.header__toggle, .catalog__tab, .calculator__model-label, .calculator__quantity-button) {
+    --control-hover-duration: 180ms;
+  }
+
+  :is(.header__toggle, .calculator__quantity-button) {
+    --control-fill: var(--ink);
+    --control-hover-color: var(--paper);
+    --control-hover-border: var(--ink);
+  }
+
+  .header--transparent .header__toggle {
+    --control-fill: var(--cream);
+    --control-hover-color: var(--graphite);
+    --control-hover-border: var(--cream);
+  }
+
+  :is(.catalog__tab, .calculator__model-label) {
+    --control-fill: #eeeceb;
+    --control-hover-color: var(--ink);
+    --control-hover-border: var(--ink);
+    transition:
+      border-color var(--control-hover-duration) var(--ease),
+      transform var(--control-press-duration) var(--ease);
+  }
+
+  .catalog__tab[aria-selected='true'],
+  .calculator__model-radio:checked + .calculator__model-label {
+    --control-fill: #403a3d;
+    --control-hover-color: var(--paper);
+    --control-hover-border: #655d61;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    :is(.button, .header__toggle, .catalog__tab, .calculator__quantity-button):not(:disabled):not([aria-disabled='true']):hover,
+    .calculator__model-option:hover .calculator__model-radio:not(:disabled) + .calculator__model-label {
+      color: var(--control-hover-color);
+      border-color: var(--control-hover-border);
+    }
+
+    :is(.button, .header__toggle, .catalog__tab, .calculator__quantity-button):not(:disabled):not([aria-disabled='true']):hover::before,
+    .calculator__model-option:hover .calculator__model-radio:not(:disabled) + .calculator__model-label::before {
+      transform: translateY(0);
+    }
+
+    .button:not(:disabled):not([aria-disabled='true']):hover {
+      transform: translateY(-1px);
+    }
+  }
+
+  :is(.button, .header__toggle, .catalog__tab, .calculator__quantity-button):not(:disabled):not([aria-disabled='true']):active,
+  .calculator__model-option:active .calculator__model-radio:not(:disabled) + .calculator__model-label {
+    transform: scale(0.98);
+  }
+
+  :is(.button, .header__toggle, .catalog__tab, .calculator__quantity-button):disabled,
+  :is(.button, .header__toggle, .catalog__tab, .calculator__quantity-button)[aria-disabled='true'] {
+    transform: none;
+  }
+
+  .page--keyboard :is(.button, .header__toggle, .catalog__tab, .calculator__quantity-button),
+  .page--keyboard .calculator__model-label {
+    transform: none !important;
+    transition: none;
+  }
+
+  .page--keyboard :is(.button, .header__toggle, .catalog__tab, .calculator__model-label, .calculator__quantity-button)::before {
+    transition: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :is(.button, .header__toggle, .catalog__tab, .calculator__model-label, .calculator__quantity-button) {
+      transform: none !important;
+      transition: none !important;
+    }
+
+    :is(.button, .header__toggle, .catalog__tab, .calculator__model-label, .calculator__quantity-button)::before {
+      transition: none !important;
+    }
+  }
+}

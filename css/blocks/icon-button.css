@@ -1,0 +1,14 @@
+@layer foundation {
+  .icon-button {
+    height: var(--control-size);
+    width: var(--control-size);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+
+  .icon-button__icon {
+    width: 24px;
+    height: 24px;
+  }
+}

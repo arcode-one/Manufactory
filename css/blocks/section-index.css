@@ -1,0 +1,57 @@
+@layer foundation {
+  .section-index {
+    border: 2px solid currentcolor;
+    min-height: 59px;
+    width: 204px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.03em;
+    position: relative;
+    z-index: 2;
+  }
+}
+@layer responsive {
+  @media (width <= 1200px) {
+    .section-index {
+      width: 170px;
+      min-height: 55px;
+      font-size: 36px;
+    }
+  }
+
+  @media (width <= 900px) {
+    .section-index {
+      width: 150px;
+      min-height: 53px;
+      font-size: 35px;
+    }
+  }
+
+  @media (width <= 720px) {
+    .section-index {
+      width: 135px;
+      min-height: 48px;
+      font-size: 33px;
+    }
+  }
+
+  @media (width <= 500px) {
+    .section-index {
+      width: 115px;
+      min-height: 46px;
+      font-size: 33px;
+      padding: 0 11px;
+    }
+  }
+
+  @media (width <= 360px) {
+    .section-index {
+      width: 100px;
+    }
+  }
+}

@@ -1,0 +1,236 @@
+@layer adaptive {
+  .page--section-scroll {
+    --section-scroll-duration: 900ms;
+    --section-viewport: calc(100dvh - var(--header-height));
+
+    scroll-behavior: auto;
+    scroll-padding-top: var(--header-height);
+  }
+
+  .page--section-scrolling {
+    overflow-anchor: none;
+  }
+
+  .page--section-scroll [data-scroll-screen] {
+    height: var(--section-viewport);
+    overflow-y: auto;
+    overflow-x: clip;
+    overscroll-behavior-y: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--silver) transparent;
+  }
+
+  .page--section-scroll [data-scroll-screen='hero'] {
+    height: 100dvh;
+  }
+
+  .page--section-scroll:has([data-menu-toggle][aria-expanded='true'], dialog[open]) [data-scroll-screen],
+  .page--section-scroll:has([data-menu-toggle][aria-expanded='true'], dialog[open]) .product__copy {
+    overflow-y: hidden;
+  }
+
+  .page--section-scroll [data-scroll-screen] > section,
+  .page--section-scroll [data-scroll-screen] > footer {
+    height: auto;
+    min-height: 100%;
+  }
+
+  .page--section-scroll [data-scroll-screen] > .hero,
+  .page--section-scroll [data-scroll-screen] > .geography {
+    height: 100%;
+    min-height: 100%;
+  }
+
+  .page--section-scroll .footer__panel {
+    min-height: var(--section-viewport);
+  }
+
+  @media (width <= 600px) {
+    .page--section-scroll .footer__panel,
+    .page--section-scroll .footer__content {
+      min-width: 0;
+    }
+
+    .page--section-scroll .footer__phone {
+      font-size: clamp(22px, 6.5vw, 28px);
+    }
+
+    .page--section-scroll .footer__email {
+      max-width: 100%;
+      overflow-wrap: anywhere;
+    }
+  }
+
+  @media (width >= 760px) and (height >= 640px) {
+    .page--section-scroll [data-scroll-screen] > .gallery {
+      height: 100%;
+    }
+  }
+
+  /* Карточки используют оставшуюся высоту, а не минимальную высоту фото. */
+  @media (width >= 1121px) {
+    .page--section-scroll [data-scroll-screen] > .catalog {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100%;
+      padding-block: clamp(16px, 3dvh, 32px);
+    }
+
+    .page--section-scroll .catalog .section-heading {
+      flex-shrink: 0;
+      gap: 16px 42px;
+      margin-bottom: 20px;
+    }
+
+    .page--section-scroll .catalog__grid {
+      flex: 1;
+      min-height: 0;
+    }
+
+    .page--section-scroll .catalog__panel,
+    .page--section-scroll .product {
+      height: 100%;
+      min-height: 0;
+    }
+
+    .page--section-scroll .product {
+      padding-bottom: 0;
+    }
+
+    .page--section-scroll .product__copy {
+      min-height: 0;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      padding-top: 0;
+    }
+
+    .page--section-scroll .product__image {
+      min-height: 0;
+      height: 100%;
+    }
+
+    .page--section-scroll .product__purpose {
+      margin-bottom: 10px;
+    }
+
+    .page--section-scroll .product__title {
+      margin-bottom: 12px;
+    }
+
+    .page--section-scroll .product__description {
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+
+    .page--section-scroll .product__specs {
+      margin-bottom: 12px;
+    }
+
+    .page--section-scroll .product__spec-row {
+      flex-direction: row;
+      padding-block: 7px;
+    }
+
+    .page--section-scroll .product__value {
+      text-align: right;
+    }
+
+    .page--section-scroll .product__blueprint {
+      flex: 1;
+      min-height: 70px;
+      grid-template-rows: auto minmax(0, 1fr);
+      gap: 8px;
+      margin: 4px 0 16px;
+    }
+
+    .page--section-scroll .product__drawing {
+      height: 100%;
+      min-height: 0;
+      max-height: 150px;
+    }
+
+    .page--section-scroll .product__select {
+      flex-shrink: 0;
+    }
+  }
+
+  @media (width >= 1121px) and (height <= 850px) {
+    .page--section-scroll .calculator {
+      padding-block: 16px;
+    }
+
+    .page--section-scroll .calculator .section-heading {
+      grid-template-columns: 130px minmax(0, 1fr) var(--calculator-summary-width);
+      gap: 24px;
+      margin-bottom: 20px;
+    }
+
+    .page--section-scroll .calculator .section-index {
+      width: 130px;
+    }
+
+    .page--section-scroll .calculator .section-heading__description {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .page--section-scroll .calculator__fieldset {
+      margin-bottom: 16px;
+    }
+
+    .page--section-scroll .calculator__summary {
+      padding: 18px;
+    }
+
+    .page--section-scroll .calculator__model {
+      min-height: 70px;
+    }
+
+    .page--section-scroll .calculator__contacts {
+      grid-template-columns: 1fr auto;
+    }
+
+    .page--section-scroll .calculator__contacts-label {
+      grid-column: 1 / -1;
+    }
+
+    .page--section-scroll .footer__panel {
+      padding-top: 32px;
+    }
+
+    .page--section-scroll .footer__content {
+      padding-top: 16px;
+    }
+
+    .page--section-scroll .footer__legal {
+      margin-top: 16px;
+    }
+
+    .page--section-scroll .catalog .section-heading {
+      row-gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .page--section-scroll .catalog__tab,
+    .page--section-scroll .product__select {
+      min-height: 44px;
+    }
+
+    .page--section-scroll .product__subtitle {
+      display: inline;
+      margin-left: 8px;
+    }
+
+    .page--section-scroll .product__blueprint {
+      flex: 0 0 auto;
+      min-height: 0;
+      margin-bottom: 14px;
+    }
+
+    /* Полный чертёж по-прежнему открывается по ссылке «Увеличить». */
+    .page--section-scroll .product__drawing {
+      display: none;
+    }
+  }
+}

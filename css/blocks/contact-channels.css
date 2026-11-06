@@ -1,0 +1,58 @@
+@layer layout {
+  .contact-channels {
+    display: flex;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .calculator__contacts .contact-channels {
+    grid-column: 1 / -1;
+  }
+
+  .contact-channels__link {
+    display: flex;
+    align-items: center;
+    flex: 0 0 44px;
+    border-radius: 50%;
+  }
+
+  .contact-channels__icon {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    transition: opacity 180ms var(--ease);
+  }
+
+  .contact-channels__icon img {
+    width: 24px;
+    height: 24px;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .contact-channels__link:hover .contact-channels__icon {
+      opacity: 0.65;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .contact-channels__icon {
+      transition: none;
+    }
+  }
+}
+
+@layer adaptive {
+  @media (width > 1120px) and (height <= 850px) {
+    .page--section-scroll .calculator__contacts {
+      margin-top: 12px;
+      padding-top: 10px;
+      gap: 6px 12px;
+    }
+
+    .page--section-scroll .contact-channels__link {
+      padding-block: 0;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@layer layout {
+  .icon {
+    width: 24px;
+    height: 24px;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .icon--sprite {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+}

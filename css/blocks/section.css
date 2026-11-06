@@ -1,0 +1,45 @@
+@layer foundation {
+  .section {
+    padding: 88px var(--gutter);
+  }
+}
+@layer responsive {
+  @media (width <= 720px) {
+    .section {
+      padding-block: 65px;
+    }
+  }
+
+  @media (width <= 500px) {
+    .section {
+      padding-block: 54px;
+    }
+  }
+}
+@layer viewport {
+  .section {
+    min-height: 100svh;
+  }
+}
+@layer screens {
+  @media (width >= 760px) and (height >= 640px) {
+    .section {
+      height: 100svh;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      padding-block: clamp(28px, 4.5svh, 62px);
+    }
+  }
+}
+@layer layout {
+  .section {
+    padding-inline: var(--page-inset);
+  }
+}
+@layer adaptive {
+  .section--expanded {
+    height: auto;
+    min-height: 100svh;
+  }
+}

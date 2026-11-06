@@ -1,0 +1,214 @@
+@layer layout {
+  .page--keyboard .header::before,
+  .page--keyboard .header__logo,
+  .page--keyboard .header__nav-link,
+  .page--keyboard .header__contact,
+  .page--keyboard .header__toggle,
+  .page--keyboard .header__toggle .icon {
+    transition: none;
+  }
+}
+@layer motion {
+  .page--motion .parallax__layer {
+    display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .page--motion .parallax__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    transform: scale(1.16);
+    transition: transform 500ms var(--ease);
+  }
+
+  .page--motion .parallax__layer.parallax__layer--visible {
+    will-change: transform;
+  }
+
+  .page--motion .hero > .parallax__layer {
+    z-index: -2;
+  }
+
+  .page--motion .product__image .parallax__image {
+    object-position: 50% 43%;
+  }
+
+  .page--motion .footer__photo .parallax__image {
+    object-position: 50% 45%;
+    transform: scale(-1.16, 1.16);
+    filter: brightness(0.76) saturate(0.7);
+  }
+
+  .page--motion [data-motion] {
+    transition:
+      opacity 400ms var(--ease),
+      clip-path 600ms var(--ease);
+    transition-delay: var(--motion-delay, 0ms);
+  }
+
+  .page--motion [data-motion='heading']:not(.motion--revealed) {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  .page--motion [data-motion='frame']:not(.motion--revealed),
+  .page--motion [data-motion='line']:not(.motion--revealed) {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  .page--motion [data-motion='fade']:not(.motion--revealed) {
+    opacity: 0;
+  }
+
+  .page--motion [data-motion='image']:not(.motion--revealed) {
+    opacity: 0.7;
+    clip-path: inset(8% 0 0 0);
+  }
+
+  .page--motion [data-motion].motion--revealed {
+    opacity: 1;
+    clip-path: inset(0);
+  }
+
+  .page--motion [data-motion].motion--instant {
+    transition: none;
+  }
+
+  .page--motion .header__menu-label {
+    transition: transform 180ms var(--ease);
+  }
+
+  .page--motion .header__menu {
+    opacity: 1;
+    transform: translateY(0);
+    transform-origin: top right;
+    transition:
+      opacity 200ms var(--ease),
+      transform 200ms var(--ease),
+      display 200ms allow-discrete;
+  }
+
+  .page--motion .header__menu[hidden] {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  .page--motion dialog {
+    opacity: 0;
+    transform: scale(0.98);
+    transition:
+      opacity 220ms var(--ease),
+      transform 220ms var(--ease),
+      display 220ms allow-discrete,
+      overlay 220ms allow-discrete;
+  }
+
+  .page--motion dialog[open] {
+    opacity: 1;
+    transform: scale(1);
+    animation: none;
+  }
+
+  .page--motion .lightbox {
+    transform: none;
+  }
+
+  .page--motion dialog::backdrop {
+    opacity: 0;
+    transition:
+      opacity 220ms var(--ease),
+      display 220ms allow-discrete,
+      overlay 220ms allow-discrete;
+  }
+
+  .page--motion dialog[open]::backdrop {
+    opacity: 1;
+  }
+
+  @starting-style {
+    .page--motion .header__menu:not([hidden]) {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+
+    .page--motion dialog[open] {
+      opacity: 0;
+      transform: scale(0.98);
+    }
+
+    .page--motion .lightbox[open] {
+      transform: none;
+    }
+
+    .page--motion dialog[open]::backdrop {
+      opacity: 0;
+    }
+  }
+
+  html.page--keyboard {
+    scroll-behavior: auto;
+  }
+
+  .page--keyboard button:active,
+  .page--keyboard .button:active {
+    transform: none;
+  }
+
+  .page--keyboard .header__menu-label,
+  .page--keyboard .header__menu,
+  .page--keyboard dialog,
+  .page--keyboard dialog::backdrop {
+    transition: none;
+    animation: none;
+  }
+
+  @starting-style {
+    .page--keyboard .header__menu:not([hidden]),
+    .page--keyboard dialog[open],
+    .page--keyboard dialog[open]::backdrop {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .page--motion .product__image:hover .parallax__image,
+    .page--motion .gallery__item:hover .parallax__image {
+      transform: scale(1.19);
+    }
+
+  }
+
+  @media (width <= 760px), (pointer: coarse) {
+    .page--motion .parallax__image {
+      transform: scale(1.1);
+    }
+
+    .page--motion .footer__photo .parallax__image {
+      transform: scale(-1.1, 1.1);
+    }
+  }
+
+  @media (width <= 600px) {
+    .page--motion .footer__photo .parallax__image {
+      object-position: 50% 40%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .parallax__layer {
+      transform: none !important;
+      will-change: auto !important;
+    }
+
+    [data-motion] {
+      opacity: 1 !important;
+      clip-path: none !important;
+      transition: none !important;
+    }
+  }
+}

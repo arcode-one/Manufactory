@@ -1,0 +1,4 @@
+.media--unavailable {
+  object-fit: contain;
+  background: var(--wash);
+}

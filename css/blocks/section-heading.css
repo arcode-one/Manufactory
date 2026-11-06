@@ -1,0 +1,138 @@
+@layer foundation {
+  .section-heading {
+    display: grid;
+    grid-template-columns: 204px 1fr;
+    gap: 45px;
+    align-items: center;
+    margin-bottom: 58px;
+  }
+
+  .section-heading--wide {
+    grid-template-columns: 204px 1fr minmax(240px, 29%);
+  }
+
+  .section-heading__description {
+    color: var(--muted);
+  }
+}
+@layer responsive {
+  @media (width <= 1200px) {
+    .section-heading--wide {
+      grid-template-columns: 170px 1fr minmax(220px, 28%);
+      gap: 30px;
+    }
+  }
+
+  @media (width <= 900px) {
+    .section-heading--wide {
+      grid-template-columns: 150px 1fr;
+      gap: 26px;
+      margin-bottom: 40px;
+    }
+
+    .section-heading__description {
+      grid-column: 2;
+    }
+  }
+
+  @media (width <= 720px) {
+    .section-heading--wide {
+      gap: 25px;
+    }
+  }
+
+  @media (width <= 500px) {
+    .section-heading--wide {
+      margin-bottom: 31px;
+      align-items: center;
+    }
+
+    .section-heading__title {
+      letter-spacing: -0.035em;
+    }
+
+    .section-heading__description {
+      margin-top: 2px;
+    }
+  }
+}
+@layer screens {
+  @media (width >= 760px) and (height >= 640px) {
+    .section-heading {
+      flex-shrink: 0;
+      margin-bottom: clamp(24px, 4svh, 45px);
+    }
+  }
+
+  @media (width >= 760px) and (height >= 640px) and (height <= 760px) {
+    .section-heading {
+      margin-bottom: 25px;
+    }
+  }
+
+  @media (width >= 760px) and (width <= 999px) and (height >= 640px) {
+    .section-heading--wide {
+      grid-template-columns: 130px minmax(0, 1fr) 210px;
+      gap: 20px;
+    }
+
+    .section-heading .section-index {
+      width: 130px;
+    }
+
+    .section-heading__description {
+      grid-column: auto;
+    }
+  }
+}
+@layer layout {
+  .section-heading__title {
+    font-size: clamp(32px, 2.8vw, 48px);
+  }
+
+  .section-heading__description {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+}
+@layer adaptive {
+  @media (width <= 760px) {
+    .section-heading--wide {
+      grid-template-columns: 135px 1fr;
+    }
+
+    .section-heading__description {
+      grid-column: 2;
+    }
+
+    .section-heading__title {
+      font-size: 32px;
+    }
+  }
+
+  @media (width <= 600px) {
+    .section-heading--wide {
+      grid-template-columns: 112px 1fr;
+      gap: 20px;
+    }
+
+    .section-heading .section-index {
+      width: 112px;
+    }
+
+    .section-heading__title {
+      font-size: 27px;
+    }
+
+    .section-heading__description {
+      grid-column: 1 / -1;
+      font-size: 16px;
+    }
+  }
+
+  @media (width <= 360px) {
+    .section-heading__title {
+      font-size: 24px;
+    }
+  }
+}

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<!-- Один экран документа и контакты. HTML, CSS, нативные ES-модули. -->
+<html lang="ru" class="page page--legal" data-page-motion="" data-section-scroll="" data-scroll-header="" data-scroll-screens="legal-document contacts" data-scroll-anchors="operator:legal-document purpose:legal-document processing:legal-document rights:legal-document">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="js/utils/page-boot.js"></script>
+<meta name="theme-color" content="#ffffff"><title>Политика обработки персональных данных | Мануфактура</title>
+<meta name="description" content="Политика обработки персональных данных МТМ Мануфактура. Цели, данные, порядок обработки и обратная связь.">
+<link rel="icon" href="icons/logo-dark.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/Manrope-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="stylesheet" href="css/index.css"><script type="module" src="js/index.js"></script>
+</head><body id="top">
+    <!-- Иконки Lucide: один встроенный спрайт для всех кнопок. -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon icon--sprite"
+      data-icon-sprite=""
+      aria-hidden="true"
+      focusable="false"
+      width="0"
+      height="0"
+    >
+      <!-- Lucide, ISC: LUCIDE-LICENSE -->
+      <symbol
+        id="lucide-menu"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.75"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M4 5h16"></path>
+        <path d="M4 12h16"></path>
+        <path d="M4 19h16"></path>
+      </symbol>
+      <symbol
+        id="lucide-plus"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.75"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M5 12h14"></path>
+        <path d="M12 5v14"></path>
+      </symbol>
+      <symbol
+        id="lucide-arrow-right"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.75"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M5 12h14"></path>
+        <path d="m12 5 7 7-7 7"></path>
+      </symbol>
+      <symbol
+        id="lucide-x"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.75"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M18 6 6 18"></path>
+        <path d="m6 6 12 12"></path>
+      </symbol>
+    </svg>
+<a class="skip-link" href="#main">К содержимому</a>
+    <!-- Шапка -->
+    <header class="header" data-header="">
+      <a class="header__brand" href="index.html#top" aria-label="Мануфактура, на главную"
+        ><img
+          src="icons/logo-dark.svg"
+          width="158"
+          height="60"
+          alt="Мануфактура"
+          data-media=""
+          class="media header__logo"
+          data-fallback="icons/placeholder.svg"><img
+          src="icons/logo-light.svg"
+          width="158"
+          height="60"
+          alt=""
+          aria-hidden="true"
+          class="header__logo header__logo--light"></a>
+      <nav class="header__nav" aria-label="Основная навигация">
+        <a href="index.html#products" class="header__nav-link">
+          <span class="header__nav-window">
+            <span class="header__nav-label">Изделия</span>
+            <span class="header__nav-label" aria-hidden="true">Изделия</span>
+          </span>
+        </a>
+        <a href="index.html#calculator" class="header__nav-link">
+          <span class="header__nav-window">
+            <span class="header__nav-label">Калькулятор</span>
+            <span class="header__nav-label" aria-hidden="true">Калькулятор</span>
+          </span>
+        </a>
+        <a href="index.html#contacts" class="header__nav-link">
+          <span class="header__nav-window">
+            <span class="header__nav-label">Контакты</span>
+            <span class="header__nav-label" aria-hidden="true">Контакты</span>
+          </span>
+        </a>
+      </nav>
+      <button
+        class="header__contact"
+        type="button"
+        data-open-request=""
+        aria-haspopup="dialog"
+        aria-controls="request-dialog"
+      >
+        <span class="header__nav-window">
+          <span class="header__nav-label">Связаться</span>
+          <span class="header__nav-label" aria-hidden="true">Связаться</span>
+        </span>
+      </button>
+      <button
+        class="header__toggle"
+        aria-label="Открыть меню"
+        aria-expanded="false"
+        aria-controls="site-menu"
+        type="button"
+        data-menu-toggle=""
+      >
+        <svg class="icon header__menu-icon" aria-hidden="true" viewBox="0 0 24 24">
+          <use href="#lucide-menu"></use></svg
+        ><svg class="icon header__close-icon" aria-hidden="true" viewBox="0 0 24 24">
+          <use href="#lucide-x"></use>
+        </svg>
+      </button>
+    </header>
+    <nav id="site-menu" class="header__menu" aria-label="Все разделы сайта" hidden data-menu="">
+      <a href="index.html#about" class="header__menu-link"><span class="header__menu-label">01 / О нас</span></a
+      ><a href="index.html#products" class="header__menu-link"><span class="header__menu-label">02 / Изделия</span></a
+      ><a href="index.html#calculator" class="header__menu-link"><span class="header__menu-label">03 / Калькулятор стоимости</span></a
+      ><a href="index.html#geography" class="header__menu-link"><span class="header__menu-label">04 / География поставок</span></a
+      ><a href="index.html#projects" class="header__menu-link"><span class="header__menu-label">05 / Галерея работ</span></a
+      ><a href="index.html#contacts" class="header__menu-link"><span class="header__menu-label">06 / Контакты</span></a
+      ><button
+        type="button"
+        class="header__menu-contact"
+        data-open-request
+        aria-haspopup="dialog"
+        aria-controls="request-dialog"
+        ><span class="header__menu-label">Связаться</span></button>
+    </nav>
+<main id="main" class="legal">
+<div data-scroll-screen="legal-document" tabindex="0" role="region" aria-label="Текст документа"><section class="legal__screen" id="legal-document" aria-labelledby="legal-title">
+<header class="legal__intro"><h1 class="legal__title" id="legal-title">Политика обработки персональных данных</h1>
+<div class="legal__meta"><p>Редакция от <time datetime="2026-11-04">4 ноября 2026 года</time></p><a href="consent.html">Согласие на обработку персональных данных</a></div></header>
+<div class="legal__body"><div class="legal__column"><section class="legal__section" id="operator" aria-labelledby="operator-title"><h2 id="operator-title">1. Оператор и цель обработки</h2>
+<p>ИП Табачник Михаил Михайлович, ИНН 667478001410, ОГРНИП 323665800102148. Адрес для обращений: 620010, г. Екатеринбург, ул. Водная, д. 19, кв. 130. Почта: <a href="mailto:manufactura_tm@mail.ru">manufactura_tm@mail.ru</a>.</p>
+<p>Цель: рассмотрение заявки, обратная связь, уточнение параметров изделий и расчёт стоимости. Обработка регулируется Федеральным законом № 152-ФЗ «О персональных данных».</p></section>
+<section class="legal__section" id="purpose" aria-labelledby="purpose-title"><h2 id="purpose-title">2. Данные и основания обработки</h2>
+<p>Данные: имя, телефон, необязательный комментарий и параметры изделия. Основание: отдельное <a href="consent.html">согласие</a>. Посетитель сам отмечает пустое поле перед отправкой; просмотр сайта не заменяет согласия. Для договора и обязательного хранения документов действуют соответствующие основания закона.</p>
+<p>Действия: сбор, запись, систематизация, накопление, хранение, уточнение, извлечение, использование, доступ уполномоченных лиц, блокирование, удаление и уничтожение; с автоматизацией и без неё. Реклама и открытая публикация не предусмотрены.</p>
+</section></div><div class="legal__column"><section class="legal__section" id="processing" aria-labelledby="processing-title"><h2 id="processing-title">3. Порядок, защита и сроки</h2>
+<p>Данные обрабатываются до ответа на заявку или отзыва согласия. Затем уничтожаются в течение 30 дней, если иной срок или основание не установлены законом либо соглашением.</p>
+<p>Оператор обязан ограничивать доступ и защищать данные. Технические обработчики привлекаются по закону, с соблюдением конфиденциальности; сведения о них доступны по запросу. Для сбора данных граждан РФ обязательны базы в России; трансграничная передача не предусмотрена.</p>
+</section>
+<section class="legal__section" id="rights" aria-labelledby="rights-title"><h2 id="rights-title">4. Ваши права и отзыв согласия</h2>
+<p>Вы вправе запросить сведения, уточнение, блокирование, прекращение обработки и уничтожение данных в законных случаях, отозвать согласие, обратиться в Роскомнадзор или суд.</p>
+<p>Для отзыва или запроса напишите на <a href="mailto:manufactura_tm@mail.ru">manufactura_tm@mail.ru</a> либо по адресу Оператора, указав имя, телефон и просьбу. Ответ предоставляется в сроки закона; при необходимости подтверждается личность. Отзыв не отменяет законность прежней обработки.</p>
+<p>Актуальная редакция публикуется здесь. Для новых целей при необходимости требуется отдельное согласие.</p></section></div></div>
+</section></div></main>
+<div class="legal-footer" data-scroll-screen="contacts">      <footer id="contacts" class="footer" aria-labelledby="contacts-title">
+        <div class="footer__photo">
+          <img
+            src="images/footer.webp"
+            width="1200"
+            height="1600"
+            alt="Графитовый парапет и кирпичная архитектура частного дома"
+            loading="lazy"
+            data-parallax=""
+            data-parallax-position="footer"
+            data-media=""
+            class="media footer__image parallax__image"
+            data-fallback="icons/placeholder.svg"
+            decoding="async"
+            srcset="
+              images/footer-480.webp  480w,
+              images/footer-800.webp  800w,
+              images/footer.webp     1200w
+            "
+            sizes="50vw"><span class="footer__word" aria-hidden="true">МАНУФАКТУРА</span>
+        </div>
+        <div class="footer__panel">
+          <div class="footer__heading">
+            <span class="section-index" data-reveal="frame">06</span>
+            <h2 id="contacts-title" data-reveal="heading" class="footer__title">КОНТАКТЫ</h2>
+          </div>
+          <div class="footer__content" data-reveal="fade">
+            <a href="index.html#top" class="footer__brand footer__link" aria-label="Мануфактура, наверх"
+              ><img
+                src="icons/logo-light.svg"
+                alt="Мануфактура"
+                width="180"
+                height="68"
+                loading="lazy"
+                data-media=""
+                class="media footer__logo"
+                data-fallback="icons/placeholder.svg"></a>
+            
+            <div class="footer__addresses">
+              <div class="footer__address">
+                <h3 class="footer__address-title">Производство</h3>
+                <p class="footer__address-text">Щербакова, 220<br>Цокольный этаж</p>
+                <a
+                  href="https://yandex.ru/maps/?text=Екатеринбург%20Щербакова%20220"
+                  target="_blank"
+                  rel="noopener"
+                  class="footer__map-link footer__link"
+                  >На карте</a
+                >
+              </div>
+              <div class="footer__address">
+                <h3 class="footer__address-title">Офис</h3>
+                <p class="footer__address-text">Малышева, 51<br>БЦ «Высоцкий», 25/02</p>
+                <a
+                  href="https://yandex.ru/maps/?text=Екатеринбург%20Малышева%2051"
+                  target="_blank"
+                  rel="noopener"
+                  class="footer__map-link footer__link"
+                  >На карте</a
+                >
+              </div>
+            </div>
+            <button
+              class="button button--outline footer__project"
+              type="button"
+              data-open-request=""
+              >Оставить заявку</button
+            >
+          </div>
+          <div class="footer__legal" data-reveal="fade">
+            <p class="footer__legal-text">
+              ИП Табачник М. М.<br>ИНН 667478001410 / ОГРНИП 323665800102148
+            </p>
+            <p class="footer__legal-text">© <span id="year" data-year="">2026</span> Мануфактура</p>
+            <nav class="footer__documents" aria-label="Юридическая информация">
+              <a class="footer__link" href="privacy.html">Политика обработки данных</a>
+              <a class="footer__link" href="consent.html">Согласие на обработку данных</a>
+            </nav>
+          </div>
+        </div>
+      </footer></div>
+    <!-- Запрос расчёта -->
+    <dialog
+      id="request-dialog"
+      class="request"
+      aria-labelledby="request-title"
+      data-request=""
+      data-dialog=""
+    >
+      <button
+        class="icon-button request__close"
+        aria-label="Закрыть запрос"
+        type="button"
+        data-dialog-close=""
+      >
+        <svg aria-hidden="true" class="icon-button__icon" viewBox="0 0 24 24">
+          <use href="#lucide-x"></use>
+        </svg>
+      </button>
+      <h2 id="request-title" class="request__title">Заявка на расчёт</h2>
+      <p class="request__copy">
+        Оставьте контакты. Менеджер свяжется с вами и уточнит стоимость.
+      </p>
+      <div class="request__spec" id="request-spec" data-request-spec=""></div>
+      <form class="request__form" method="post" data-request-form="" data-request-endpoint="">
+        <div class="request__fields">
+          <label class="request__field">
+            <span class="request__label">Ваше имя</span>
+            <input class="request__input" name="name" autocomplete="name" required minlength="2" maxlength="80" placeholder="Как к вам обращаться">
+          </label>
+          <label class="request__field">
+            <span class="request__label">Телефон</span>
+            <input class="request__input" name="phone" type="tel" inputmode="tel" autocomplete="tel" required minlength="10" maxlength="30" placeholder="+7 (___) ___-__-__">
+          </label>
+        </div>
+        <label class="request__field">
+          <span class="request__label">Комментарий <span class="request__optional">необязательно</span></span>
+          <textarea class="request__comment" name="comment" rows="2" maxlength="1500" placeholder="Цвет, сроки или особенности проекта"></textarea>
+        </label>
+        <div class="request__trap" aria-hidden="true" inert>
+          <label>Ваш сайт<input name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
+        <div class="request__agreement">
+          <label class="request__consent">
+            <input type="checkbox" name="consent" value="1" required>
+            <span>Даю <a href="consent.html" target="_blank" rel="noopener">согласие на обработку персональных данных</a>.</span>
+          </label>
+          <p class="request__privacy"><a href="privacy.html" target="_blank" rel="noopener">Политика обработки персональных данных</a></p>
+        </div>
+        <p class="request__status" data-request-status="" role="status" aria-live="polite" hidden></p>
+        <button class="button button--dark" type="submit" data-request-submit="">Отправить заявку</button>
+      </form>
+      <div class="request__success" data-request-success="" role="status" tabindex="-1" hidden>
+        <p class="request__success-title">Спасибо! Заявка отправлена.</p>
+        <p class="request__copy">Менеджер свяжется с вами по указанному телефону.</p>
+        <button class="button button--dark" type="button" data-dialog-close="">Готово</button>
+      </div>
+      <a href="tel:+79292157775" class="request__phone">Или позвоните: +7 929 215 77 75</a>
+    </dialog>
+</body></html>

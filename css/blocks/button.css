@@ -1,0 +1,42 @@
+@layer foundation {
+  .button:active {
+    transform: scale(0.98);
+  }
+
+  .button {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    min-height: 56px;
+    padding: 0 22px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    text-align: left;
+  }
+
+  .button__icon {
+    width: 19px;
+    height: 19px;
+  }
+
+  .button--outline {
+    color: var(--cream);
+    border-color: #a9a5a1;
+    background: rgb(36 33 34 / 40%);
+  }
+
+  .button--dark {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .button--dark:focus-visible {
+    outline-color: var(--ink);
+  }
+}
+@layer layout {
+  .button {
+    font-size: 16px;
+    justify-content: center;
+  }
+}

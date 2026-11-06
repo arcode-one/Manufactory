@@ -1,0 +1,6 @@
+/* Minimal reset, preserving the established rendering. */
+@layer reset {
+  [hidden] {
+    display: none !important;
+  }
+}

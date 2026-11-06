@@ -1,0 +1,366 @@
+@layer foundation {
+  .hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--graphite);
+    color: var(--silver);
+  }
+
+  .hero__photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+
+  .hero__content {
+    position: absolute;
+    top: calc(37% + var(--header-height) * 0.63);
+  }
+
+  .hero__rule {
+    --hero-rule-space: 18px;
+
+    display: block;
+    position: absolute;
+    left: var(--page-inset);
+    right: var(--page-inset);
+    bottom: 45px;
+    /* Сохраняем исходную высоту блока подписей, чтобы линия осталась на прежнем месте. */
+    height: calc(1lh + var(--hero-rule-space) + 1px);
+    border-top: 1px solid #aba7a7;
+    font-size: 15px;
+    line-height: normal;
+    pointer-events: none;
+  }
+
+  .hero__title {
+    position: relative;
+    font-weight: 700;
+    text-align: left;
+    width: fit-content;
+  }
+
+  .hero__title::before {
+    content: '';
+    width: 1px;
+    background: #aaa6a6;
+    position: absolute;
+    top: 25px;
+    bottom: 15px;
+  }
+
+  .hero__line {
+    display: block;
+  }
+
+  .hero__name {
+    color: var(--silver);
+    font-size: 0.89em;
+  }
+
+  .hero__subject {
+    color: var(--cream);
+  }
+
+  .hero__premium {
+    color: var(--silver);
+  }
+
+  .hero__copy {
+    line-height: 1.8;
+    color: #d0cccd;
+  }
+
+  .hero__description .button {
+    width: 230px;
+    flex-shrink: 0;
+  }
+
+  .hero__title,
+  .hero__description {
+    animation: cover-enter 650ms var(--ease) both;
+  }
+
+  .hero__description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 35px;
+    margin-top: 31px;
+    animation-delay: 90ms;
+  }
+}
+@layer responsive {
+  @media (width <= 1200px) {
+    .hero__description {
+      gap: 25px;
+    }
+  }
+
+  @media (width <= 900px) {
+    .hero__content {
+      top: calc(34% + var(--header-height) * 0.66);
+    }
+
+    .hero__description {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+  }
+
+  @media (width <= 720px) {
+    .hero__content {
+      top: calc(36% + var(--header-height) * 0.64);
+    }
+
+    .hero__title {
+      padding-right: 15px;
+    }
+
+    .hero__title::before {
+      top: 17px;
+    }
+
+    .hero__rule {
+      bottom: 32px;
+    }
+  }
+
+  @media (width <= 500px) {
+    .hero__rule {
+      --hero-rule-space: 16px;
+    }
+
+    .hero__content {
+      top: calc(34% + var(--header-height) * 0.66);
+    }
+
+    .hero__name {
+      font-size: 1.08em;
+    }
+
+    .hero__subject {
+      font-size: 1.045em;
+    }
+
+    .hero__premium {
+      font-size: 1.03em;
+    }
+
+    .hero__title::before {
+      top: 16px;
+      bottom: 14px;
+    }
+
+    .hero__description {
+      gap: 28px;
+      margin-top: 26px;
+    }
+
+    .hero__copy {
+      line-height: 1.85;
+    }
+
+    .hero__description .button {
+      width: 211px;
+      min-height: 52px;
+      padding: 0 17px;
+    }
+  }
+}
+@layer framing {
+  @media (width <=500px) {
+    .hero__photo {
+      top: 0;
+      height: 100%;
+    }
+  }
+}
+@layer viewport {
+  .hero {
+    height: 100svh;
+    min-height: 0;
+    max-height: none;
+  }
+}
+@layer screens {
+  @media (height <= 700px) {
+    .hero__content {
+      top: calc(28% + var(--header-height) * 0.72);
+    }
+
+    .hero__description {
+      margin-top: 20px;
+    }
+
+    .hero__rule {
+      --hero-rule-space: 13px;
+
+      bottom: 25px;
+    }
+  }
+
+  @media (width <= 900px) and (height <= 700px) {
+    .hero__description {
+      gap: 17px;
+    }
+  }
+
+  @media (height <= 800px) and (width >= 760px) {
+    .hero__content {
+      top: calc(29% + var(--header-height) * 0.71);
+    }
+  }
+}
+@layer layout {
+  .hero__photo {
+    object-position: 50% 54%;
+  }
+
+  .hero::before {
+    background: rgb(29 27 28 / 52%);
+  }
+
+  .hero__content {
+    left: var(--page-inset);
+    right: var(--page-inset);
+  }
+
+  .hero__title {
+    font-size: clamp(28px, 3.3vw, 56px);
+    line-height: 1.32;
+    letter-spacing: 0.025em;
+    background: rgb(36 33 34 / 36%);
+    margin-left: var(--hero-rule-offset);
+    padding: 22px 36px 26px 28px;
+    max-width: calc(100% - var(--hero-rule-offset));
+  }
+
+  .hero__title::before {
+    left: calc(-1 * var(--hero-rule-offset));
+  }
+
+  .hero__name,
+  .hero__subject,
+  .hero__premium {
+    font-size: 1em;
+  }
+
+  .hero__premium {
+    margin-left: 0;
+    text-align: right;
+  }
+
+  .hero__description {
+    max-width: none;
+  }
+
+  .hero__copy {
+    font-size: 17px;
+  }
+
+  .hero__description .button {
+    font-size: 16px;
+  }
+}
+@layer adaptive {
+  .hero--expanded {
+    height: auto;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: calc(var(--header-height) + 80px) 45px;
+  }
+
+  .hero--expanded .hero__content {
+    position: relative;
+    inset: auto;
+    margin-inline: var(--page-inset);
+  }
+
+  .hero--expanded .hero__rule {
+    position: relative;
+    inset: auto;
+    flex-shrink: 0;
+    margin: 40px var(--page-inset) 0;
+  }
+
+  @media (width <= 760px) {
+    .hero {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      min-height: 100svh;
+      padding-block: calc(var(--header-height) + 32px) 32px;
+    }
+
+    .hero__content {
+      position: relative;
+      inset: auto;
+      margin-inline: var(--page-inset);
+      margin-top: auto;
+    }
+
+    .hero__rule {
+      position: relative;
+      inset: auto;
+      flex-shrink: 0;
+      margin: 32px var(--page-inset) 0;
+    }
+
+    .hero__title {
+      font-size: clamp(15px, 3.8vw, 28px);
+      padding: 16px 20px 20px 18px;
+    }
+  }
+
+  @media (760px < width <= 1120px) {
+    .hero {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      min-height: 100svh;
+      padding-block: calc(var(--header-height) + 40px) 45px;
+    }
+
+    .hero__content {
+      position: relative;
+      inset: auto;
+      margin-inline: var(--page-inset);
+      margin-top: auto;
+    }
+
+    .hero__rule {
+      position: relative;
+      inset: auto;
+      flex-shrink: 0;
+      margin: 48px var(--page-inset) 0;
+    }
+  }
+
+  @media (width <= 600px) {
+    .hero__rule {
+      font-size: 12px;
+    }
+
+    .hero__copy {
+      font-size: 15px;
+    }
+
+    .hero__description .button {
+      font-size: 15px;
+    }
+  }
+}

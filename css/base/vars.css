@@ -1,0 +1,44 @@
+:root {
+  --ink: #272425;
+  --graphite: #242122;
+  --cream: #e6e4d6;
+  --silver: #aaa8ac;
+  --muted: #686569;
+  --line: #d4d1d2;
+  --wash: #f5f5f3;
+  --paper: #fff;
+  --surface: #fafaf9;
+  --surface-summary: #eeefed;
+  --content-width: 1780px;
+  --gutter: clamp(23px, 3.8vw, 72px);
+  --page-inset: max(var(--gutter), calc((100vw - var(--content-width)) / 2));
+  --hero-rule-offset: clamp(15px, 2vw, 37px);
+  --text-body: clamp(16px, 1.05vw, 18px);
+  --font-family: manrope, arial, sans-serif;
+  --header-height: 100px;
+  --control-size: 44px;
+  --z-header: 40;
+  --z-menu: 39;
+  --z-skip: 50;
+  --ease: cubic-bezier(0.23, 1, 0.32, 1);
+  --control-hover-duration: 240ms;
+  --control-press-duration: 140ms;
+}
+
+@media (width <= 900px) {
+  :root {
+    --header-height: 88px;
+  }
+}
+
+@media (width <= 720px) {
+  :root {
+    --header-height: 80px;
+  }
+}
+
+@media (width <= 500px) {
+  :root {
+    --header-height: 76px;
+  }
+}

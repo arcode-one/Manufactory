@@ -1,0 +1,23 @@
+@layer foundation {
+  .rule {
+    position: absolute;
+    height: 2px;
+    bottom: 43px;
+    background: var(--ink);
+    z-index: 1;
+  }
+}
+@layer responsive {
+  @media (width <= 500px) {
+    .rule {
+      bottom: 33px;
+      height: 2px;
+    }
+  }
+}
+@layer layout {
+  .rule {
+    left: var(--page-inset);
+    right: var(--page-inset);
+  }
+}

@@ -1,0 +1,6 @@
+Telegram, WhatsApp: Simple Icons (CC0), https://github.com/simple-icons/simple-icons
+MAX: https://go.max.ru/brandbook, max-dark.zip. Official monochrome silhouette, optimized from mask path.
+Smartphone: Lucide, see LUCIDE-LICENSE.
+Telegram silhouette replaced with Bootstrap Icons telegram (MIT): https://github.com/twbs/icons/blob/main/icons/telegram.svg
+Final Telegram: Font Awesome Free 5.15.4 telegram-plane, CC BY 4.0, https://fontawesome.com/license/free . Attribution preserved in SVG.
+Phone handset: Bootstrap Icons telephone-fill (MIT), see BOOTSTRAP-ICONS-LICENSE.

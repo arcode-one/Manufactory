@@ -42,7 +42,7 @@ export function initGeography(root) {
     const mapHeight = matchMedia('(min-width: 1121px)').matches
       ? Math.max(482, Math.min(578.28, 1000 * canvas.clientHeight / canvas.clientWidth))
       : 578.28;
-    svg.setAttribute('viewBox', `0 ${578.28 - mapHeight} 1000 ${mapHeight}`);
+    svg.setAttribute('viewBox', matchMedia('(max-width: 600px)').matches ? '0 80 1000 498.28' : `0 ${578.28 - mapHeight} 1000 ${mapHeight}`);
     const matrix = svg.getScreenCTM();
     if (!matrix || !canvas.clientWidth) return;
     // Increase spacing on the map without enlarging the dots along with it.
@@ -51,6 +51,11 @@ export function initGeography(root) {
     for (const ring of root.querySelectorAll('.geography__origin-ring')) ring.setAttribute('r', 11 / zoom);
     root.querySelector('.geography__origin-dot').setAttribute('r', 5.5 / zoom);
     selection.setAttribute('r', 12 / zoom);
+    if (matchMedia('(max-width: 600px)').matches) {
+      const scale = Math.hypot(matrix.a, matrix.b);
+      for (const [id, point] of points) point.setAttribute('r', (production.has(id) ? 3.5 : 2.3) / scale);
+      root.querySelector('.geography__origin-dot').setAttribute('r', 3.5 / scale);
+    }
     const rect = canvas.getBoundingClientRect();
     const labelRects = [];
     for (const city of production.values()) {
@@ -137,14 +142,33 @@ export function initGeography(root) {
     const button = event.target.closest('[data-city]');
     if (button) select(cities.get(button.dataset.city), true);
   });
-  svg.addEventListener('click', (event) => {
-    if (event.target.closest('#map-origin')) {
-      select(home, true);
-      return;
+  // Hit-test in screen pixels, including the space around small SVG dots.
+  // Listening on the HTML canvas avoids relying on iOS SVG click targeting.
+  function selectAt(event) {
+    if (event.target.closest('[data-production]')) return;
+    const matrix = svg.getScreenCTM();
+    if (!matrix) return;
+    let nearest = null;
+    let distance = event.pointerType === 'touch' || matchMedia('(pointer: coarse)').matches ? 24 : 12;
+    for (const city of [...cities.values(), home]) {
+      const point = new DOMPoint(city.x, city.y).matrixTransform(matrix);
+      const candidate = Math.hypot(point.x - event.clientX, point.y - event.clientY);
+      if (candidate < distance) { nearest = city; distance = candidate; }
     }
-    const point = event.target.closest('[data-map-city]');
-    if (point) select(cities.get(point.dataset.mapCity), true);
+    if (nearest) select(nearest);
+    else dismiss();
+  }
+  let tap = null;
+  canvas.addEventListener('pointerdown', event => { tap = { x: event.clientX, y: event.clientY }; });
+  canvas.addEventListener('pointermove', event => {
+    if (tap && Math.hypot(event.clientX - tap.x, event.clientY - tap.y) > 8) tap = null;
   });
+  canvas.addEventListener('pointercancel', () => { tap = null; });
+  canvas.addEventListener('pointerup', event => {
+    if (tap && event.pointerType !== 'mouse') selectAt(event);
+    tap = null;
+  });
+  canvas.addEventListener('click', selectAt);
   for (const city of production.values()) city.label.addEventListener('click', () => select(city, true));
   const origin = root.querySelector('#map-origin');
   origin.setAttribute('role', 'button');

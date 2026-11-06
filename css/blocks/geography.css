@@ -114,3 +114,14 @@
 
   }
 }
+
+@layer adaptive {
+  @media (width <= 600px) {
+    .geography__canvas {
+      margin-inline: calc(-1 * var(--page-inset));
+      width: calc(100% + 2 * var(--page-inset));
+      height: clamp(230px, 60vw, 360px);
+      touch-action: pan-y pinch-zoom;
+    }
+  }
+}

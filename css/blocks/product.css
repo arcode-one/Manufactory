@@ -337,3 +337,17 @@
     }
   }
 }
+
+@layer motion {
+  @media (width <= 760px) {
+    .page .product__image:is([data-product='flat60'], [data-product='flat80']) .product__photo {
+      object-position: 50% 20%;
+      transform: none;
+    }
+
+    .page .product__image:is([data-product='flat60'], [data-product='flat80']) .parallax__layer {
+      transform: none !important;
+      will-change: auto;
+    }
+  }
+}

@@ -171,3 +171,36 @@
     }
   }
 }
+
+@layer adaptive {
+  @media (width <= 760px) {
+    .gallery__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(3, clamp(200px, 65.5vw, 420px));
+      gap: 13px;
+      padding-bottom: 23px;
+    }
+
+    .gallery__item--large,
+    .gallery__item--wide {
+      grid-column: 1 / -1;
+      grid-row: auto;
+    }
+
+    .gallery__caption {
+      padding: 30px 12px 13px;
+      gap: 7px;
+      font-size: 14px;
+    }
+
+    .gallery__icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    .gallery__item:not(.gallery__item--large):not(.gallery__item--wide) .gallery__icon {
+      display: none;
+    }
+  }
+}

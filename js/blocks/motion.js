@@ -20,7 +20,8 @@ export function initMotion(root) {
     const effects = new Map();
     const reveals = [];
     const removers = [];
-    const photos = [...root.querySelectorAll('[data-parallax]')].map((image) => {
+    const images = root.querySelectorAll('[data-parallax], .product__image > .product__photo');
+    const photos = [...images].map((image) => {
       const container = image.parentElement;
       const layer = document.createElement('picture');
       layer.className = 'parallax__layer';

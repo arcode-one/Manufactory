@@ -590,9 +590,8 @@
                     height="1100"
                     alt="МОДЕРН: на дымоход"
                     loading="lazy"
-                    data-parallax=""
                     data-media=""
-                    class="media product__photo parallax__image"
+                    class="media product__photo"
                     data-fallback="icons/placeholder.svg"
                     decoding="async"
                     srcset="images/modern-480.webp 480w, images/modern.webp 619w"
@@ -665,9 +664,8 @@
                     height="1100"
                     alt="КЛАССИК МОДЕРН: на дымоход"
                     loading="lazy"
-                    data-parallax=""
                     data-media=""
-                    class="media product__photo parallax__image"
+                    class="media product__photo"
                     data-fallback="icons/placeholder.svg"
                     decoding="async"
                     srcset="images/classic-modern-480.webp 480w, images/classic-modern.webp 508w"
@@ -1500,7 +1498,7 @@
     >
       <div class="lightbox__viewer">
         <div class="lightbox__toolbar">
-          <p id="gallery-count" data-lightbox-count="" class="lightbox__count">01 / 04</p>
+          <p id="gallery-count" data-lightbox-count="" class="lightbox__count" tabindex="-1" autofocus>01 / 04</p>
           <button
             class="icon-button lightbox__close"
             aria-label="Закрыть фотографию"
@@ -1556,13 +1554,12 @@
       data-dialog=""
     >
       <div class="lightbox__toolbar">
-        <p id="blueprint-caption" class="lightbox__caption" data-lightbox-caption="">Чертёж</p>
+        <p id="blueprint-caption" class="lightbox__caption" data-lightbox-caption="" tabindex="-1" autofocus>Чертёж</p>
         <button
           class="icon-button lightbox__close"
           aria-label="Закрыть чертёж"
           type="button"
           data-dialog-close=""
-          autofocus
         >
           <svg aria-hidden="true" class="icon-button__icon" viewBox="0 0 24 24">
             <use href="#lucide-x"></use>
@@ -1622,6 +1619,7 @@
       data-request=""
       data-dialog=""
     >
+      <h2 id="request-title" class="request__title" tabindex="-1" autofocus>Заявка на расчёт</h2>
       <button
         class="icon-button request__close"
         aria-label="Закрыть запрос"
@@ -1632,7 +1630,6 @@
           <use href="#lucide-x"></use>
         </svg>
       </button>
-      <h2 id="request-title" class="request__title">Заявка на расчёт</h2>
       <p class="request__copy">
         Оставьте контакты. Менеджер свяжется с вами и уточнит стоимость.
       </p>

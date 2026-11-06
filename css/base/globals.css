@@ -167,6 +167,10 @@
     color: var(--ink);
   }
 
+  dialog [autofocus][tabindex='-1']:focus {
+    outline: none;
+  }
+
   dialog::backdrop {
     background: rgb(13 15 16 / 90%);
   }

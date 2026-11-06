@@ -6,6 +6,7 @@ const focusableSelector =
 /** Shared native dialog behavior: focus containment, Escape and reliable focus restoration. */
 export function createDialog(element) {
   if (dialogInstances.has(element)) return dialogInstances.get(element);
+  const initialFocus = element.querySelector('[autofocus]');
   let trigger;
   const api = {
     open(origin = document.activeElement) {
@@ -32,13 +33,11 @@ export function createDialog(element) {
       element.focus();
       return;
     }
-    if (
-      event.shiftKey &&
-      (document.activeElement === first || document.activeElement === element)
-    ) {
+    const active = document.activeElement;
+    if (event.shiftKey && (active === first || active === initialFocus || active === element)) {
       event.preventDefault();
       last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
+    } else if (!event.shiftKey && active === last) {
       event.preventDefault();
       first.focus();
     }

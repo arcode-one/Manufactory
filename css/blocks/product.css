@@ -399,13 +399,11 @@
 @layer motion {
   .product__image[data-product='flat60'] .product__photo {
     object-position: left 4%;
+    transform-origin: left center;
   }
 
   .product__image[data-product='flat80'] .product__photo {
     object-position: right 8%;
-  }
-
-  .product__image:is([data-product='flat60'], [data-product='flat80']) .product__photo {
-    transform: none;
+    transform-origin: right center;
   }
 }

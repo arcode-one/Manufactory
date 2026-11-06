@@ -16,7 +16,7 @@
     pointer-events: none;
   }
 
-  .page--motion .parallax__image {
+  .page--motion .parallax__layer > :is(.parallax__image, .product__photo) {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -33,10 +33,6 @@
 
   .page--motion .hero > .parallax__layer {
     z-index: -2;
-  }
-
-  .page--motion .product__image .parallax__image {
-    object-position: 50% 43%;
   }
 
   .page--motion .footer__photo .parallax__image {
@@ -176,15 +172,14 @@
     }
   }
   @media (hover: hover) and (pointer: fine) {
-    .page--motion .product__image:hover .parallax__image,
-    .page--motion .gallery__item:hover .parallax__image {
+    .page--motion .gallery__item:hover .parallax__layer > .parallax__image {
       transform: scale(1.19);
     }
 
   }
 
   @media (width <= 760px), (pointer: coarse) {
-    .page--motion .parallax__image {
+    .page--motion .parallax__layer > :is(.parallax__image, .product__photo) {
       transform: scale(1.1);
     }
 

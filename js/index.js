@@ -1,3 +1,4 @@
+import { initWheelScroll } from './blocks/wheel-scroll.js';
 // Точка входа. Нативные ES-модули, без сборщика и внешних зависимостей.
 import { initHeader } from './blocks/header.js';
 import { initCatalog } from './blocks/catalog.js';
@@ -12,6 +13,7 @@ import { initPageStart } from './blocks/page-start.js';
 
 // Каждый блок запускается независимо от остальных.
 const blocks = [
+  ['html', initWheelScroll],
   ['[data-header]', initHeader],
   ['[data-catalog]', initCatalog],
   ['[data-calculator]', initCalculator],

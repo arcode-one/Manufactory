@@ -668,7 +668,7 @@
     }
 
     .calculator__preview {
-      justify-self: start;
+      justify-self: center;
     }
 
     .calculator__fieldset {

@@ -8,12 +8,10 @@ import { initGallery } from './blocks/gallery.js';
 import { initMedia } from './blocks/media.js';
 import { initYear } from './blocks/footer.js';
 import { initMotion } from './blocks/motion.js';
-import { initSectionScroll } from './blocks/section-scroll.js';
 import { initPageStart } from './blocks/page-start.js';
 
 // Каждый блок запускается независимо от остальных.
 const blocks = [
-  ['[data-section-scroll]', initSectionScroll],
   ['[data-header]', initHeader],
   ['[data-catalog]', initCatalog],
   ['[data-calculator]', initCalculator],

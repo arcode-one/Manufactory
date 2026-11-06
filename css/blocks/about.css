@@ -228,3 +228,16 @@
     }
   }
 }
+
+@layer adaptive {
+  /* Keep the divider after the text when sections use normal page scrolling. */
+  @media (width < 1280px) {
+    .about > .rule {
+      position: relative;
+      inset: auto;
+      grid-column: 1 / -1;
+      flex: 0 0 2px;
+      margin: 0 var(--page-inset) 32px;
+    }
+  }
+}

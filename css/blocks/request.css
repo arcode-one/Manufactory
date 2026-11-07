@@ -1,6 +1,7 @@
 @layer foundation {
   .request {
-    padding: 24px 32px;
+    --request-inset: 32px;
+    padding: 24px var(--request-inset);
     width: min(600px, calc(100% - 32px));
     max-height: calc(100dvh - 32px);
     overflow-y: auto;
@@ -8,14 +9,26 @@
 
   .request__close {
     position: absolute;
-    right: 15px;
-    top: 13px;
+    inset-inline-end: var(--request-inset);
+    top: 20px;
+    background: var(--wash);
+  }
+
+  .request__close:active {
+    background: var(--surface-summary);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .request__close:hover {
+      color: var(--paper);
+      background: var(--ink);
+    }
   }
 
   .request__title {
     font-size: 30px;
     letter-spacing: -0.035em;
-    padding-right: 30px;
+    padding-inline-end: calc(var(--control-size) + 12px);
   }
 
   .request__form {
@@ -135,6 +148,7 @@
     border: 1px solid var(--line);
     resize: vertical;
     min-height: 76px;
+    max-height: 220px;
     background: var(--paper);
     font-size: 16px;
   }
@@ -160,7 +174,12 @@
       grid-template-columns: 1fr;
     }
     .request {
-      padding: 34px 24px 28px;
+      --request-inset: 24px;
+      padding: 34px var(--request-inset) 28px;
+    }
+
+    .request__close {
+      top: 24px;
     }
 
     .request__title {

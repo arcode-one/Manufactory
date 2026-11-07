@@ -14,6 +14,7 @@ export function initGeography(root) {
   const search = root.querySelector('[data-city-search]');
   const count = root.querySelector('[data-city-count]');
   const empty = root.querySelector('[data-city-empty]');
+  const list = root.querySelector('.geography__cities');
   const buttons = [...root.querySelectorAll('[data-city]')];
   const points = new Map([...root.querySelectorAll('[data-map-city]')].map((point) => [point.dataset.mapCity, point]));
   const cities = new Map(buttons.map((button) => [button.dataset.city, {
@@ -138,7 +139,7 @@ export function initGeography(root) {
     }
   }
 
-  root.querySelector('.geography__cities').addEventListener('click', (event) => {
+  list.addEventListener('click', (event) => {
     const button = event.target.closest('[data-city]');
     if (button) select(cities.get(button.dataset.city), true);
   });
@@ -204,6 +205,7 @@ export function initGeography(root) {
     }
     count.textContent = query ? `${found} / ${cities.size}` : String(cities.size);
     empty.hidden = found > 0;
+    list.scrollTop = 0;
   });
   search.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && search.value) {

@@ -42,16 +42,23 @@ export function createDialog(element) {
       first.focus();
     }
   });
-  element.addEventListener('click', (event) => {
-    if (event.target !== element) return;
+  function isBackdrop(event) {
+    if (event.target !== element) return false;
     const rect = element.getBoundingClientRect();
-    if (
+    return (
       event.clientX < rect.left ||
       event.clientX > rect.right ||
       event.clientY < rect.top ||
       event.clientY > rect.bottom
-    )
-      api.close();
+    );
+  }
+  let startedOnBackdrop = false;
+  element.addEventListener('pointerdown', (event) => {
+    startedOnBackdrop = isBackdrop(event);
+  });
+  element.addEventListener('click', (event) => {
+    if (startedOnBackdrop && isBackdrop(event)) api.close();
+    startedOnBackdrop = false;
   });
   element.addEventListener('close', () => {
     if (trigger?.isConnected) trigger.focus({ preventScroll: true });

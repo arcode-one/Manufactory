@@ -73,20 +73,26 @@
     text-wrap: pretty;
   }
 
-  .legal-footer {
-    height: calc(100dvh - var(--header-height));
-    overflow-y: auto;
-    overflow-x: clip;
-    scrollbar-width: thin;
-    scrollbar-color: var(--silver) transparent;
-  }
+  @media (width > 760px) {
+    .legal-footer {
+      height: calc(100dvh - var(--header-height));
+      overflow-y: auto;
+      overflow-x: clip;
+      scrollbar-width: thin;
+      scrollbar-color: var(--silver) transparent;
+    }
 
-  .page--legal .footer {
-    min-height: 100%;
-  }
+    .page--legal .footer {
+      min-height: 100%;
+    }
 
-  .page--legal .footer__panel {
-    min-height: calc(100dvh - var(--header-height));
+    .page--legal .footer__panel {
+      min-height: calc(100dvh - var(--header-height));
+    }
+
+    .page--legal:has(.header__menu:not([hidden]), dialog[open]) .legal-footer {
+      overflow-y: hidden;
+    }
   }
 
   .page--legal .footer__phone {
@@ -95,10 +101,6 @@
 
   .page--legal .footer__email {
     overflow-wrap: anywhere;
-  }
-
-  .page--legal:has(.header__menu:not([hidden]), dialog[open]) .legal-footer {
-    overflow-y: hidden;
   }
 
   @media (width >= 1121px) and (height <= 850px) {
@@ -183,7 +185,6 @@
     }
 
     .page--legal .footer__panel {
-      min-height: 0;
       min-width: 0;
     }
 

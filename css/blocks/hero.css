@@ -232,6 +232,8 @@
   }
 
   .hero__title {
+    --motion-clip-left: calc(-1 * var(--hero-rule-offset));
+
     font-size: clamp(28px, 3.3vw, 56px);
     line-height: 1.32;
     letter-spacing: 0.025em;

@@ -166,10 +166,11 @@
     <nav id="site-menu" class="header__menu" aria-label="Все разделы сайта" hidden data-menu="">
       <a href="#about" class="header__menu-link"><span class="header__menu-label">01 / О нас</span></a
       ><a href="#products" class="header__menu-link"><span class="header__menu-label">02 / Изделия</span></a
-      ><a href="#calculator" class="header__menu-link"><span class="header__menu-label">03 / Калькулятор стоимости</span></a
-      ><a href="#geography" class="header__menu-link"><span class="header__menu-label">04 / География поставок</span></a
-      ><a href="#projects" class="header__menu-link"><span class="header__menu-label">05 / Галерея работ</span></a
-      ><a href="#contacts" class="header__menu-link"><span class="header__menu-label">06 / Контакты</span></a
+      ><a href="#coatings" class="header__menu-link"><span class="header__menu-label">03 / Покрытия</span></a
+      ><a href="#calculator" class="header__menu-link"><span class="header__menu-label">04 / Калькулятор стоимости</span></a
+      ><a href="#geography" class="header__menu-link"><span class="header__menu-label">05 / География продаж</span></a
+      ><a href="#projects" class="header__menu-link"><span class="header__menu-label">06 / Галерея работ</span></a
+      ><a href="#contacts" class="header__menu-link"><span class="header__menu-label">07 / Контакты</span></a
       ><button
         type="button"
         class="header__menu-contact"
@@ -202,12 +203,12 @@
             "
             sizes="100vw">
           <div class="hero__content">
-            <h1 id="hero-title" class="hero__title">
+            <h1 id="hero-title" class="hero__title" data-reveal="heading">
               <span class="hero__name hero__line">МАНУФАКТУРА</span
               ><span class="hero__subject hero__line">МЕТАЛЛОКОНСТРУКЦИИ</span
               ><span class="hero__premium hero__line">ПРЕМИУМ-КЛАССА</span>
             </h1>
-            <div class="hero__description">
+            <div class="hero__description" data-reveal="fade">
               <p class="hero__copy">
                 Колпаки на столбы забора и дымоходы.<br>Изготавливаем под размеры вашего проекта.
               </p>
@@ -818,6 +819,130 @@
         </section>
       </div>
 
+      <div data-scroll-screen="coatings">
+        <section id="coatings" class="section coatings" aria-labelledby="coatings-title" data-gallery-root="" data-lightbox-target="gallery-dialog">
+          <div class="section-heading section-heading--wide">
+            <span class="section-index" data-reveal="frame">03</span>
+            <h2 id="coatings-title" class="section-heading__title" data-reveal="heading">ПОКРЫТИЯ</h2>
+            <p class="section-heading__description" data-reveal="fade">Сравните пять покрытий, которые мы используем для наших изделий.</p>
+          </div>
+          <p class="coatings__hint"><span aria-hidden="true">↔</span> Листайте таблицу вбок</p>
+          <div class="coatings__scroll" role="region" aria-label="Сравнительная таблица покрытий" tabindex="0" data-reveal="fade">
+            <table class="coatings__table">
+              <thead>
+                <tr>
+                  <th scope="col">Характеристика</th>
+                  <th scope="col">Drap TX</th>
+                  <th scope="col">Satin</th>
+                  <th scope="col">Velur X</th>
+                  <th scope="col">PurPro</th>
+                  <th scope="col">PurPro Matt</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Визуализация фактуры</th>
+                  <td>
+                    <button class="coatings__zoom" type="button" data-gallery="" data-gallery-caption="Drap TX" aria-label="Увеличить фактуру Drap TX" aria-haspopup="dialog">
+                      <img class="coatings__swatch" src="images/coating-drap-tx.webp" data-full-src="images/coating-drap-tx-large.webp" width="640" height="320" loading="lazy" decoding="async" alt="Мелкозернистая матовая поверхность">
+                      <svg class="coatings__zoom-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#lucide-plus"></use></svg>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="coatings__zoom" type="button" data-gallery="" data-gallery-caption="Satin" aria-label="Увеличить фактуру Satin" aria-haspopup="dialog">
+                      <img class="coatings__swatch" src="images/coating-satin.webp" data-full-src="images/coating-satin-large.webp" width="640" height="320" loading="lazy" decoding="async" alt="Гладкая глянцевая поверхность">
+                      <svg class="coatings__zoom-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#lucide-plus"></use></svg>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="coatings__zoom" type="button" data-gallery="" data-gallery-caption="Velur X" aria-label="Увеличить фактуру Velur X" aria-haspopup="dialog">
+                      <img class="coatings__swatch" src="images/coating-velur-x.webp" data-full-src="images/coating-velur-x-large.webp" width="640" height="320" loading="lazy" decoding="async" alt="Матовая поверхность с выраженным рельефом">
+                      <svg class="coatings__zoom-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#lucide-plus"></use></svg>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="coatings__zoom" type="button" data-gallery="" data-gallery-caption="PurPro" aria-label="Увеличить фактуру PurPro" aria-haspopup="dialog">
+                      <img class="coatings__swatch" src="images/coating-purpro.webp" data-full-src="images/coating-purpro-large.webp" width="640" height="320" loading="lazy" decoding="async" alt="Глянцевая поверхность с лёгким микрорельефом">
+                      <svg class="coatings__zoom-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#lucide-plus"></use></svg>
+                    </button>
+                  </td>
+                  <td>
+                    <button class="coatings__zoom" type="button" data-gallery="" data-gallery-caption="PurPro Matt" aria-label="Увеличить фактуру PurPro Matt" aria-haspopup="dialog">
+                      <img class="coatings__swatch" src="images/coating-purpro-matt.webp" data-full-src="images/coating-purpro-matt-large.webp" width="640" height="320" loading="lazy" decoding="async" alt="Ровная матовая поверхность с тонкой фактурой">
+                      <svg class="coatings__zoom-icon" aria-hidden="true" viewBox="0 0 24 24"><use href="#lucide-plus"></use></svg>
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">Класс покрытия</th>
+                  <td>Premium</td>
+                  <td>Premium</td>
+                  <td>Elite</td>
+                  <td>Elite</td>
+                  <td>Elite</td>
+                </tr>
+                <tr>
+                  <th scope="row">Толщина стальной основы</th>
+                  <td>0,5 мм</td>
+                  <td>0,5 мм</td>
+                  <td>0,5 мм</td>
+                  <td>0,5 мм</td>
+                  <td>0,5 мм</td>
+                </tr>
+                <tr>
+                  <th scope="row">Содержание цинка</th>
+                  <td>Zn 100–140 г/м²</td>
+                  <td>Zn 100–140 г/м²</td>
+                  <td>Zn 275 г/м²</td>
+                  <td>Zn 275 г/м²</td>
+                  <td>Zn 275 г/м²</td>
+                </tr>
+                <tr>
+                  <th scope="row">Тип полимерного покрытия</th>
+                  <td>Полиэфирное</td>
+                  <td>Полиэфирное</td>
+                  <td>Полиэфирное</td>
+                  <td>Полиуретановое</td>
+                  <td>Полиуретановое</td>
+                </tr>
+                <tr>
+                  <th scope="row">Толщина полимерного слоя</th>
+                  <td>25 мкм</td>
+                  <td>25 мкм</td>
+                  <td>30–35 мкм</td>
+                  <td>40 мкм</td>
+                  <td>50 мкм</td>
+                </tr>
+                <tr>
+                  <th scope="row">Тип поверхности</th>
+                  <td>Матовая, Soft Touch</td>
+                  <td>Глянцевая</td>
+                  <td>Матовая, текстурная</td>
+                  <td>Глянцевая</td>
+                  <td>Матовая</td>
+                </tr>
+                <tr>
+                  <th scope="row">Гарантия на технические характеристики</th>
+                  <td>20 лет</td>
+                  <td>20 лет</td>
+                  <td>25 лет</td>
+                  <td>40 лет</td>
+                  <td>40 лет</td>
+                </tr>
+                <tr>
+                  <th scope="row">Гарантия на внешний вид</th>
+                  <td>10 лет</td>
+                  <td>10 лет</td>
+                  <td>15 лет</td>
+                  <td>20 лет</td>
+                  <td>20 лет</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
       <!-- Подбор комплектации -->
       <div data-scroll-screen="calculator">
         <section
@@ -827,7 +952,7 @@
           data-request-target="request-dialog"
         >
           <div class="section-heading section-heading--wide">
-            <span class="section-index" data-reveal="frame">03</span>
+            <span class="section-index" data-reveal="frame">04</span>
             <h2 data-reveal="heading" class="section-heading__title">КАЛЬКУЛЯТОР<br>СТОИМОСТИ</h2>
             <p data-reveal="fade" class="section-heading__description">
               Выберите изделие, размеры и количество.<br>Менеджер уточнит комплектацию и цену.
@@ -1129,8 +1254,8 @@
       <div data-scroll-screen="geography">
         <section id="geography" class="geography" data-geography>
           <div class="section-heading section-heading--wide">
-            <span class="section-index" data-reveal="frame">04</span>
-            <h2 data-reveal="heading" class="section-heading__title">ГЕОГРАФИЯ<br>ПОСТАВОК</h2>
+            <span class="section-index" data-reveal="frame">05</span>
+            <h2 data-reveal="heading" class="section-heading__title">ГЕОГРАФИЯ<br>ПРОДАЖ</h2>
             <p data-reveal="fade" class="section-heading__description">43 города от Москвы до Владивостока.<br>Доставку в ваш город уточните у менеджера.</p>
           </div>
           <div class="geography__body" data-reveal="fade">
@@ -1141,7 +1266,7 @@
               id="russia-map"
               viewBox="0 0 1000 578.28"
               role="img"
-              aria-label="Карта России: 43 города поставок, производство в Москве и Екатеринбурге"
+              aria-label="География продаж: 43 города. Производство в Москве и Екатеринбурге"
               class="geography__svg"
             >
               <defs>
@@ -1211,8 +1336,8 @@
               </div>
             </div>
             <div class="geography__directory" aria-labelledby="delivery-cities-title">
-              <div class="geography__directory-heading"><h3 id="delivery-cities-title">Города поставок</h3><span class="geography__count" data-city-count aria-live="polite">43</span></div>
-              <label class="geography__search" hidden data-city-search-label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 4 4"></path></svg><input type="search" placeholder="Найти город" aria-label="Найти город поставки" autocomplete="off" data-city-search></label>
+              <div class="geography__directory-heading"><h3 id="delivery-cities-title">Города продаж</h3><span class="geography__count" data-city-count aria-live="polite">43</span></div>
+              <label class="geography__search" hidden data-city-search-label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 4 4"></path></svg><input type="search" placeholder="Найти город" aria-label="Найти город" autocomplete="off" data-city-search></label>
               <ul class="geography__cities">
                   <li><button class="geography__city" type="button" data-city="city-1" data-x="581.8799" data-y="489.1475" aria-pressed="false">Ангарск</button></li>
                   <li><button class="geography__city" type="button" data-city="city-2" data-x="420.0182" data-y="463.3085" aria-pressed="false">Барнаул</button></li>
@@ -1274,7 +1399,7 @@
           data-lightbox-target="gallery-dialog"
         >
           <div class="section-heading section-heading--wide">
-            <span class="section-index" data-reveal="frame">05</span>
+            <span class="section-index" data-reveal="frame">06</span>
             <h2 data-reveal="heading" class="section-heading__title">ГАЛЕРЕЯ<br>РАБОТ</h2>
             <p data-reveal="fade" class="section-heading__description">
               Наши изделия на объектах.<br>Форма, фактура и точность в деталях.
@@ -1428,7 +1553,7 @@
         </div>
         <div class="footer__panel">
           <div class="footer__heading">
-            <span class="section-index" data-reveal="frame">06</span>
+            <span class="section-index" data-reveal="frame">07</span>
             <h2 id="contacts-title" data-reveal="heading" class="footer__title">КОНТАКТЫ</h2>
           </div>
           <div class="footer__content" data-reveal="fade">

@@ -21,6 +21,7 @@
   --z-menu: 39;
   --z-skip: 50;
   --ease: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
   --control-hover-duration: 240ms;
   --control-press-duration: 140ms;
 }

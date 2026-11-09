@@ -35,7 +35,7 @@ export function initMotion(root) {
       target.addEventListener(type, listener, options);
       removers.push(() => target.removeEventListener(type, listener, options));
     }
-    function play(element, keyframes, duration = 220) {
+    function play(element, keyframes, duration = 300) {
       if (!element || keyboard || disposed) return;
       effects.get(element)?.cancel();
       const effect = element.animate(keyframes, { duration, easing: ease });
@@ -49,39 +49,32 @@ export function initMotion(root) {
 
     const revealObserver = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) reveal(entry.target);
+        entries.forEach(({ target, isIntersecting }) => {
+          target.classList.toggle('motion--revealed', isIntersecting);
+          if (!isIntersecting) target.classList.remove('motion--instant');
         });
       },
-      { rootMargin: '0px 0px -7% 0px', threshold: 0 },
     );
 
-    function reveal(element, instantly = false) {
-      if (instantly) element.classList.add('motion--instant');
-      element.classList.add('motion--revealed');
-      revealObserver.unobserve(element);
-    }
-    function revealWithin(container, instantly = false) {
-      container
-        .querySelectorAll('[data-motion]')
-        .forEach((element) => reveal(element, instantly));
-    }
-    function prepare(selector, kind, stagger = 0) {
-      root.querySelectorAll(selector).forEach((element, index) => {
-        if (element.hasAttribute('data-motion')) return;
-        const bounds = element.getBoundingClientRect();
-        element.dataset.motion = kind;
-        element.classList.add('motion');
-        if (stagger) element.style.setProperty('--motion-delay', `${(index % 3) * stagger}ms`);
-        reveals.push(element);
-        if (bounds.height && bounds.top < innerHeight * 0.9 && bounds.bottom > 0)
-          reveal(element, true);
-        else revealObserver.observe(element);
+    function showVisiblePanelContent(panel) {
+      panel.querySelectorAll('[data-motion]').forEach((element) => {
+        const { top, bottom, height } = element.getBoundingClientRect();
+        if (height && top < innerHeight && bottom > 0) {
+          element.classList.add('motion--instant', 'motion--revealed');
+        }
       });
     }
-    ['frame', 'heading', 'fade', 'image', 'line'].forEach((kind) =>
-      prepare(`[data-reveal="${kind}"]`, kind, kind === 'frame' || kind === 'line' ? 0 : 50),
-    );
+    const revealCounts = new Map();
+    root.querySelectorAll('[data-reveal]').forEach((element) => {
+      const kind = element.dataset.reveal;
+      const index = revealCounts.get(kind) ?? 0;
+      revealCounts.set(kind, index + 1);
+      element.dataset.motion = kind;
+      if (kind !== 'frame' && kind !== 'line')
+        element.style.setProperty('--motion-delay', `${(index % 3) * 65}ms`);
+      reveals.push(element);
+      revealObserver.observe(element);
+    });
 
     function schedule() {
       if (!frame && !disposed && !document.hidden) frame = requestAnimationFrame(draw);
@@ -123,7 +116,7 @@ export function initMotion(root) {
         needsMeasure = false;
       }
       const dt = lastTime ? Math.min(64, time - lastTime) : 1000 / 60;
-      const follow = 1 - Math.exp(-dt / 120);
+      const follow = 1 - Math.exp(-dt / 165);
       let unsettled = false;
       active.forEach((photo) => {
         if (!photo.height) return;
@@ -178,16 +171,9 @@ export function initMotion(root) {
     }
     listen(document, 'pointerdown', usePointerMotion, true);
     listen(document, 'wheel', usePointerMotion, { capture: true, passive: true });
-    listen(document, 'focusin', (event) => {
-      let element = event.target;
-      while (element && element !== root) {
-        if (element.hasAttribute('data-motion')) reveal(element, true);
-        element = element.parentElement;
-      }
-    });
     listen(root, 'catalogchange', (event) => {
       const panel = event.detail.panel;
-      revealWithin(panel, true);
+      showVisiblePanelContent(panel);
       if (event.detail.animate)
         play(panel, [
           { opacity: 0.5, transform: 'translate3d(0, 6px, 0)' },
@@ -196,17 +182,15 @@ export function initMotion(root) {
       invalidate();
     });
     listen(root, 'productchange', (event) => {
-      const summary = event.target.querySelector('[data-preview]');
-      revealWithin(summary, true);
       play(
         event.target.querySelector('[data-model-transition]'),
         [{ opacity: 0.45 }, { opacity: 1 }],
-        200,
+        260,
       );
       play(
         event.target.querySelector('[data-drawing]'),
         [{ opacity: 0.45 }, { opacity: 1 }],
-        200,
+        260,
       );
     });
     listen(root, 'gallerychange', (event) => {
@@ -224,7 +208,7 @@ export function initMotion(root) {
                 { opacity: 0.35, transform: 'scale(.99)' },
                 { opacity: 1, transform: 'scale(1)' },
               ],
-              180,
+              280,
             );
           }
         });
@@ -245,7 +229,7 @@ export function initMotion(root) {
       root.classList.remove('page--motion', 'page--keyboard');
       reveals.forEach((element) => {
         delete element.dataset.motion;
-        element.classList.remove('motion', 'motion--revealed', 'motion--instant');
+        element.classList.remove('motion--revealed', 'motion--instant');
         element.style.removeProperty('--motion-delay');
       });
       photos.forEach((photo) => photo.layer.replaceWith(photo.image));

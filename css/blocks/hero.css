@@ -86,18 +86,12 @@
     flex-shrink: 0;
   }
 
-  .hero__title,
-  .hero__description {
-    animation: cover-enter 650ms var(--ease) both;
-  }
-
   .hero__description {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 35px;
     margin-top: 31px;
-    animation-delay: 90ms;
   }
 }
 @layer responsive {

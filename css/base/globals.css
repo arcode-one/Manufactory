@@ -149,18 +149,6 @@
     display: none !important;
   }
 
-  @keyframes cover-enter {
-    from {
-      opacity: 0.2;
-      transform: translateY(12px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
   dialog {
     padding: 0;
     border: 0;

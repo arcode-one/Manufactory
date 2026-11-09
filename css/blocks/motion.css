@@ -9,6 +9,13 @@
   }
 }
 @layer motion {
+  .page--motion {
+    --motion-fade-duration: 900ms;
+    --motion-reveal-duration: 1100ms;
+    --motion-menu-duration: 300ms;
+    --motion-dialog-duration: 340ms;
+  }
+
   .page--motion .parallax__layer {
     display: block;
     position: absolute;
@@ -24,7 +31,7 @@
     max-width: none;
     object-fit: cover;
     transform: scale(1.16);
-    transition: transform 500ms var(--ease);
+    transition: transform 650ms var(--ease);
   }
 
   .page--motion .parallax__layer.parallax__layer--visible {
@@ -41,37 +48,42 @@
     filter: brightness(0.76) saturate(0.7);
   }
 
-  .page--motion [data-motion] {
+  .page--motion:not(.page--starting) [data-motion].motion--revealed {
     transition:
-      opacity 400ms var(--ease),
-      clip-path 600ms var(--ease);
+      opacity var(--motion-fade-duration) var(--ease-in-out),
+      clip-path var(--motion-reveal-duration) var(--ease-in-out);
     transition-delay: var(--motion-delay, 0ms);
+    opacity: 1;
   }
 
-  .page--motion [data-motion='heading']:not(.motion--revealed) {
+  .page--motion [data-motion='heading'] {
     clip-path: inset(0 0 100% 0);
   }
 
-  .page--motion [data-motion='frame']:not(.motion--revealed),
-  .page--motion [data-motion='line']:not(.motion--revealed) {
+  .page--motion :is([data-motion='frame'], [data-motion='line']) {
     clip-path: inset(0 100% 0 0);
   }
 
-  .page--motion [data-motion='fade']:not(.motion--revealed) {
+  .page--motion [data-motion='fade'] {
     opacity: 0;
   }
 
-  .page--motion [data-motion='image']:not(.motion--revealed) {
+  .page--motion [data-motion='image'] {
     opacity: 0.7;
     clip-path: inset(8% 0 0 0);
   }
 
-  .page--motion [data-motion].motion--revealed {
-    opacity: 1;
+  .page--motion:not(.page--starting) [data-motion].motion--revealed:not([data-motion='fade'], :focus-visible, :has(:focus-visible)) {
     clip-path: inset(0);
   }
 
-  .page--motion [data-motion].motion--instant {
+  .page--motion:not(.page--starting) [data-motion].motion--revealed.motion--instant {
+    transition: none;
+  }
+
+  .page--motion:not(.page--starting) [data-motion]:is(:focus-visible, :has(:focus-visible)) {
+    opacity: 1;
+    clip-path: none;
     transition: none;
   }
 
@@ -84,9 +96,9 @@
     transform: translateY(0);
     transform-origin: top right;
     transition:
-      opacity 200ms var(--ease),
-      transform 200ms var(--ease),
-      display 200ms allow-discrete;
+      opacity var(--motion-menu-duration) var(--ease),
+      transform var(--motion-menu-duration) var(--ease),
+      display var(--motion-menu-duration) allow-discrete;
   }
 
   .page--motion .header__menu[hidden] {
@@ -98,10 +110,10 @@
     opacity: 0;
     transform: scale(0.98);
     transition:
-      opacity 220ms var(--ease),
-      transform 220ms var(--ease),
-      display 220ms allow-discrete,
-      overlay 220ms allow-discrete;
+      opacity var(--motion-dialog-duration) var(--ease),
+      transform var(--motion-dialog-duration) var(--ease),
+      display var(--motion-dialog-duration) allow-discrete,
+      overlay var(--motion-dialog-duration) allow-discrete;
   }
 
   .page--motion dialog[open] {
@@ -117,9 +129,9 @@
   .page--motion dialog::backdrop {
     opacity: 0;
     transition:
-      opacity 220ms var(--ease),
-      display 220ms allow-discrete,
-      overlay 220ms allow-discrete;
+      opacity var(--motion-dialog-duration) var(--ease),
+      display var(--motion-dialog-duration) allow-discrete,
+      overlay var(--motion-dialog-duration) allow-discrete;
   }
 
   .page--motion dialog[open]::backdrop {

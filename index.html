@@ -203,11 +203,13 @@
             "
             sizes="100vw">
           <div class="hero__content">
-            <h1 id="hero-title" class="hero__title" data-reveal="heading">
-              <span class="hero__name hero__line">МАНУФАКТУРА</span
-              ><span class="hero__subject hero__line">МЕТАЛЛОКОНСТРУКЦИИ</span
-              ><span class="hero__premium hero__line">ПРЕМИУМ-КЛАССА</span>
-            </h1>
+            <div class="hero__heading">
+              <h1 id="hero-title" class="hero__title" data-reveal="heading">
+                <span class="hero__name hero__line">МАНУФАКТУРА</span
+                ><span class="hero__subject hero__line">МЕТАЛЛОКОНСТРУКЦИИ</span
+                ><span class="hero__premium hero__line">ПРЕМИУМ-КЛАССА</span>
+              </h1>
+            </div>
             <div class="hero__description" data-reveal="fade">
               <p class="hero__copy">
                 Колпаки на столбы забора и дымоходы.<br>Изготавливаем под размеры вашего проекта.
@@ -1253,6 +1255,12 @@
               class="geography__svg"
             >
               <defs>
+                <radialGradient id="map-city-glow">
+                  <stop offset="12%" stop-color="#fff" stop-opacity=".9"></stop>
+                  <stop offset="40%" stop-color="#fff" stop-opacity=".42"></stop>
+                  <stop offset="72%" stop-color="#fff" stop-opacity=".12"></stop>
+                  <stop offset="100%" stop-color="#fff" stop-opacity="0"></stop>
+                </radialGradient>
               </defs>
               <path
                 id="russia-outline"
@@ -1307,6 +1315,13 @@
               </g>
               <circle class="geography__origin-ring" cx="141.5942" cy="241.5159" r="11"></circle>
               <g id="map-origin" class="geography__origin" transform="translate(275.9699 348.2828)"><circle r="11" class="geography__origin-ring"></circle><circle r="5.5" class="geography__origin-dot"></circle></g>
+              <g class="geography__glow" data-map-glow aria-hidden="true">
+                <g data-map-glow-size>
+                  <circle r="18" fill="url(#map-city-glow)"></circle>
+                  <circle class="geography__glow-ring" data-map-glow-ring r="15" fill="none" stroke="#fff" stroke-width="1.25"></circle>
+                  <circle r="4.5" fill="#fff"></circle>
+                </g>
+              </g>
               <circle class="geography__selection" data-map-selection cx="275.9699" cy="348.2828" r="12"></circle>
             </svg>
                 <svg class="geography__leaders" aria-hidden="true"><line data-production-line="city-18"></line><line data-production-line="ekaterinburg"></line></svg>

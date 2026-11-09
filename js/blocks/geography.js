@@ -2,11 +2,72 @@
 const instances = new WeakSet();
 const normalize = (value) => value.toLocaleLowerCase('ru').replaceAll('ё', 'е').trim();
 
+function animateMapGlow(canvas, glow, productionCities, deliveryCities) {
+  const ring = glow.querySelector('[data-map-glow-ring]');
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  const easing = getComputedStyle(canvas).getPropertyValue('--ease-in-out').trim();
+  const timing = { duration: 2000, delay: 300 };
+  const cities = [...productionCities, ...deliveryCities];
+  const firstRandomIndex = productionCities.length;
+  let visible = false;
+  let index = 0;
+  let pulse = null;
+  let ripple = null;
+
+  function sync() {
+    if (!visible || document.hidden || reducedMotion.matches) {
+      pulse?.cancel();
+      ripple?.cancel();
+      pulse = null;
+      ripple = null;
+      return;
+    }
+    if (pulse) return;
+
+    if (index === 0) {
+      for (let i = cities.length - 1; i > firstRandomIndex; i--) {
+        const j = firstRandomIndex + Math.floor(Math.random() * (i - firstRandomIndex + 1));
+        [cities[i], cities[j]] = [cities[j], cities[i]];
+      }
+    }
+
+    const { x, y } = cities[index];
+    glow.setAttribute('transform', `translate(${x} ${y})`);
+    ripple = ring.animate([
+      { opacity: 0, transform: 'scale(.42)' },
+      { opacity: 0.9, offset: 0.3, easing },
+      { opacity: 0, transform: 'scale(1.35)' },
+    ], timing);
+    pulse = glow.animate([
+      { opacity: 0, easing },
+      { opacity: 1, offset: 0.32 },
+      { opacity: 0.92, offset: 0.52, easing },
+      { opacity: 0 },
+    ], timing);
+    pulse.onfinish = ({ target }) => {
+      if (pulse !== target) return;
+      pulse = null;
+      index = (index + 1) % cities.length;
+      sync();
+    };
+  }
+
+  const threshold = 0.25;
+  new IntersectionObserver(([entry]) => {
+    visible = entry.intersectionRatio >= threshold;
+    sync();
+  }, { threshold }).observe(canvas);
+  reducedMotion.addEventListener('change', sync);
+  document.addEventListener('visibilitychange', sync);
+}
+
 export function initGeography(root) {
   if (instances.has(root)) return;
   instances.add(root);
   const canvas = root.querySelector('.geography__canvas');
   const svg = root.querySelector('.geography__svg');
+  const glow = root.querySelector('[data-map-glow]');
+  const glowSize = glow.querySelector('[data-map-glow-size]');
   const tooltip = root.querySelector('[data-map-tooltip]');
   const name = root.querySelector('[data-map-name]');
   const selection = root.querySelector('[data-map-selection]');
@@ -47,13 +108,14 @@ export function initGeography(root) {
     const matrix = svg.getScreenCTM();
     if (!matrix || !canvas.clientWidth) return;
     // Increase spacing on the map without enlarging the dots along with it.
-    const zoom = Math.hypot(matrix.a, matrix.b) / Math.min(canvas.clientWidth / 1000, canvas.clientHeight / 578.28);
+    const scale = Math.hypot(matrix.a, matrix.b);
+    const zoom = scale / Math.min(canvas.clientWidth / 1000, canvas.clientHeight / 578.28);
+    glowSize.setAttribute('transform', `scale(${1 / scale})`);
     for (const [id, point] of points) point.setAttribute('r', (production.has(id) ? 5.5 : 3.4) / zoom);
     for (const ring of root.querySelectorAll('.geography__origin-ring')) ring.setAttribute('r', 11 / zoom);
     root.querySelector('.geography__origin-dot').setAttribute('r', 5.5 / zoom);
     selection.setAttribute('r', 12 / zoom);
     if (matchMedia('(max-width: 600px)').matches) {
-      const scale = Math.hypot(matrix.a, matrix.b);
       for (const [id, point] of points) point.setAttribute('r', (production.has(id) ? 3.5 : 2.3) / scale);
       root.querySelector('.geography__origin-dot').setAttribute('r', 3.5 / scale);
     }
@@ -66,7 +128,7 @@ export function initGeography(root) {
       const x = point.x - rect.left;
       const y = point.y - rect.top;
       // Anchor the visible text, not a tall button box, close to its marker.
-      const radius = 11 * Math.hypot(matrix.a, matrix.b) / zoom;
+      const radius = 11 * scale / zoom;
       const offsetY = city.id === home.id ? 12 : city.id === 'city-18' ? (canvas.clientWidth < 400 ? -26 : -18) : -12;
       const left = Math.max(4, Math.min(x + Math.max(16, radius + 9), canvas.clientWidth - width - 4));
       const top = Math.max(4, Math.min(y + offsetY - height / 2, canvas.clientHeight - height - 4));
@@ -219,4 +281,6 @@ export function initGeography(root) {
   document.fonts.ready.then(positionLabel);
   selection.style.display = 'none';
   positionLabel();
+  const deliveryCities = [...cities.values()].filter((city) => !production.has(city.id));
+  animateMapGlow(canvas, glow, [...production.values()], deliveryCities);
 }

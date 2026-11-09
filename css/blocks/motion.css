@@ -57,7 +57,7 @@
   }
 
   .page--motion [data-motion='heading'] {
-    clip-path: inset(0 0 100% var(--motion-clip-left, 0px));
+    clip-path: inset(0 0 100% 0);
   }
 
   .page--motion :is([data-motion='frame'], [data-motion='line']) {
@@ -74,7 +74,7 @@
   }
 
   .page--motion:not(.page--starting) [data-motion].motion--revealed:not([data-motion='fade'], :focus-visible, :has(:focus-visible)) {
-    clip-path: inset(0 0 0 var(--motion-clip-left, 0px));
+    clip-path: inset(0);
   }
 
   .page--motion:not(.page--starting) [data-motion].motion--revealed.motion--instant {

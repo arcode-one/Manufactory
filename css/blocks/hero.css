@@ -43,18 +43,22 @@
     pointer-events: none;
   }
 
-  .hero__title {
+  .hero__heading {
     position: relative;
+  }
+
+  .hero__title {
     font-weight: 700;
     text-align: left;
     width: fit-content;
   }
 
-  .hero__title::before {
+  .hero__heading::before {
     content: '';
     width: 1px;
     background: #aaa6a6;
     position: absolute;
+    left: 0;
     top: 25px;
     bottom: 15px;
   }
@@ -122,7 +126,7 @@
       padding-right: 15px;
     }
 
-    .hero__title::before {
+    .hero__heading::before {
       top: 17px;
     }
 
@@ -152,7 +156,7 @@
       font-size: 1.03em;
     }
 
-    .hero__title::before {
+    .hero__heading::before {
       top: 16px;
       bottom: 14px;
     }
@@ -232,8 +236,6 @@
   }
 
   .hero__title {
-    --motion-clip-left: calc(-1 * var(--hero-rule-offset));
-
     font-size: clamp(28px, 3.3vw, 56px);
     line-height: 1.32;
     letter-spacing: 0.025em;
@@ -241,10 +243,6 @@
     margin-left: var(--hero-rule-offset);
     padding: 22px 36px 26px 28px;
     max-width: calc(100% - var(--hero-rule-offset));
-  }
-
-  .hero__title::before {
-    left: calc(-1 * var(--hero-rule-offset));
   }
 
   .hero__name,

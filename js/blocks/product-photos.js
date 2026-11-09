@@ -6,6 +6,14 @@ export function initProductPhotos(root) {
   const dialog = document.getElementById(root.dataset.productLightbox);
   if (!template || !dialog) return;
   const open = getGalleryViewer(dialog);
+  const warmups = new WeakMap();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(({ target, isIntersecting }) => {
+      if (!isIntersecting) return;
+      warmups.get(target)();
+      observer.unobserve(target);
+    });
+  }, { rootMargin: '240px 0px' });
 
   root.querySelectorAll('[data-product-gallery]').forEach((gallery) => {
     const image = gallery.querySelector('.product__photo');
@@ -34,6 +42,36 @@ export function initProductPhotos(root) {
       };
     })];
     let index = 0;
+    let requestedIndex = 0;
+    const requests = new Map();
+    const wrap = (next) => (next + photos.length) % photos.length;
+
+    function prepare(next) {
+      if (!requests.has(next)) {
+        const preview = new Image();
+        if (next === 0 && firstSrcset) {
+          preview.sizes = image.sizes;
+          preview.srcset = firstSrcset;
+        }
+        preview.src = photos[next].src;
+        const ready = preview.decode().catch(() => {
+          if (requests.get(next)?.preview === preview) requests.delete(next);
+        });
+        requests.set(next, { preview, ready });
+      }
+      return requests.get(next).ready;
+    }
+
+    function warmNeighbors() {
+      const neighbors = [wrap(index - 1), wrap(index + 1)];
+      for (const next of requests.keys()) {
+        if (next !== index && next !== requestedIndex && !neighbors.includes(next)) requests.delete(next);
+      }
+      neighbors.forEach(prepare);
+    }
+    warmups.set(gallery, warmNeighbors);
+    observer.observe(gallery);
+
     gallery.append(template.content.cloneNode(true));
     const trigger = gallery.querySelector('[data-product-photo-open]');
     const count = gallery.querySelector('[data-photo-count]');
@@ -43,8 +81,15 @@ export function initProductPhotos(root) {
     };
     updateControls();
 
-    function step(direction) {
-      index = (index + direction + photos.length) % photos.length;
+    async function step(direction) {
+      const next = wrap(requestedIndex + direction);
+      requestedIndex = next;
+      if (next === index) return;
+      await prepare(next);
+      if (next !== requestedIndex || next === index) return;
+
+      // Keep the visible frame and its crop together until the next frame can be painted.
+      index = next;
       const photo = photos[index];
       delete image.dataset.mediaFailed;
       image.classList.remove('media--unavailable');
@@ -55,6 +100,7 @@ export function initProductPhotos(root) {
       else image.removeAttribute('srcset');
       image.src = photo.src;
       updateControls();
+      warmNeighbors();
     }
 
     gallery.querySelectorAll('[data-photo-step]').forEach((button) => {

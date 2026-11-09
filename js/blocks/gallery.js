@@ -1,17 +1,19 @@
 import { createDialog } from '../utils/dialog.js';
+import { bindPhotoGesture } from '../utils/photo-gesture.js';
 
 // Просмотр фотографий и чертежей
 const galleryInstances = new WeakSet();
 const galleryViewers = new WeakMap();
 
-function getGalleryViewer(dialogElement) {
+export function getGalleryViewer(dialogElement) {
   if (galleryViewers.has(dialogElement)) return galleryViewers.get(dialogElement);
   const dialog = createDialog(dialogElement);
   const image = dialogElement.querySelector('[data-lightbox-image]');
   const caption = dialogElement.querySelector('[data-lightbox-caption]');
   const count = dialogElement.querySelector('[data-lightbox-count]');
   const scrollArea = dialogElement.querySelector('[data-lightbox-scroll]');
-  if (dialogElement.classList.contains('lightbox--photo')) {
+  const photoViewer = dialogElement.classList.contains('lightbox--photo');
+  if (photoViewer) {
     let startedOutside = false;
     dialogElement.addEventListener('pointerdown', (event) => {
       startedOutside = event.target === dialogElement;
@@ -20,51 +22,61 @@ function getGalleryViewer(dialogElement) {
       if (startedOutside && event.target === dialogElement) dialog.close();
     });
   }
-  let triggers = [];
+  let photos = [];
   let index = 0;
   const show = (next, animate = false) => {
-    index = (next + triggers.length) % triggers.length;
-    const trigger = triggers[index];
-    const source = trigger.querySelector('img');
-    image.src = source.dataset.fullSrc || source.src;
-    image.alt = source.alt;
-    image.width = Number(source.getAttribute('width'));
-    image.height = Number(source.getAttribute('height'));
-    if (dialogElement.classList.contains('lightbox--photo')) {
-      dialogElement.style.setProperty(
-        '--lightbox-ratio',
-        Number(source.getAttribute('width')) / Number(source.getAttribute('height')),
-      );
+    index = (next + photos.length) % photos.length;
+    const { src, alt, width, height, title } = photos[index];
+    delete image.dataset.mediaFailed;
+    image.classList.remove('media--unavailable');
+    image.src = src;
+    image.alt = alt;
+    if (width && height) {
+      image.width = width;
+      image.height = height;
+      if (photoViewer) dialogElement.style.setProperty('--lightbox-ratio', width / height);
+    } else {
+      image.removeAttribute('width');
+      image.removeAttribute('height');
     }
     if (scrollArea) {
       scrollArea.scrollLeft = 0;
       scrollArea.scrollTop = 0;
     }
-    const text = trigger.dataset.galleryCaption ||
-      trigger.querySelector('[data-gallery-caption]')?.textContent.trim() || source.alt;
-    caption.textContent = text;
-    caption.hidden = !text;
-    count.textContent = `${String(index + 1).padStart(2, '0')} / ${String(triggers.length).padStart(2, '0')}`;
+    caption.textContent = title ?? '';
+    caption.hidden = !title;
+    count.textContent = `${String(index + 1).padStart(2, '0')} / ${String(photos.length).padStart(2, '0')}`;
     if (animate) dialogElement.dispatchEvent(new CustomEvent('gallerychange', { bubbles: true }));
   };
   const steps = dialogElement.querySelectorAll('[data-lightbox-step]');
+  if (photoViewer) {
+    bindPhotoGesture(image, {
+      mouseDrag: true,
+      swipe: (direction) => {
+        if (photos.length > 1) show(index + direction, true);
+      },
+    });
+    const closeButton = dialogElement.querySelector('[data-dialog-close]');
+    if (closeButton) bindPhotoGesture(closeButton, { tap: dialog.close });
+  }
   steps.forEach((button) => {
-    button.addEventListener('click', (event) =>
-      show(index + Number(button.dataset.lightboxStep), event.detail > 0),
-    );
+    const step = (animate) => show(index + Number(button.dataset.lightboxStep), animate);
+    button.addEventListener('click', (event) => step(event.detail > 0));
+    if (photoViewer) bindPhotoGesture(button, { tap: () => step(true) });
   });
   dialogElement.addEventListener('keydown', (event) => {
-    if (event.target.closest('[data-lightbox-scroll]')) return;
+    if (photos.length < 2 || event.target.closest('[data-lightbox-scroll]')) return;
     if (['ArrowRight', 'ArrowLeft'].includes(event.key)) {
       event.preventDefault();
       show(index + (event.key === 'ArrowRight' ? 1 : -1));
     }
   });
-  const open = (group, startIndex) => {
-    triggers = group;
-    steps.forEach((button) => { button.hidden = triggers.length < 2; });
+  const open = (group, startIndex, origin, { hideCount = false } = {}) => {
+    photos = group;
+    count.hidden = hideCount;
+    steps.forEach((button) => { button.hidden = photos.length < 2; });
     show(startIndex);
-    dialog.open(triggers[startIndex]);
+    dialog.open(origin);
   };
   galleryViewers.set(dialogElement, open);
   return open;
@@ -82,7 +94,18 @@ export function initGallery(root) {
     trigger.addEventListener('click', (event) => {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
-      open(triggers, index);
+      const photos = triggers.map((item) => {
+        const image = item.querySelector('img');
+        return {
+          src: image.dataset.fullSrc || image.src,
+          alt: image.alt,
+          width: Number(image.getAttribute('width')),
+          height: Number(image.getAttribute('height')),
+          title: item.dataset.galleryCaption ||
+            item.querySelector('[data-gallery-caption]')?.textContent.trim() || image.alt,
+        };
+      });
+      open(photos, index, trigger);
     }),
   );
   galleryInstances.add(root);

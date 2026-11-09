@@ -1,3 +1,5 @@
+import { initProductPhotos } from './product-photos.js';
+
 // Вкладки каталога и выбор изделия
 const catalogInstances = new WeakSet();
 
@@ -45,6 +47,7 @@ export function initCatalog(root) {
     );
   });
   activate(0);
+  initProductPhotos(root);
   root.querySelector('[data-catalog-tabs]').hidden = false;
   catalogInstances.add(root);
 }

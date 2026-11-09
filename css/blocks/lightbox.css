@@ -118,6 +118,10 @@
     pointer-events: auto;
   }
 
+  .lightbox--photo .lightbox__close {
+    margin-inline-start: auto;
+  }
+
   .lightbox--photo .lightbox__count {
     padding: 5px 8px;
     background: rgb(36 33 34 / 70%);
@@ -145,6 +149,7 @@
   .lightbox--photo .lightbox__image {
     height: auto;
     max-height: calc(100dvh - 92px);
+    touch-action: pan-y pinch-zoom;
   }
 
   .lightbox--photo .lightbox__previous,

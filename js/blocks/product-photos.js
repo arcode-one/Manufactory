@@ -14,19 +14,23 @@ export function initProductPhotos(root) {
 
     const title = image.alt;
     const firstSrcset = image.getAttribute('srcset');
+    // Extra photos use name:widthxheight[:vertical position in percent].
+    const firstPosition = image.style.getPropertyValue('--product-photo-y');
     const photos = [{
       src: image.getAttribute('src'),
       width: Number(image.getAttribute('width')),
       height: Number(image.getAttribute('height')),
       alt: title,
+      position: firstPosition,
     }, ...extras.map((entry, i) => {
-      const [name, size] = entry.split(':');
+      const [name, size, vertical] = entry.split(':');
       const [width, height] = size.split('x').map(Number);
       return {
         src: `images/products/${name}.webp`,
         width,
         height,
         alt: `${title}, фото ${i + 2}`,
+        position: vertical === undefined ? '' : `${vertical}%`,
       };
     })];
     let index = 0;
@@ -45,6 +49,7 @@ export function initProductPhotos(root) {
       delete image.dataset.mediaFailed;
       image.classList.remove('media--unavailable');
       image.toggleAttribute('data-photo-secondary', index !== 0);
+      image.style.setProperty('--product-photo-y', photo.position);
       image.alt = photo.alt;
       if (index === 0 && firstSrcset) image.srcset = firstSrcset;
       else image.removeAttribute('srcset');
@@ -64,8 +69,9 @@ export function initProductPhotos(root) {
       step(event.key === 'ArrowLeft' ? -1 : 1);
     });
 
-    const zoom = () => open(photos, index, trigger, { hideCount: true });
-    bindPhotoGesture(trigger, { swipe: step, tap: zoom, mouseDrag: true });
-    trigger.addEventListener('click', zoom);
+    // Pointer opens rely on native focus restoration to avoid a keyboard highlight after a tap.
+    const zoom = (origin) => open(photos, index, origin, { hideCount: true });
+    bindPhotoGesture(trigger, { swipe: step, tap: () => zoom(null), mouseDrag: true });
+    trigger.addEventListener('click', (event) => zoom(event.detail === 0 ? trigger : null));
   });
 }

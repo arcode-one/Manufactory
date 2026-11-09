@@ -103,6 +103,10 @@
     gap: 12px;
   }
 
+  .lightbox__viewer:focus {
+    outline: none;
+  }
+
   .lightbox--photo .lightbox__toolbar {
     position: absolute;
     top: 12px;
@@ -120,6 +124,7 @@
 
   .lightbox--photo .lightbox__close {
     margin-inline-start: auto;
+    border: 0;
   }
 
   .lightbox--photo .lightbox__count {

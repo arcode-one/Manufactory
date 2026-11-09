@@ -1,0 +1,208 @@
+@layer layout {
+  .about-variant {
+    --about-variant-gap: clamp(22px, 3vw, 44px);
+    --about-variant-space: clamp(36px, 4vw, 64px);
+    background: var(--paper);
+  }
+
+  .about-variant--side {
+    position: relative;
+    display: grid;
+    grid-template-columns: 33% minmax(0, 1fr);
+  }
+
+  .about-variant--side .about-variant__copy {
+    padding: var(--about-variant-space) var(--page-inset) var(--about-variant-space) var(--about-variant-gap);
+  }
+
+  .about-variant--side > .rule {
+    bottom: min(43px, calc(var(--about-variant-space) - 10px));
+  }
+
+  .about-variant__photo {
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+    background: var(--graphite);
+  }
+
+  .about-variant__photo img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-position: 45% 42%;
+  }
+
+  .about-variant__heading {
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 1.7vw, 25px);
+  }
+
+  .about-variant__heading h2 {
+    font-size: clamp(25px, 3.6vw, 50px);
+    text-transform: uppercase;
+  }
+
+  .about-variant__index {
+    --about-variant-index-width: clamp(62px, 6.5vw, 96px);
+    flex: 0 0 auto;
+    justify-content: center;
+    width: var(--about-variant-index-width);
+  }
+
+  @media (width > 960px) {
+    .about-variant--side {
+      min-block-size: min(90svh, 960px);
+    }
+
+    .about-variant--side .about-variant__copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-variant__index {
+      --about-variant-index-overlap: calc(61px + var(--about-variant-gap));
+      width: calc(var(--about-variant-index-width) + var(--about-variant-index-overlap));
+      margin-inline-start: calc(-1 * var(--about-variant-index-overlap));
+      justify-content: flex-end;
+    }
+  }
+
+  .about-variant__intro {
+    max-width: 660px;
+    margin-top: 18px;
+    font-size: clamp(18px, 1.65vw, 24px);
+    line-height: 1.5;
+  }
+
+  .about-variant--side .about-variant__details {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.14fr);
+    gap: var(--about-variant-gap);
+    margin-top: 26px;
+  }
+
+  .about-variant--side .about-variant__details > div + div {
+    padding-top: 14px;
+  }
+
+  .about-variant__production {
+    align-self: start;
+    min-width: 0;
+    border: 2px solid var(--ink);
+    padding: clamp(18px, 1.25vw, 24px);
+  }
+
+  .about-variant h3 {
+    margin-bottom: 10px;
+    font-size: clamp(17px, 1.35vw, 21px);
+    line-height: 1.35;
+  }
+
+  .about-variant__details p,
+  .about-variant__products {
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .about-variant__details p + p {
+    margin-top: 9px;
+  }
+
+  .about-variant ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .about-variant__products {
+    list-style: none;
+  }
+
+  .about-variant__products li {
+    position: relative;
+    padding-inline-start: 17px;
+  }
+
+  .about-variant__products li::before {
+    position: absolute;
+    inset-inline-start: 0;
+    top: calc(0.8em - 3.5px);
+  }
+
+  .about-variant__products li + li {
+    margin-top: 5px;
+  }
+
+  .about-variant--side .about-variant__principles {
+    margin-top: 24px;
+    padding: 14px 18px;
+    background: var(--wash);
+  }
+
+  .about-variant--side .about-variant__principles h3 {
+    color: var(--muted);
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  .about-variant--side .about-variant__principles ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    list-style: none;
+    font-size: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  .about-variant__sign {
+    margin-top: 24px;
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  .about-variant__sign span {
+    color: var(--muted);
+  }
+
+  .about-variant__products li::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background: var(--ink);
+  }
+
+  @media (width <= 960px) {
+    .about-variant--side {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .about-variant--side > .rule {
+      display: none;
+    }
+
+    .about-variant--side .about-variant__photo {
+      height: clamp(200px, 37vw, 320px);
+    }
+
+    .about-variant--side .about-variant__photo img {
+      object-position: 50% 5%;
+    }
+
+    .about-variant--side .about-variant__copy {
+      padding-inline: var(--page-inset);
+    }
+  }
+
+  @media (width <= 760px) {
+    .about-variant--side .about-variant__details {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .about-variant--side .about-variant__principles ul {
+      flex-direction: column;
+    }
+  }
+}

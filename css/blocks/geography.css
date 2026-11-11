@@ -23,7 +23,7 @@
   .geography__canvas { position: relative; flex: 1; min-height: clamp(340px, 33vw, 640px); overflow: hidden; }
   .geography__svg { stroke: none; display: block; width: 100%; height: 100%; position: absolute; inset: 0; overflow: visible; }
   .geography__point { fill: #a9a5a7; stroke: var(--graphite); stroke-width: 0.7; cursor: pointer; }
-  .geography__point:hover, .geography__point.is-selected { fill: var(--cream); }
+  .geography__point:hover, .geography__point.geography__point--selected { fill: var(--cream); }
   .geography__origin-ring { fill: none; stroke: var(--cream); stroke-width: 1; opacity: 0.55; }
   .geography__origin-dot { fill: var(--cream); }
   .geography__origin { cursor: pointer; }
@@ -103,10 +103,6 @@
 }
 
 @layer adaptive {
-  .page--section-scroll [data-scroll-screen] > .geography[data-geography] { height: auto; min-height: 100%; }
-  @media (width > 1120px) and (height >= 640px) {
-    .page--section-scroll [data-scroll-screen] > .geography[data-geography] { height: 100%; }
-  }
   @media (width > 1120px) {
     .geography__directory { display: grid; grid-template-rows: auto auto minmax(0, 1fr) auto; contain: size; }
     .geography__cities { align-self: start; max-height: 100%; max-height: round(down, 100%, var(--city-row-height)); }

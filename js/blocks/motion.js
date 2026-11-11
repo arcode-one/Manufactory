@@ -69,6 +69,7 @@ export function initMotion(root) {
       const kind = element.dataset.reveal;
       const index = revealCounts.get(kind) ?? 0;
       revealCounts.set(kind, index + 1);
+      element.classList.add('motion');
       element.dataset.motion = kind;
       if (kind !== 'frame' && kind !== 'line')
         element.style.setProperty('--motion-delay', `${(index % 3) * 65}ms`);
@@ -229,7 +230,7 @@ export function initMotion(root) {
       root.classList.remove('page--motion', 'page--keyboard');
       reveals.forEach((element) => {
         delete element.dataset.motion;
-        element.classList.remove('motion--revealed', 'motion--instant');
+        element.classList.remove('motion', 'motion--revealed', 'motion--instant');
         element.style.removeProperty('--motion-delay');
       });
       photos.forEach((photo) => photo.layer.replaceWith(photo.image));

@@ -23,7 +23,7 @@ const blocks = [
   ['[data-media]', initMedia],
   ['[data-year]', initYear],
   ['[data-page-motion]', initMotion],
-  ['[data-section-scroll]', initPageStart],
+  ['[data-page-start]', initPageStart],
 ];
 
 for (const [selector, initialize] of blocks) {

@@ -1,4 +1,4 @@
-// Показываем страницу после выравнивания секций и загрузки шрифта.
+// Показываем страницу после восстановления позиции браузером и загрузки шрифта.
 export function initPageStart(root) {
   const shown = new Promise((resolve) => {
     if (document.readyState === 'complete') resolve();

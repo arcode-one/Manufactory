@@ -1,153 +1,153 @@
 @layer layout {
-  .about-variant {
-    --about-variant-gap: clamp(22px, 3vw, 44px);
-    --about-variant-space: clamp(36px, 4vw, 64px);
+  .about {
+    --about-gap: clamp(22px, 3vw, 44px);
+    --about-space: clamp(36px, 4vw, 64px);
     background: var(--paper);
   }
 
-  .about-variant--side {
+  .about--side {
     position: relative;
     display: grid;
     grid-template-columns: 33% minmax(0, 1fr);
   }
 
-  .about-variant--side .about-variant__copy {
-    padding: var(--about-variant-space) var(--page-inset) var(--about-variant-space) var(--about-variant-gap);
+  .about--side .about__copy {
+    padding: var(--about-space) var(--page-inset) var(--about-space) var(--about-gap);
   }
 
-  .about-variant--side > .rule {
-    bottom: min(43px, calc(var(--about-variant-space) - 10px));
+  .about--side > .rule {
+    bottom: min(43px, calc(var(--about-space) - 10px));
   }
 
-  .about-variant__photo {
+  .about__photo {
     position: relative;
     min-width: 0;
     overflow: hidden;
     background: var(--graphite);
   }
 
-  .about-variant__photo img {
+  .about__photo img {
     position: absolute;
     width: 100%;
     height: 100%;
     object-position: 45% 42%;
   }
 
-  .about-variant__heading {
+  .about__heading {
     display: flex;
     align-items: center;
     gap: clamp(12px, 1.7vw, 25px);
   }
 
-  .about-variant__heading h2 {
+  .about__heading h2 {
     font-size: clamp(25px, 3.6vw, 50px);
     text-transform: uppercase;
   }
 
-  .about-variant__index {
-    --about-variant-index-width: clamp(62px, 6.5vw, 96px);
+  .about__index {
+    --about-index-width: clamp(62px, 6.5vw, 96px);
     flex: 0 0 auto;
     justify-content: center;
-    width: var(--about-variant-index-width);
+    width: var(--about-index-width);
   }
 
   @media (width > 960px) {
-    .about-variant--side {
+    .about--side {
       min-block-size: min(90svh, 960px);
     }
 
-    .about-variant--side .about-variant__copy {
+    .about--side .about__copy {
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .about-variant__index {
-      --about-variant-index-overlap: calc(61px + var(--about-variant-gap));
-      width: calc(var(--about-variant-index-width) + var(--about-variant-index-overlap));
-      margin-inline-start: calc(-1 * var(--about-variant-index-overlap));
+    .about__index {
+      --about-index-overlap: calc(61px + var(--about-gap));
+      width: calc(var(--about-index-width) + var(--about-index-overlap));
+      margin-inline-start: calc(-1 * var(--about-index-overlap));
       justify-content: flex-end;
     }
   }
 
-  .about-variant__intro {
+  .about__intro {
     max-width: 660px;
     margin-top: 18px;
     font-size: clamp(18px, 1.65vw, 24px);
     line-height: 1.5;
   }
 
-  .about-variant--side .about-variant__details {
+  .about--side .about__details {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.14fr);
-    gap: var(--about-variant-gap);
+    gap: var(--about-gap);
     margin-top: 26px;
   }
 
-  .about-variant--side .about-variant__details > div + div {
+  .about--side .about__details > div + div {
     padding-top: 14px;
   }
 
-  .about-variant__production {
+  .about__production {
     align-self: start;
     min-width: 0;
     border: 2px solid var(--ink);
     padding: clamp(18px, 1.25vw, 24px);
   }
 
-  .about-variant h3 {
+  .about h3 {
     margin-bottom: 10px;
     font-size: clamp(17px, 1.35vw, 21px);
     line-height: 1.35;
   }
 
-  .about-variant__details p,
-  .about-variant__products {
+  .about__details p,
+  .about__products {
     color: var(--muted);
     line-height: 1.6;
   }
 
-  .about-variant__details p + p {
+  .about__details p + p {
     margin-top: 9px;
   }
 
-  .about-variant ul {
+  .about ul {
     margin: 0;
     padding: 0;
   }
 
-  .about-variant__products {
+  .about__products {
     list-style: none;
   }
 
-  .about-variant__products li {
+  .about__products li {
     position: relative;
     padding-inline-start: 17px;
   }
 
-  .about-variant__products li::before {
+  .about__products li::before {
     position: absolute;
     inset-inline-start: 0;
     top: calc(0.8em - 3.5px);
   }
 
-  .about-variant__products li + li {
+  .about__products li + li {
     margin-top: 5px;
   }
 
-  .about-variant--side .about-variant__principles {
+  .about--side .about__principles {
     margin-top: 24px;
     padding: 14px 18px;
     background: var(--wash);
   }
 
-  .about-variant--side .about-variant__principles h3 {
+  .about--side .about__principles h3 {
     color: var(--muted);
     font-size: 14px;
     text-transform: uppercase;
   }
 
-  .about-variant--side .about-variant__principles ul {
+  .about--side .about__principles ul {
     display: flex;
     flex-wrap: wrap;
     gap: 8px 16px;
@@ -157,17 +157,17 @@
     text-transform: uppercase;
   }
 
-  .about-variant__sign {
+  .about__sign {
     margin-top: 24px;
     font-size: 15px;
     font-weight: 700;
   }
 
-  .about-variant__sign span {
+  .about__sign span {
     color: var(--muted);
   }
 
-  .about-variant__products li::before {
+  .about__products li::before {
     content: '';
     width: 7px;
     height: 7px;
@@ -175,33 +175,33 @@
   }
 
   @media (width <= 960px) {
-    .about-variant--side {
+    .about--side {
       grid-template-columns: minmax(0, 1fr);
     }
 
-    .about-variant--side > .rule {
+    .about--side > .rule {
       display: none;
     }
 
-    .about-variant--side .about-variant__photo {
+    .about--side .about__photo {
       height: clamp(200px, 37vw, 320px);
     }
 
-    .about-variant--side .about-variant__photo img {
+    .about--side .about__photo img {
       object-position: 50% 5%;
     }
 
-    .about-variant--side .about-variant__copy {
+    .about--side .about__copy {
       padding-inline: var(--page-inset);
     }
   }
 
   @media (width <= 760px) {
-    .about-variant--side .about-variant__details {
+    .about--side .about__details {
       grid-template-columns: minmax(0, 1fr);
     }
 
-    .about-variant--side .about-variant__principles ul {
+    .about--side .about__principles ul {
       flex-direction: column;
     }
   }

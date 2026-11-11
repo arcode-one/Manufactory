@@ -42,17 +42,3 @@
     }
   }
 }
-
-@layer adaptive {
-  @media (width > 1120px) and (height <= 850px) {
-    .page--section-scroll .calculator__contacts {
-      margin-top: 12px;
-      padding-top: 10px;
-      gap: 6px 12px;
-    }
-
-    .page--section-scroll .contact-channels__link {
-      padding-block: 0;
-    }
-  }
-}

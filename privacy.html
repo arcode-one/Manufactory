@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <!-- Один экран документа и контакты. HTML, CSS, нативные ES-модули. -->
-<html lang="ru" class="page page--legal" data-page-motion="" data-section-scroll="" data-scroll-header="" data-scroll-screens="legal-document contacts" data-scroll-anchors="operator:legal-document purpose:legal-document processing:legal-document rights:legal-document">
+<html lang="ru" class="page page--legal" data-page-motion="" data-page-start="">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="js/utils/page-boot.js"></script>
 <meta name="theme-color" content="#ffffff"><title>Политика обработки персональных данных | Мануфактура</title>
 <meta name="description" content="Политика обработки персональных данных МТМ Мануфактура. Цели, данные, порядок обработки и обратная связь.">
-<link rel="icon" href="icons/logo-dark.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="Мануфактура">
+    <meta property="og:title" content="Политика обработки персональных данных | Мануфактура">
+    <meta property="og:description" content="Политика обработки персональных данных МТМ Мануфактура. Цели, данные, порядок обработки и обратная связь.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Политика обработки персональных данных | Мануфактура">
+    <meta name="twitter:description" content="Политика обработки персональных данных МТМ Мануфактура. Цели, данные, порядок обработки и обратная связь.">
+    <link rel="icon" href="icons/logo-dark.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/Manrope-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
 <link rel="stylesheet" href="css/index.css"><script type="module" src="js/index.js"></script>
 </head><body id="top">
@@ -90,19 +98,19 @@
           aria-hidden="true"
           class="header__logo header__logo--light"></a>
       <nav class="header__nav" aria-label="Основная навигация">
-        <a href="index.html#products" class="header__nav-link">
+        <a href="index.html#products" class="header__nav-link" aria-label="Изделия">
           <span class="header__nav-window">
             <span class="header__nav-label">Изделия</span>
             <span class="header__nav-label" aria-hidden="true">Изделия</span>
           </span>
         </a>
-        <a href="index.html#calculator" class="header__nav-link">
+        <a href="index.html#calculator" class="header__nav-link" aria-label="Калькулятор">
           <span class="header__nav-window">
             <span class="header__nav-label">Калькулятор</span>
             <span class="header__nav-label" aria-hidden="true">Калькулятор</span>
           </span>
         </a>
-        <a href="index.html#contacts" class="header__nav-link">
+        <a href="index.html#contacts" class="header__nav-link" aria-label="Контакты">
           <span class="header__nav-window">
             <span class="header__nav-label">Контакты</span>
             <span class="header__nav-label" aria-hidden="true">Контакты</span>
@@ -110,7 +118,7 @@
         </a>
       </nav>
       <button
-        class="header__contact"
+        class="header__contact" aria-label="Связаться"
         type="button"
         data-open-request=""
         aria-haspopup="dialog"

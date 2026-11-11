@@ -95,7 +95,7 @@ export function initGeography(root) {
     tooltip.hidden = true;
     selection.style.display = 'none';
     for (const button of buttons) button.setAttribute('aria-pressed', 'false');
-    for (const point of points.values()) point.classList.remove('is-selected');
+    for (const point of points.values()) point.classList.remove('geography__point--selected');
     for (const city of production.values()) city.label.setAttribute('aria-pressed', 'false');
     status.textContent = 'Производство: Москва, Екатеринбург';
   }
@@ -175,7 +175,7 @@ export function initGeography(root) {
   function select(city, revealMap = false) {
     active = city;
     for (const button of buttons) button.setAttribute('aria-pressed', String(button.dataset.city === city.id));
-    for (const [id, point] of points) point.classList.toggle('is-selected', id === city.id);
+    for (const [id, point] of points) point.classList.toggle('geography__point--selected', id === city.id);
     name.textContent = city.name;
     for (const location of production.values()) location.label.setAttribute('aria-pressed', String(location.id === city.id));
     selection.style.display = '';
@@ -186,10 +186,6 @@ export function initGeography(root) {
     if (revealMap) {
       const screen = root.closest('[data-scroll-screen]');
       const headerHeight = document.querySelector('[data-header]')?.getBoundingClientRect().height || 0;
-      // Native focus can scroll both the section and the document. Keep the section below the header.
-      if (screen && document.documentElement.classList.contains('page--section-scroll')) {
-        window.scrollTo({ top: scrollY + screen.getBoundingClientRect().top - headerHeight, behavior: 'instant' });
-      }
       if (!matchMedia('(max-width: 1120px)').matches) return;
       const rect = canvas.getBoundingClientRect();
       if (rect.bottom < headerHeight + 80 || rect.top > innerHeight - 80) {

@@ -197,11 +197,6 @@
 /* Общие строки держат разделители и заголовки обеих колонок на одной высоте. */
 @layer adaptive {
   @media (width >= 1001px) {
-    .page--section-scroll [data-scroll-screen] > .legal__screen {
-      display: flex;
-      flex-direction: column;
-      height: var(--section-viewport);
-    }
 
     .legal__body {
       flex: 1 0 auto;

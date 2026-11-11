@@ -44,7 +44,7 @@ export function initCalculatorSelects(root) {
       entries.forEach((entry, index) => entry.setAttribute('aria-selected', String(index === select.selectedIndex)));
     };
     const highlight = () => {
-      entries.forEach((entry, index) => entry.classList.toggle('is-active', index === active));
+      entries.forEach((entry, index) => entry.classList.toggle('calculator-select__option--active', index === active));
       trigger.setAttribute('aria-activedescendant', entries[active].id);
       entries[active].scrollIntoView({ block: 'nearest' });
     };
@@ -52,7 +52,7 @@ export function initCalculatorSelects(root) {
       list.hidden = true;
       trigger.setAttribute('aria-expanded', 'false');
       trigger.removeAttribute('aria-activedescendant');
-      wrapper.classList.remove('is-open');
+      wrapper.classList.remove('calculator-select--open');
       if (closeCurrent === close) closeCurrent = null;
     };
     const open = () => {
@@ -60,8 +60,10 @@ export function initCalculatorSelects(root) {
       closeCurrent = close;
       active = select.selectedIndex;
       list.hidden = false;
-      wrapper.classList.add('is-open');
+      wrapper.classList.add('calculator-select--open');
       trigger.setAttribute('aria-expanded', 'true');
+      // Safari does not focus buttons on pointer clicks; keep keyboard control on the combobox.
+      trigger.focus({ preventScroll: true });
       highlight();
     };
     function choose(index) {
@@ -95,6 +97,7 @@ export function initCalculatorSelects(root) {
     });
     wrapper.addEventListener('focusout', event => { if (!wrapper.contains(event.relatedTarget)) close(); });
     select.addEventListener('change', sync);
+    select.setAttribute('aria-labelledby', caption.id);
     select.hidden = true;
     label.replaceWith(field);
     wrapper.append(select, trigger, list);

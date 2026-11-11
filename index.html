@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Статический сайт: index.html, css/index.css, js/index.js. Работает без сборки. -->
-<html lang="ru" class="page" data-page-motion="" data-section-scroll="">
+<html lang="ru" class="page" data-page-motion="" data-page-start="">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +10,14 @@
     <meta
       name="description"
       content="Изготавливаем колпаки на столбы забора и дымоходы по вашим размерам. Собственное производство в Екатеринбурге. FLAT, МОДЕРН, КЛАССИК МОДЕРН.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:site_name" content="Мануфактура">
+    <meta property="og:title" content="Мануфактура | Колпаки на столбы и дымоходы">
+    <meta property="og:description" content="Изготавливаем колпаки на столбы забора и дымоходы по вашим размерам. Собственное производство в Екатеринбурге. FLAT, МОДЕРН, КЛАССИК МОДЕРН.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Мануфактура | Колпаки на столбы и дымоходы">
+    <meta name="twitter:description" content="Изготавливаем колпаки на столбы забора и дымоходы по вашим размерам. Собственное производство в Екатеринбурге. FLAT, МОДЕРН, КЛАССИК МОДЕРН.">
     <link rel="icon" href="icons/logo-dark.svg" type="image/svg+xml">
 
     <link
@@ -117,19 +125,19 @@
           aria-hidden="true"
           class="header__logo header__logo--light"></a>
       <nav class="header__nav" aria-label="Основная навигация">
-        <a href="#products" class="header__nav-link">
+        <a href="#products" class="header__nav-link" aria-label="Изделия">
           <span class="header__nav-window">
             <span class="header__nav-label">Изделия</span>
             <span class="header__nav-label" aria-hidden="true">Изделия</span>
           </span>
         </a>
-        <a href="#calculator" class="header__nav-link">
+        <a href="#calculator" class="header__nav-link" aria-label="Калькулятор">
           <span class="header__nav-window">
             <span class="header__nav-label">Калькулятор</span>
             <span class="header__nav-label" aria-hidden="true">Калькулятор</span>
           </span>
         </a>
-        <a href="#contacts" class="header__nav-link">
+        <a href="#contacts" class="header__nav-link" aria-label="Контакты">
           <span class="header__nav-window">
             <span class="header__nav-label">Контакты</span>
             <span class="header__nav-label" aria-hidden="true">Контакты</span>
@@ -137,7 +145,7 @@
         </a>
       </nav>
       <button
-        class="header__contact"
+        class="header__contact" aria-label="Связаться"
         type="button"
         data-open-request=""
         aria-haspopup="dialog"
@@ -223,20 +231,20 @@
 
       <!-- О компании -->
       <div data-scroll-screen="about">
-        <section id="about" class="about-variant about-variant--side" aria-labelledby="about-title">
-          <div class="about-variant__photo" data-reveal="image">
+        <section id="about" class="about about--side" aria-labelledby="about-title">
+          <div class="about__photo" data-reveal="image">
             <img src="images/about-fence.jpg" width="963" height="1280" loading="lazy" decoding="async" data-parallax="" data-media="" data-fallback="icons/placeholder.svg" class="media parallax__image" alt="Графитовый колпак на кирпичном столбе и ограждение с металлическими ламелями">
           </div>
-          <div class="about-variant__copy">
-            <div class="about-variant__heading">
-              <span class="section-index about-variant__index" aria-hidden="true" data-reveal="frame">01</span>
+          <div class="about__copy">
+            <div class="about__heading">
+              <span class="section-index about__index" aria-hidden="true" data-reveal="frame">01</span>
               <h2 id="about-title" data-reveal="heading">О компании</h2>
             </div>
-            <p class="about-variant__intro" data-reveal="fade">Более 10 лет мы производим изделия из листового металла для частного и коммерческого строительства.</p>
-            <div class="about-variant__details" data-reveal="fade">
-              <div class="about-variant__production">
+            <p class="about__intro" data-reveal="fade">Более 10 лет мы производим изделия из листового металла для частного и коммерческого строительства.</p>
+            <div class="about__details" data-reveal="fade">
+              <div class="about__production">
                 <h3>Что производим</h3>
-                <ul class="about-variant__products" role="list">
+                <ul class="about__products" role="list">
                   <li>Колпаки на заборные столбы и вентшахты</li>
                   <li>Ламели для секций заборов</li>
                   <li>Парапеты плоской кровли</li>
@@ -249,7 +257,7 @@
                 <p>Разрабатываем технические решения, которые делают изделия надёжными и долговечными.</p>
               </div>
             </div>
-            <div class="about-variant__principles" data-reveal="fade">
+            <div class="about__principles" data-reveal="fade">
               <h3>Наши принципы</h3>
               <ul>
                 <li>Качество</li>
@@ -257,7 +265,7 @@
                 <li>Внимание к деталям</li>
               </ul>
             </div>
-            <p class="about-variant__sign" data-reveal="fade">Мануфактура – <span>качество без компромиссов.</span></p>
+            <p class="about__sign" data-reveal="fade">Мануфактура – <span>качество без компромиссов.</span></p>
           </div>
           <span class="rule" aria-hidden="true" data-reveal="line"></span>
         </section>
@@ -1250,7 +1258,7 @@
                 <svg
               id="russia-map"
               viewBox="0 0 1000 578.28"
-              role="img"
+              role="group"
               aria-label="География продаж: 43 города. Производство в Москве и Екатеринбурге"
               class="geography__svg"
             >
@@ -1333,7 +1341,7 @@
                 <span class="geography__home"><span class="geography__legend-dot" aria-hidden="true"></span><span>Собственное производство: Москва, Екатеринбург</span></span>
               </div>
             </div>
-            <div class="geography__directory" aria-labelledby="delivery-cities-title">
+            <div class="geography__directory" role="region" aria-labelledby="delivery-cities-title">
               <div class="geography__directory-heading"><h3 id="delivery-cities-title">Города продаж</h3><span class="geography__count" data-city-count aria-live="polite">43</span></div>
               <label class="geography__search" hidden data-city-search-label><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 4 4"></path></svg><input type="search" placeholder="Найти город" aria-label="Найти город" autocomplete="off" data-city-search></label>
               <ul class="geography__cities">
